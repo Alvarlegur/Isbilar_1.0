@@ -12,4 +12,5 @@ class orderRepo():
             dateOfHandover = order.get_dateOfHandover()
             returnDate = order.get_returnDate()
             orderTotal = order.get_orderTotal()
-            orders_file.write("{},{},{},{},{},{}\n".format)
+            orders_file.write("{},{},{},{},{},{}\n".format(orderID, carID, customerID, dateOfHandover, returnDate, orderTotal))
+            
