@@ -19,7 +19,7 @@ class carUI():
             choice = input("Choose a option: ").lower()
 
             if choice == "1":
-                carID = input("input car ID: ")
+                # carID = input("input car ID: ")
                 manufacturer = input("input manufacturer: ")
                 carType = input("input Car Type: ")
                 manOrAuto = input("input manual or auto: ")
@@ -30,6 +30,5 @@ class carUI():
                 self.__car_service.add_car(new_car)
 
             elif choice == "2":
-                cars2 = self.__car_service.get_car()
-                for car1 in cars2:
-                    print(car1)
+                cars = self.__car_service.get_car()
+                print(cars)
