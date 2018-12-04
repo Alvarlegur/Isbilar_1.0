@@ -13,6 +13,7 @@ class carUI():
         choice = ""
         while choice != "q":
             print("press 1 to add a Car")
+            print("press q to quit")
 
             choice = input("Choose a option: ").lower()
 
