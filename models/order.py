@@ -24,5 +24,11 @@ class order:
     def get_customerID(self):
         return self.__customerID
 
+    def get_dateOfHandover(self):
+        return self.__dateOfHandover
+
+    def get_returnDate(self):
+        return self.__returnDate
+
     def get_orderTotal(self):
         return self.__orderTotal
