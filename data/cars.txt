@@ -1,1 +1,2 @@
 1234,toyota,yaris,manual,bensin,jeppi,1996
+FGV25,Toyota,Yaris,Auto,disel,folksbill,2007
