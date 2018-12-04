@@ -26,8 +26,10 @@ class carUI():
                 fuelType = input("input fuel type: ")
                 priceGroup = input("input price group: ")
                 manufYear = input("input manufacturer year: ")
-                new_car = car(carID,manufacturer,carType,manOrAuto,fuelType,priceGroup,manufYear)
+                new_car = car(manufacturer,carType,manOrAuto,fuelType,priceGroup,manufYear)
                 self.__car_service.add_car(new_car)
 
             elif choice == "2":
-                
+                cars2 = self.__car_service.get_car()
+                for car1 in cars2:
+                    print(car1)
