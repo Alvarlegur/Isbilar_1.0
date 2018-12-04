@@ -26,9 +26,11 @@ class customer:
     def get_passportID(self):
         return self.__passportID
 
+    def get_country(self):
+        return self.__country
+
     def get_SSN(self):
         return self.__SSN
 
     def getLatestID(self):
         pass
-
