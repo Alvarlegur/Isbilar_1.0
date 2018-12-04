@@ -11,4 +11,3 @@ class carService():
 
     def is_valid_car(self,car):
         return True
-#dagur var her
