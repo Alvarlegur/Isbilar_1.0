@@ -4,7 +4,7 @@ from models.car import car
 
 
 class carUI():
-    
+
     def __init__(self):
         self.__car_service = carService()
 
@@ -15,7 +15,7 @@ class carUI():
             print("press 1 to add a Car")
             print("press q to quit")
 
-            choice = input("Choose a option: ").lower()
+            choice = input("Choose an option: ").lower()
 
             if choice == "1":
                 carID = input("input car ID: ")

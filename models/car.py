@@ -1,7 +1,6 @@
 class car:
     #defining inital class instance
-    def __init__(self, carID, manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear):
-        self.__carID = carID
+    def __init__(self, manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear):
         self.__manufacturer = manufacturer
         self.__typeCar = typeCar
         self.__manOrAuto = manOrAuto
@@ -10,10 +9,7 @@ class car:
         self.__manufYear = manufYear
 
     def __str__(self):
-        return (self.__carID, self.__manufacturer, self.__typeCar, self.__priceGroup)
-
-    def get_carID(self):
-        return self.__carID
+        return (self.__manufacturer, self.__typeCar, self.__priceGroup)
 
     def get_manufacturer(self):
         return self.__manufacturer
@@ -29,6 +25,6 @@ class car:
 
     def get_manOrAuto(self):
         return self.__manOrAuto
-    
+
     def get_fuelType(self):
         return self.__fuelType

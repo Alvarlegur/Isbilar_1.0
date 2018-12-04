@@ -6,8 +6,8 @@ class order:
     #vantar að tengja carID og customerID inn í orders
     def __init__(self, orderID, carID, customerID, dateOfHandover, returnDate, orderTotal):
         self.__orderID = orderID
-        self.__carID = #car.getLatestID()
-        self.__customerID = #customer.getLatestID()
+        self.__carID = #car.getcarID()
+        self.__customerID = #customer.getSSN()
         self.__dateOfHandover = dateOfHandover
         self.__returnDate = returnDate
         self.__orderTotal = orderTotal
