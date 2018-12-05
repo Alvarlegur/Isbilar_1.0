@@ -1,19 +1,12 @@
 from ui.carUI import carUI
 from ui.customerUi import customerUI
-# from ui.orderUi import orderUi
+from ui.orderUi import orderUI
 import os
 
 
 class mainMenuUI():
-<<<<<<< HEAD
     def __init__(self):
         self.__carUI = carUI()
-<<<<<<< HEAD
-=======
->>>>>>> 5f528edcfb607cc02b9aae38f71790c6d1088c37
-=======
->>>>>>> parent of dc973b2... s
->>>>>>> 1b18400455c391f5b422f37c0f95fd435e9343e6
 
     def menu(self):
         choice = ""
