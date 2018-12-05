@@ -8,9 +8,10 @@ class customerUI():
     def menu(self):
         choice = ""
         while choice != "q":
-            print("press 1 to add customer")
-            print("press 2 to list all customers")
-            choice = input("choose an option").lower()
+            print("Press 1 to add customer")
+            print("Press 2 to list all customers")
+            print("Press q to go back")
+            choice = input("choose an option: ").lower()
             if choice == "1":
                 firstName = input("input first name: ")
                 lastName = input("input last name: ")

@@ -14,7 +14,7 @@ class carUI():
         while choice != "q":
             print("Press 1 to add a Car")
             print("Press 2 to print out cars")
-            print("Press q to quit")
+            print("Press q to go back")
 
             choice = input("Choose a option: ").lower()
 
