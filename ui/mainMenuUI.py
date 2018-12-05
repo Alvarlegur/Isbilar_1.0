@@ -1,14 +1,15 @@
 from ui.carUI import carUI
 from ui.customerUi import customerUI
+<<<<<<< HEAD
 from ui.orderUi import orderUI
+=======
+from ui.orderUi import orderUi
+>>>>>>> 6df2f98e08bb17e7f49819bb3b40dfa5617113a2
 import os
 
 
 class mainMenuUI():
-    def __init__(self):
-        self.__carUI = carUI()
 
-    
     def menu(self):
         choice = ""
         clear = lambda: os.system('cls')
@@ -25,8 +26,15 @@ class mainMenuUI():
             elif choice == "2":
                 ui2 = customerUI()
                 ui2.menu()
+<<<<<<< HEAD
             elif choice == "3":
                 ui3 = orderUI
                 orderUI.menu()
             else:
                 print("please try again")
+=======
+
+            if choice == "3":
+                ui3 = orderUI()
+                ui3.menu()
+>>>>>>> 6df2f98e08bb17e7f49819bb3b40dfa5617113a2
