@@ -21,6 +21,7 @@ class mainMenuUI():
             if choice == "1":
                 ui = carUI()
                 ui.menu()
+                
             elif choice == "2":
                 ui2 = customerUI()
                 ui2.menu()
