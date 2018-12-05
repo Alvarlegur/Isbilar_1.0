@@ -10,4 +10,4 @@ class carService():
             self.__car_repo.add_car(car)
 
     def is_valid_car(self,car):
-        return True
+        return True ## breyta þessu
