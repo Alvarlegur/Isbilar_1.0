@@ -11,6 +11,9 @@ class customerService():
     def get_customer(self):
         return self.__customer_repo.get_customer()
 
+    def delete_customer(self):
+        return self.__customer_repo.delete_customer()
+
     def is_valid_customer(self,customer):
         return True
         #######verður að breyta þessu

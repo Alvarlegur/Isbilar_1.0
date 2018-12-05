@@ -10,8 +10,10 @@ class customerUI():
         while choice != "q":
             print("Press 1 to add customer")
             print("Press 2 to list all customers")
+            print("Press 3 to delete a customer")
             print("Press q to go back")
             choice = input("choose an option: ").lower()
+            
             if choice == "1":
                 firstName = input("input first name: ")
                 lastName = input("input last name: ")
@@ -24,3 +26,6 @@ class customerUI():
             elif choice == "2":
                 customers = self.__customerService.get_customer()
                 print(customers)
+            
+            elif choice == "3":
+                customers = self.__customerService.delete_customer()

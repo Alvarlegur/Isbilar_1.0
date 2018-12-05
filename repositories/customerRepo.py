@@ -16,10 +16,20 @@ class customerRepo:
 
     def get_customer(self):
         if self.__customer == []:
-            with open ("./data/customers.txt", "r") as customers_file:
+            with open("./data/customers.txt", "r") as customers_file:
                 for line in customers_file.readlines():
                     firstName,lastName,passportID, country, SSN = line.split(",")
                     all_customers = customer(firstName,lastName,passportID, country, SSN)
                     self.__customer.append(all_customers)
 
         return self.__customer
+
+    def delete_customer(self):
+        entername = str(input("Enter a car to delete: "))
+        with open("./data/customers.txt", "r+") as customers_file:
+            temp = customers_file.readlines()
+            customers_file.seek(0)
+            for line in temp:
+                if not entername in line:
+                    customers_file.write(line)
+            customers_file.truncate()
