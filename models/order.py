@@ -1,5 +1,5 @@
-# from models.car import car
-# from models.customer import customer
+from models.car import car
+from models.customer import customer
 
 class order:
     #initalizing order instance
