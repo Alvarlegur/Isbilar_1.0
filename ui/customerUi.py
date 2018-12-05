@@ -13,10 +13,15 @@ class customerUI():
             print("Press q to go back")
             choice = input("choose an option: ").lower()
             if choice == "1":
+                customerID = input("input customer ID: ")
                 firstName = input("input first name: ")
                 lastName = input("input last name: ")
                 passportID = input("input passport ID: ")
                 country = input("input country: ")
                 SSN = input("input SSN: ")
-                new_customer = customer(firstName, lastName, passportID, country, SSN)
+                new_customer = customer(customerID,firstName, lastName, passportID, country, SSN)
                 self.__customerService.add_customer(new_customer)
+
+            elif choice == "2":
+                customers = self.__customerService.get_customer()
+                print(customers)
