@@ -13,4 +13,14 @@ class orderRepo():
             returnDate = order.get_returnDate()
             orderTotal = order.get_orderTotal()
             orders_file.write("{},{},{},{},{},{}\n".format(orderID, carID, customerID, dateOfHandover, returnDate, orderTotal))
+
+    def get_order(self):
+        if self.__order == []:
+            with open ("./data/orders.txt", "r") as orders_file:
+                for line in orders_file.readlines():
+                    orderID, carID, customerID, dateOfHandover, returnDate, orderTotal = line.split(",")
+                    all_orders = order(orderID, carID, customerID, dateOfHandover, returnDate, orderTotal)
+                    self.__order.append(all_orders)
+                    
+        return self.__order
             
