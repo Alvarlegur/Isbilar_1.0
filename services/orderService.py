@@ -12,4 +12,5 @@ class orderService():
         return self.__order_repo.get_order()
 
     def is_valid_order(self, order):
-        pass ### verður að breyta þessu
+        return True
+        ### verður að breyta þessu

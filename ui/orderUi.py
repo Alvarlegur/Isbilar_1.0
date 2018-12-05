@@ -4,7 +4,7 @@ from models.order import order
 class orderUI():
 
     def __init__(self):
-        self.__order_service = orderService
+        self.__order_service = orderService()
 
     def menu(self):
         
@@ -18,12 +18,10 @@ class orderUI():
             
             if choice == '1':
                 orderID = input("Input orderID: ")
-                carID = input("Input carID: ")
-                customerID = input("Input customerID: ")
                 dateOfHandover = input("Pick-up date: ")
                 returnDate = input("Return date: ")
                 orderTotal = input("Total Prize: ")
-                new_order = order(orderID, carID, customerID,dateOfHandover,returnDate,orderTotal)
+                new_order = order(orderID,dateOfHandover,returnDate,orderTotal)
                 self.__order_service.add_order(new_order)
 
             elif choice == '2':
