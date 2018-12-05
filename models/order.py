@@ -13,7 +13,7 @@ class order:
         self.__orderTotal = orderTotal
 
     def __str__(self):
-        return "{},{},{}".format(self.__orderID,self.__dateOfHandover, self.__returnDate)
+        return "{},{},{} \n".format(self.__orderID,self.__dateOfHandover, self.__returnDate)
 
     def get_orderID(self):
         return self.__orderID

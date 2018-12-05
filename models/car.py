@@ -10,7 +10,7 @@ class car:
         self.__manufYear = manufYear
 
     def __str__(self):
-        return "{},{},{}\n".format(self.__manufacturer, self.__typeCar, self.__priceGroup)
+        return ("{},{},{},{},{},{},{}\n".format(self.__licensePlate, self.__manufacturer,self.__typeCar,self.__manOrAuto,self.__fuelType,self.__priceGroup,self.__manufYear))
 
     def get_licensePlate(self):
         return self.__licensePlate
@@ -35,3 +35,4 @@ class car:
 
     def __repr__(self):
         return self.__str__()
+    

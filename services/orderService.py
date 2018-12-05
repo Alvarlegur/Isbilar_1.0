@@ -14,3 +14,4 @@ class orderService():
     def is_valid_order(self, order):
         return True
         ### verður að breyta þessu
+
