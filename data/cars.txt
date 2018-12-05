@@ -1,2 +1,3 @@
 toyota,yaris,manual,bensin,jeppi,1996
 Kia,Rio,Manual,Diesel,Folksbill,2015
+Honda,Accord,Auto,Bensin,Folksbill,2012

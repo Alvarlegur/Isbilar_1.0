@@ -1,8 +1,8 @@
-from ui.customerUi import customerUI
+from ui.mainMenuUI import mainMenuUI
 
 
 def main():
-    ui = customerUI()
+    ui = mainMenuUI()
     ui.menu()
 
 main()
