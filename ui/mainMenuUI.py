@@ -4,10 +4,7 @@ import os
 
 
 class mainMenuUI():
-    def __init__(self):
-        self.__carUI = carUI()
 
-    
     def menu(self):
         choice = ""
         clear = lambda: os.system('cls')
