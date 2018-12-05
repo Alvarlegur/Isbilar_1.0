@@ -15,7 +15,7 @@ class CarRepo():
             fuelType = car.get_fuelType()
             priceGroup = car.get_priceGroup()
             manufYear = car.get_manufYear()
-            cars_file.write("{},{},{},{},{},{},{}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear))
+            cars_file.write("{}, {}, {}, {}, {}, {}, {}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear))
 
     def get_car(self):
         if self.__cars == []:
