@@ -8,7 +8,7 @@ class customer:
         self.__SSN = SSN
 
     def __str__(self):
-        return "{},{},{}".format(self.__firstName, self.__lastName, self.__SSN)
+        return "{}\t{}\t{}".format(self.__firstName, self.__lastName, self.__SSN)
 
     def __repr__(self):
         return self.__str__()

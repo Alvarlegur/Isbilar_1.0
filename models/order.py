@@ -1,11 +1,12 @@
 from models.car import car
 from models.customer import customer
+from datetime import timedelta
 
 class order:
     #initalizing order instance
     #vantar að tengja carID og customerID inn í orders
     def __init__(self, orderID,dateOfHandover, returnDate, orderTotal):
-        self.__orderID = orderID
+        self.__orderID = id(orderID)
         # self.__carID = car.getcarID()
         # self.__customerID = customer.getSSN()
         self.__dateOfHandover = dateOfHandover
@@ -13,7 +14,7 @@ class order:
         self.__orderTotal = orderTotal
 
     def __str__(self):
-        return "{},{},{} \n".format(self.__orderID,self.__dateOfHandover, self.__returnDate)
+        return "{}\t{}\t{} \n".format(self.__orderID,self.__dateOfHandover, self.__returnDate)
 
     def get_orderID(self):
         return self.__orderID
@@ -35,3 +36,8 @@ class order:
 
     def __repr__(self):
         return self.__str__()
+    
+    def totalPrice(self):
+        timeDelta = (datetime.timedelta(self.__returnDate) - datetime.timedelta(self.__dateOfHandover))
+        print(timeDelta)
+

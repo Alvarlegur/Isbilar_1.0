@@ -27,3 +27,4 @@ class orderUI():
             elif choice == '2':
                 orders = self.__order_service.get_order()
                 print(orders)
+            
