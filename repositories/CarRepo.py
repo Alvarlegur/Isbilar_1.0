@@ -29,11 +29,11 @@ class CarRepo():
 
     def delete_car(self):
         entername = str(input("Enter cars license plate: "))
-        with open("./data/cars.txt", "r+") as f:
-            d = f.readlines()
-            f.seek(0)
-            for i in d:
-                if not entername in i:
-                    f.write(i)
-            f.truncate()
+        with open("./data/cars.txt", "r+") as cars_file:
+            temp = cars_file.readlines()
+            cars_file.seek(0)
+            for line in temp:
+                if not entername in line:
+                    cars_file.write(line)
+            cars_file.truncate()
         
