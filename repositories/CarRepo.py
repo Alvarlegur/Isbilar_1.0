@@ -26,3 +26,14 @@ class CarRepo():
                     self.__cars.append(all_cars)
 
         return self.__cars
+
+    def delete_car(self):
+        entername = str(input("Enter a car to delete: "))
+        with open("./data/cars.txt", "r+") as f:
+            d = f.readlines()
+            f.seek(0)
+            for i in d:
+                if not entername in i:
+                    f.write(i)
+            f.truncate()
+        

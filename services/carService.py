@@ -11,6 +11,9 @@ class carService():
     
     def get_car(self):
         return self.__car_repo.get_car()
+    
+    def delete_car(self):
+        return self.__car_repo.delete_car()
 
     def is_valid_car(self,car):
         return True ## breyta þessu
