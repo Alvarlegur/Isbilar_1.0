@@ -9,7 +9,7 @@ class car:
         self.__manufYear = manufYear
 
     def __str__(self):
-        return (self.__manufacturer, self.__typeCar, self.__priceGroup)
+        return "{},{},{}".format(self.__manufacturer, self.__typeCar, self.__priceGroup)
 
     def get_manufacturer(self):
         return self.__manufacturer
@@ -28,3 +28,6 @@ class car:
 
     def get_fuelType(self):
         return self.__fuelType
+
+    def __repr__(self):
+        return self.__str__()

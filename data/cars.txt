@@ -1,1 +1,2 @@
-1234,toyota,yaris,manual,bensin,jeppi,1996
+toyota,yaris,manual,bensin,jeppi,1996
+Kia,Rio,Manual,Diesel,Folksbill,2015
