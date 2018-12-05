@@ -1,5 +1,5 @@
 from ui.carUI import carUI
-
+from ui.customerUi import customerUI
 
 class mainMenuUI():
     def __init__(self):
@@ -19,3 +19,6 @@ class mainMenuUI():
                 ui = carUI()
                 ui.menu()
 
+            if choice == "2":
+                ui2 = customerUI()
+                ui2.menu()

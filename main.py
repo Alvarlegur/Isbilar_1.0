@@ -1,8 +1,8 @@
-from ui.carUI import carUI
+from ui.mainMenuUI import mainMenuUI
+
 
 def main():
-    
-    ui = carUI()
+    ui = mainMenuUI()
     ui.menu()
 
 main()
