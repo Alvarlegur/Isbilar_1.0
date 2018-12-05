@@ -16,15 +16,15 @@ class mainMenuUI():
             print("Press q to quit")
             choice = input("choose an option: ").lower()
             clear()
-
             if choice == "1":
                 ui = carUI()
                 ui.menu()
-
-            if choice == "2":
+            elif choice == "2":
                 ui2 = customerUI()
                 ui2.menu()
 
-            if choice == "3":
+            elif choice == "3":
                 ui3 = orderUI()
                 ui3.menu()
+            else:
+                print("please try again")

@@ -7,6 +7,15 @@ class orderUI():
         self.__order_service = orderService
 
     def menu(self):
+<<<<<<< HEAD
+        choice = ""
+        while choice != "q":
+            print("press 1 to add order")
+            print("press 2 to list all orders")
+            choice = input("choose an option").lower()
+            if choice == "1":
+                
+=======
         
         choice = ''
         while choice != 'q':
@@ -29,3 +38,4 @@ class orderUI():
             elif choice == '2':
                 orders = self.__order_service.get_order()
                 print(orders)
+>>>>>>> 6df2f98e08bb17e7f49819bb3b40dfa5617113a2
