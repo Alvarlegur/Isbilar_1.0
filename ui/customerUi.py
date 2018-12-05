@@ -13,7 +13,6 @@ class customerUI():
             print("Press q to go back")
             choice = input("choose an option: ").lower()
             if choice == "1":
-                customerID = input("input customer ID: ")
                 firstName = input("input first name: ")
                 lastName = input("input last name: ")
                 passportID = input("input passport ID: ")
