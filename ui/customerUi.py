@@ -1,5 +1,5 @@
-from .customerService import customerService
-from .customer import customer
+from services.customerService import customerService
+from models.customer import customer
 
 class customerUI():
     def __init__(self):
