@@ -1,6 +1,6 @@
-from ui.carUI import carUI
-from ui.customerUi import customerUI
-# from ui.orderUi import orderUi
+from .carUI import carUI
+from .customerUi import customerUI
+from .orderUi import orderUi
 import os
 
 
