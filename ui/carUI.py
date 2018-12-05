@@ -1,5 +1,5 @@
-from services.carService import carService
-from models.car import car
+from .carService import carService
+from .car import car
 
 
 

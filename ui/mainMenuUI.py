@@ -1,10 +1,10 @@
 from .carUI import carUI
 from .customerUi import customerUI
-from .orderUi import orderUi
+from .orderUi import orderUI
 import os
 
 
-class mainMenuUI():
+class mainMenuUI:
 
     def menu(self):
         choice = ""

@@ -1,5 +1,5 @@
-from services.orderService import orderService
-from models.order import order
+from .orderService import orderService
+from .order import order
 
 class orderUI():
 
