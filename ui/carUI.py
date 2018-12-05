@@ -36,3 +36,6 @@ class carUI():
 
             elif choice == "3":
                 cars = self.__car_service.delete_car()
+            
+            elif choice != "1" or choice != "2" or choice != "3" or choice != "q":
+                print("Please try again!")

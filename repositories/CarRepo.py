@@ -24,7 +24,6 @@ class CarRepo():
                     licensePlate,manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear = line.split(",")
                     all_cars = car(licensePlate,manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear)
                     self.__cars.append(all_cars)
-
         return self.__cars
 
     def delete_car(self):
