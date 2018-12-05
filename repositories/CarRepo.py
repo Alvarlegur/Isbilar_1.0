@@ -26,3 +26,14 @@ class CarRepo():
                     self.__cars.append(all_cars)
 
         return self.__cars
+
+    def delete_car(self):
+        entername = str(input("Enter cars license plate: "))
+        with open("./data/cars.txt", "r+") as cars_file:
+            temp = cars_file.readlines()
+            cars_file.seek(0)
+            for line in temp:
+                if not entername in line:
+                    cars_file.write(line)
+            cars_file.truncate()
+        

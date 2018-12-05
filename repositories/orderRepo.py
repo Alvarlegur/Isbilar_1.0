@@ -22,3 +22,12 @@ class orderRepo():
                     
         return self.__order
             
+    def delete_order(self):
+        entername = str(input("Enter orders ID: "))
+        with open("./data/orders.txt", "r+") as orders_file:
+            temp = orders_file.readlines()
+            orders_file.seek(0)
+            for line in temp:
+                if not entername in line:
+                    orders_file.write(line)
+            orders_file.truncate()
