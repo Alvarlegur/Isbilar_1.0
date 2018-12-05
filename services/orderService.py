@@ -11,6 +11,9 @@ class orderService():
     def get_order(self):
         return self.__order_repo.get_order()
 
+    def delete_order(self):
+        return self.__order_repo.delete_order()
+
     def is_valid_order(self, order):
         return True
         ### verður að breyta þessu

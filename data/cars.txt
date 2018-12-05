@@ -1,7 +1,2 @@
-FGV25,Dacia,Duster,manual,disel,jeppi,2016
-KJL56,ferrari,spider,manual,Gasolina,A,2009
-2,toyota,ferrari,auto,bensin,asd,a
-jkghl2,ferrri,spider,manu,gas,A,2005
 q,q,q,q,q,q,q
-asd,as,asd,asd,asd,as,as
-hjg12, volvo, c40, manual, bensin, B, 2009
+FGV25, toyota, yaris, manual, bensin, folksbill, 2018
