@@ -28,7 +28,7 @@ class CarRepo():
         return self.__cars
 
     def delete_car(self):
-        entername = str(input("Enter a car to delete: "))
+        entername = str(input("Enter cars license plate: "))
         with open("./data/cars.txt", "r+") as f:
             d = f.readlines()
             f.seek(0)

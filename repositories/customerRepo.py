@@ -25,7 +25,7 @@ class customerRepo:
         return self.__customer
 
     def delete_customer(self):
-        entername = str(input("Enter a car to delete: "))
+        entername = str(input("Enter customers SSN: "))
         with open("./data/customers.txt", "r+") as customers_file:
             temp = customers_file.readlines()
             customers_file.seek(0)
