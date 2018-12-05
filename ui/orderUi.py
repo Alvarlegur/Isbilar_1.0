@@ -7,7 +7,7 @@ class orderUI():
 
     def menu(self):
         choice = ""
-        while choice != "q"
+        while choice != "q":
             print("press 1 to add order")
             print("press 2 to list all orders")
             choice = input("choose an option").lower()
