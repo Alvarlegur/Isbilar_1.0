@@ -2,12 +2,12 @@ from ui.customerUi import customerUI
 
 class customer:
     #initalizing customer instance
-    def __init__(self, customerUI.customerDict):
-        self.__firstName = customerUI.customerDict['firstName']
-        self.__lastName = customerUI.customerDict['lastName']
-        self.__passportID = customerUI.customerDict['passportID']
-        self.__country = customerUI.customerDict['country']
-        self.__SSN = customerUI.customerDict['SSN']
+    def __init__(self, firstName, lastName, passportID, country, SSN):
+        self.__firstName = firstName
+        self.__lastName = lastName
+        self.__passportID = passportID
+        self.__country = country
+        self.__SSN = SSN
 
     def __str__(self):
         return "\t{:>5s}\n\t{:>5s}\t\t{:>5s}\t{:>5s}\n".format("First name\tLast name\tSSN",self.__firstName, self.__lastName, self.__SSN)
