@@ -15,6 +15,7 @@ class order:
         self.__extrainsurance = extraInsurance
         self.__orderTotal = orderTotal
 
+
     def __str__(self):
         return "{}\t{}\t{}\t{}\t{} \n".format(self.__orderID,self.__dateOfHandover, self.__returnDate, self.__extrainsurance, self.__orderTotal)
 
