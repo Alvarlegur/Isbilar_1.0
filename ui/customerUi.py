@@ -15,10 +15,10 @@ class customerUI():
             choice = input("choose an option: ").lower()
             
             if choice == "1":
-                firstName = input("input first name: ")
-                lastName = input("input last name: ")
+                firstName = input("input first name: ").capitalize()
+                lastName = input("input last name: ").capitalize()
                 passportID = input("input passport ID: ")
-                country = input("input country: ")
+                country = input("input country: ").capitalize()
                 SSN = input("input SSN: ")
                 new_customer = customer(firstName, lastName, passportID, country, SSN)
                 self.__customerService.add_customer(new_customer)
