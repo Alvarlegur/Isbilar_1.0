@@ -21,7 +21,7 @@ class carUI():
 
             if choice == "1":
                 licensePlate = input("input license Plate (5 letters): ")
-                while len(licensePlate) != 5:
+                if len(licensePlate) != 5:
                     print("Try again!")
                     licensePlate = input("input license Plate: ")
                 manufacturer = input("input manufacturer: ").capitalize()
@@ -51,7 +51,7 @@ class carUI():
                 elif priceGroup == "j":
                     priceGroup = "Jeppi"
                 elif priceGroup == "l":
-                    priceGroup = "Luxusbill"
+                    priceGroup == "Luxusbill"
                 manufYear = input("input manufacturer year: ")
                 new_car = car(licensePlate,manufacturer,carType,manOrAuto,fuelType,priceGroup,manufYear)
                 self.__car_service.add_car(new_car)
