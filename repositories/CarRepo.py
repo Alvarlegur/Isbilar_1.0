@@ -7,7 +7,7 @@ class CarRepo():
         self.__cars = []
 
     def add_car(self,car):
-        with open ("./data/cars.txt","a+") as cars_file:
+        with open ("./data/cars.csv","a+") as cars_file:
             licensePlate = car.get_licensePlate()
             manufacturer = car.get_manufacturer()
             typeCar = car.get_typeCar()
@@ -19,7 +19,7 @@ class CarRepo():
 
     def get_car(self):
         if self.__cars == []:
-            with open ("./data/cars.txt", "r") as cars_file:
+            with open ("./data/cars.csv", "r") as cars_file:
                 for line in cars_file.readlines():
                     licensePlate,manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear = line.split(",")
                     all_cars = car(licensePlate,manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear)
@@ -28,7 +28,7 @@ class CarRepo():
 
     def delete_car(self):
         entername = str(input("Enter cars license plate: "))
-        with open("./data/cars.txt", "r+") as cars_file:
+        with open("./data/cars.csv", "r+") as cars_file:
             temp = cars_file.readlines()
             cars_file.seek(0)
             for line in temp:
