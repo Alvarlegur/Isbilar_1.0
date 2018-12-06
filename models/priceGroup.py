@@ -1,8 +1,8 @@
 
 class priceGroup():
   def prices(self):
-    a = 20000
-    b = 15000
-    c = 10000
+    l = 20000
+    j = 15000
+    f = 10000
   
   
