@@ -9,6 +9,7 @@ class car:
         self.__priceGroup = priceGroup
         self.__manufYear = manufYear
 
+
     def __str__(self):
         return ("\t{}\n\t{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}\n".format("License Plate\tManufacturer\tType Car\tManual or Auto\tFuel Type\tPrice Group\tManufacturer Year\t",self.__licensePlate, self.__manufacturer,self.__typeCar,self.__manOrAuto,self.__fuelType,self.__priceGroup,self.__manufYear))
 

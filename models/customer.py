@@ -1,4 +1,4 @@
-from ui.customerUi import customerUI
+#from ui.customerUi import customerUI
 
 class customer:
     #initalizing customer instance
