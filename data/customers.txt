@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-arnar,freyr,1234,iceland,12
-=======
-Dagur,�or,1234,iceland,12345
->>>>>>> c2534b3f56dbb27ed573bab380b7819530219fa8
-Arnar,freyr,124,iceland,1610962299
-halldór,kjartansson,adlasdlasdasdasdlkaskdalkda,a,asda
+Arnar,Freyr,123,iceland,123
+Arnar,Gudmundsson,123,iceland,123
