@@ -17,6 +17,7 @@ class customerUI():
             
             if choice == "1":
 <<<<<<< HEAD
+<<<<<<< HEAD
                 customerDict['firstName'] = input("input first name: ")
                 customerDict['lastName'] = input("input last name: ")
                 customerDict['passportID'] = input("input passport ID: ")
@@ -26,8 +27,12 @@ class customerUI():
 =======
                 firstName = input("input first name: ").capitalize()
                 lastName = input("input last name: ").capitalize()
+=======
+                firstName = input("input first name: ")
+                lastName = input("input last name: ")
+>>>>>>> parent of 325f3cb... breytingar á print formatti
                 passportID = input("input passport ID: ")
-                country = input("input country: ").capitalize()
+                country = input("input country: ")
                 SSN = input("input SSN: ")
                 new_customer = customer(firstName, lastName, passportID, country, SSN)
 >>>>>>> 8b3091c575ff673677bcf2560290d29f91c316e5
