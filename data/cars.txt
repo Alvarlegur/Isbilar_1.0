@@ -1,2 +1,2 @@
-q,q,q,q,q,q,q
-FGV25, toyota, yaris, manual, bensin, folksbill, 2018
+ABC12, Dacia, Duster, manual, bensin, Jeppi, 2018
+HJE55, Toyota, Rav, manual, bensin, jeppi, 2017
