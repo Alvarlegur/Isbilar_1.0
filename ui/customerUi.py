@@ -15,18 +15,8 @@ class customerUI():
             choice = input("choose an option: ").lower()
             
             if choice == "1":
-                customerDict['firstName'] = input("input first name: ")
-                customerDict['lastName'] = input("input last name: ")
-                customerDict['passportID'] = input("input passport ID: ")
-                customerDict['country'] = input("input country: ")
-                customerDict['SSN'] = input("input SSN: ")
-                new_customer = customer(customerDict)
-
                 firstName = input("input first name: ").capitalize()
                 lastName = input("input last name: ").capitalize()
-
-                firstName = input("input first name: ")
-                lastName = input("input last name: ")
                 passportID = input("input passport ID: ")
                 country = input("input country: ")
                 SSN = input("input SSN: ")
