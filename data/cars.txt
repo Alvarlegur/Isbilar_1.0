@@ -6,3 +6,13 @@ FHJ25, Toyota, Avenvis, Manual, Disel, Folksbill, 1992
 HJE23, Toyota, yaris, Manual, Disel, Jeppi, 2006
 FGH12, Toyota, yaris, Manual, Disel, Jeppi, 2007
 FGH12, Toyota, Yaris, Manual, Disel, l, 2007
+FHGR2, Toyota, Aygo, s, l, p, 1002
+JGU12, Toyota, Yaris, Manual, Bensin, Folksbill, 2008
+juh55, Toyota, Yaris, True, Bensin, Jeppi, 2018
+LJE42, Toyota, Yaris, m, Disel, Folksbill, 2018
+JIE33, Toyota, Yaris, m, Bensin, Jeppi, 2019
+JEU23, Toyota, Yaris, Manual, Bensin, Luxusbill, 2018
+EFH12, Toyota, Yaris, Manual, Disel, Folksbill, 2018
+eofj1, Toyota, Yaris, Auto, Bensin, Jeppi, 1992
+JEU12, Toyota, Yaris, Manual, Disel, Folksbill, 2992
+juh23, Toyota, Yaris, Auto, Bensin, Luxusbill, 2009

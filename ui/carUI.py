@@ -27,16 +27,25 @@ class carUI():
                 manufacturer = input("input manufacturer: ").capitalize()
                 carType = input("input Car Type: ").capitalize()
                 manOrAuto = input("input manual or auto (M = Manual, A = Auto): ").lower()
+                while manOrAuto != "m" and manOrAuto != "a":
+                    print("Try again!")
+                    manOrAuto = input("input manual or auto (M = Manual, A = Auto): ").lower()
                 if manOrAuto == "m":
-                    manOrAuto = "Manual"
+                        manOrAuto = "Manual"
                 elif manOrAuto == "a":
-                    manOrAuto = "Auto"
+                        manOrAuto = "Auto"
                 fuelType = input("input fuel type (B = Bensin, D = Disel): ").lower()
+                while fuelType != "b" and fuelType != "d":
+                    print("Try again!")
+                    fuelType = input("input fuel type (B = Bensin, D = Disel): ").lower()
                 if fuelType == "b":
                     fuelType = "Bensin"
                 elif fuelType == "d":
                     fuelType = "Disel"
                 priceGroup = input("input price group (F = Folksbill, J = Jeppi, L = Luxusbill): ").lower()
+                while priceGroup != "f" and priceGroup != "j" and priceGroup != "l":
+                    print("Try again!")
+                    priceGroup = input("input price group (F = Folksbill, J = Jeppi, L = Luxusbill): ").lower()
                 if priceGroup == "f":
                     priceGroup = "Folksbill"
                 elif priceGroup == "j":
