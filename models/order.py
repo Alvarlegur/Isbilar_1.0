@@ -6,11 +6,7 @@ from models.priceGroup import priceGroup
 class order:
     #initalizing order instance
     #vantar að tengja carID og customerID inn í orders
-<<<<<<< HEAD
-    def __init__(self, licensePlate, customerID, orderID,dateOfHandover, returnDate, orderTotal):
-=======
     def __init__(self, orderID,dateOfHandover, returnDate, extraInsurance, orderTotal):
->>>>>>> bdeb405496182b652465b4736838a7e61033fbd4
         self.__orderID = id(orderID)
         self.__carID = licensePlate
         self.__customerID = customerID
@@ -18,6 +14,7 @@ class order:
         self.__returnDate = returnDate
         self.__extrainsurance = extraInsurance
         self.__orderTotal = orderTotal
+
 
     def __str__(self):
         return "{}\t{}\t{}\t{}\t{} \n".format(self.__orderID,self.__dateOfHandover, self.__returnDate, self.__extrainsurance, self.__orderTotal)
