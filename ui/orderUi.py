@@ -19,8 +19,10 @@ class orderUI():
             
             if choice == '1':
                 orderID = input("Input orderID: ")
-                dateOfHandover = input("Pick-up date: ")
-                returnDate = input("Return date: ")
+                carID = input("License plate number: ") # checka hvort fastanr sé til í lausir bílar
+                customerSSN = input("Customer social security number: ") # checka hvort það sé búið að skrá þennan
+                dateOfHandover = input("Pick-up date (yy, mm, dd): ")
+                returnDate = input("Return date: (yy, mm, dd)")
                 orderTotal = input("Total Prize: ")
                 new_order = order(orderID,dateOfHandover,returnDate,orderTotal)
                 self.__order_service.add_order(new_order)

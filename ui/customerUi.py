@@ -3,7 +3,7 @@ from models.customer import customer
 
 class customerUI():
     def __init__(self):
-        self.__customerService = customerService()
+        self.__customerService = customerService() 
 
     def menu(self):
         choice = ""
@@ -18,7 +18,7 @@ class customerUI():
                 firstName = input("input first name: ").capitalize()
                 lastName = input("input last name: ").capitalize()
                 passportID = input("input passport ID: ")
-                country = input("input country: ").capitalize()
+                country = input("input country: ")
                 SSN = input("input SSN: ")
                 new_customer = customer(firstName, lastName, passportID, country, SSN)
                 self.__customerService.add_customer(new_customer)
