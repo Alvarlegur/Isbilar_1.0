@@ -4,6 +4,7 @@ from models.customer import customer
 class customerUI():
     def __init__(self):
         self.__customerService = customerService()
+        customerDict = {} 
 
     def menu(self):
         choice = ""
@@ -15,12 +16,12 @@ class customerUI():
             choice = input("choose an option: ").lower()
             
             if choice == "1":
-                firstName = input("input first name: ")
-                lastName = input("input last name: ")
-                passportID = input("input passport ID: ")
-                country = input("input country: ")
-                SSN = input("input SSN: ")
-                new_customer = customer(firstName, lastName, passportID, country, SSN)
+                customerDict['firstName'] = input("input first name: ")
+                customerDict['lastName'] = input("input last name: ")
+                customerDict['passportID'] = input("input passport ID: ")
+                customerDict['country'] = input("input country: ")
+                customerDict['SSN'] = input("input SSN: ")
+                new_customer = customer(customerDict)
                 self.__customerService.add_customer(new_customer)
 
             elif choice == "2":
