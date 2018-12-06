@@ -4,3 +4,4 @@ Bjorn,Thorlaksson,A6123534,Iceland,2106952229
 arnar,freyr,1234,iceland,12
 Arnar,freyr,124,iceland,1610962299
 halldór,kjartansson,adlasdlasdasdasdlkaskdalkda,a,asda
+Dagur,Hilmars,asdasd,asdasd,asdasd
