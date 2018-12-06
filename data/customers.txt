@@ -1,2 +1,2 @@
-Dagur,�or,1234,iceland,12345
 Arnar,freyr,124,iceland,1610962299
+Bjorn,Thorlaksson,A6123534,Iceland,2106952229
