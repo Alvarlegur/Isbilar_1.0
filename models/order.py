@@ -5,16 +5,17 @@ from datetime import timedelta
 class order:
     #initalizing order instance
     #vantar að tengja carID og customerID inn í orders
-    def __init__(self, orderID,dateOfHandover, returnDate, orderTotal):
+    def __init__(self, orderID,dateOfHandover, returnDate, extraInsurance, orderTotal):
         self.__orderID = id(orderID)
         # self.__carID = car.getcarID()
         # self.__customerID = customer.getSSN()
         self.__dateOfHandover = dateOfHandover
         self.__returnDate = returnDate
+        self.__extrainsurance = extraInsurance
         self.__orderTotal = orderTotal
 
     def __str__(self):
-        return "{}\t{}\t{} \n".format(self.__orderID,self.__dateOfHandover, self.__returnDate)
+        return "{}\t{}\t{}\t{}\t{} \n".format(self.__orderID,self.__dateOfHandover, self.__returnDate, self.__extrainsurance, self.__orderTotal)
 
     def get_orderID(self):
         return self.__orderID
@@ -30,6 +31,9 @@ class order:
 
     def get_returnDate(self):
         return self.__returnDate
+
+    def get_extraInsurance(self):
+        return self.__extrainsurance
 
     def get_orderTotal(self):
         return self.__orderTotal

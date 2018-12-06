@@ -23,6 +23,7 @@ class orderUI():
                 customerSSN = input("Customer social security number: ") # checka hvort það sé búið að skrá þennan
                 dateOfHandover = input("Pick-up date (yy, mm, dd): ")
                 returnDate = input("Return date: (yy, mm, dd)")
+                extrainsurance = input("Extra insurance: (Yes/No)")
                 orderTotal = input("Total Prize: ")
                 new_order = order(orderID,dateOfHandover,returnDate,orderTotal)
                 self.__order_service.add_order(new_order)

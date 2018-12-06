@@ -9,15 +9,16 @@ class orderRepo():
             orderID = order.get_orderID()
             dateOfHandover = order.get_dateOfHandover()
             returnDate = order.get_returnDate()
+            extraInsurance = order.get_extraInsurance()
             orderTotal = order.get_orderTotal()
-            orders_file.write("{},{},{},{}\n".format(orderID,dateOfHandover, returnDate, orderTotal))
+            orders_file.write("{},{},{},{},{}\n".format(orderID,dateOfHandover, returnDate, extraInsurance, orderTotal))
 
     def get_order(self):
         if self.__order == []:
             with open ("./data/orders.txt", "r") as orders_file:
                 for line in orders_file.readlines():
-                    orderID, dateOfHandover, returnDate, orderTotal = line.split(",")
-                    all_orders = order(orderID, dateOfHandover, returnDate, orderTotal)
+                    orderID, dateOfHandover, returnDate, extraInsurance, orderTotal = line.split(",")
+                    all_orders = order(orderID, dateOfHandover, returnDate, extraInsurance, orderTotal)
                     self.__order.append(all_orders)
                     
         return self.__order
