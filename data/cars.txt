@@ -1,8 +1,2 @@
 ABC12, Dacia, Duster, manual, bensin, Jeppi, 2018
 HJE55, Toyota, Rav, manual, bensin, jeppi, 2017
-HJK12, Toyota, Yaris, m, bensin, jeppi, 2016
-GHJ12, toyota, yaris, Manual, bensin, jepip, 2019
-FHJ25, Toyota, Avenvis, Manual, Disel, Folksbill, 1992
-HJE23, Toyota, yaris, Manual, Disel, Jeppi, 2006
-FGH12, Toyota, yaris, Manual, Disel, Jeppi, 2007
-FGH12, Toyota, Yaris, Manual, Disel, l, 2007

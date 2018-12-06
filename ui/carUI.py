@@ -20,29 +20,12 @@ class carUI():
             choice = input("Choose a option: ").lower()
 
             if choice == "1":
-                licensePlate = input("input license Plate (5 letters): ")
-                while len(licensePlate) != 5:
-                    print("Try again!")
-                    licensePlate = input("input license Plate: ")
-                manufacturer = input("input manufacturer: ").capitalize()
-                carType = input("input Car Type: ").capitalize()
-                manOrAuto = input("input manual or auto (M = Manual, A = Auto): ").lower()
-                if manOrAuto == "m":
-                    manOrAuto = "Manual"
-                elif manOrAuto == "a":
-                    manOrAuto = "Auto"
-                fuelType = input("input fuel type (B = Bensin, D = Disel): ").lower()
-                if fuelType == "b":
-                    fuelType = "Bensin"
-                elif fuelType == "d":
-                    fuelType = "Disel"
-                priceGroup = input("input price group (F = Folksbill, J = Jeppi, L = Luxusbill): ").lower()
-                if priceGroup == "f":
-                    priceGroup = "Folksbill"
-                elif priceGroup == "j":
-                    priceGroup = "Jeppi"
-                elif priceGroup == "l":
-                    priceGroup = "Luxusbill"
+                licensePlate = input("input license Plate: ")
+                manufacturer = input("input manufacturer: ")
+                carType = input("input Car Type: ")
+                manOrAuto = input("input manual or auto: ")
+                fuelType = input("input fuel type: ")
+                priceGroup = input("input price group: ")
                 manufYear = input("input manufacturer year: ")
                 new_car = car(licensePlate,manufacturer,carType,manOrAuto,fuelType,priceGroup,manufYear)
                 self.__car_service.add_car(new_car)
