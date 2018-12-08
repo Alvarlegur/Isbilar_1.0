@@ -6,14 +6,12 @@ from models.priceGroup import priceGroup
 class order:
     #initalizing order instance
     #vantar að tengja carID og customerID inn í orders
-    def __init__(self, licensePlate, customerID, orderID,dateOfHandover, returnDate, orderTotal):
+    def __init__(self, orderID,dateOfHandover, returnDate, orderTotal,extraInsurance):
         self.__orderID = id(orderID)
-        self.__carID = licensePlate
-        self.__customerID = customerID
         self.__dateOfHandover = dateOfHandover
         self.__returnDate = returnDate
-        self.__extrainsurance = extraInsurance
         self.__orderTotal = orderTotal
+        self.__extrainsurance = extraInsurance
 
 
     def __str__(self):
@@ -21,12 +19,6 @@ class order:
 
     def get_orderID(self):
         return self.__orderID
-
-    def get_licensePlate(self):
-        return self.__carID
-
-    def get_customerID(self):
-        return self.__customerID
 
     def get_dateOfHandover(self):
         return self.__dateOfHandover
@@ -43,7 +35,7 @@ class order:
     def __repr__(self):
         return self.__str__()
     
-    def totalPrice(self):
-        timeDelta = (datetime.timedelta(self.__returnDate) - datetime.timedelta(self.__dateOfHandover))
-        print(timeDelta)
+    #def totalPrice(self):
+        #timeDelta = (datetime.timedelta(self.__returnDate) - datetime.timedelta(self.__dateOfHandover))
+        #print(timeDelta)
 

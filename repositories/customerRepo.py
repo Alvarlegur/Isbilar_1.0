@@ -1,5 +1,6 @@
 from models.customer import customer
 
+
 class customerRepo:
     def __init__(self):
         self.__customer = []

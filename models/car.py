@@ -1,6 +1,6 @@
 class car:
     #defining inital class instance
-    def __init__(self,licensePlate, manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear):
+    def __init__(self,licensePlate, manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear,availability):
         self.__licensePlate = licensePlate
         self.__manufacturer = manufacturer
         self.__typeCar = typeCar
@@ -40,13 +40,5 @@ class car:
     def __repr__(self):
         return self.__str__()
 
-    def set_licensePlate(self):
-        self.__licensePlate = input("Input new license plate: ")
-    
-    def set_manufacturer(self):
-        self.__manufacturer = input("Input new manufacturer: ")
-
-    def set_typeCar(self):
-        self.__typeCar = input("Input new car type: ")
     
     

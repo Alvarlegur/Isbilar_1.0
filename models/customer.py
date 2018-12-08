@@ -1,6 +1,6 @@
-from ui.customerUi import customerUI
 
-class customer:
+
+class customer():
     #initalizing customer instance
     def __init__(self, firstName, lastName, passportID, country, SSN):
         self.__firstName = firstName
@@ -29,18 +29,3 @@ class customer:
 
     def get_SSN(self):
         return self.__SSN
-
-    def set_firstname(self):
-        self.__firstName = input("Input the new first name: ")
-
-    def set_lastName(self):
-        self.__lastName = input("Input the new last name: ")
-
-    def set_passportID(self):
-        self.__passportID = input("Input the new passportID: ")
-
-    def set_country(self):
-        self.__country = input("Input the new country: ")
-
-    def set_SSN(self):
-        self.__SSN = input("Input the new SSN: ")

@@ -18,7 +18,7 @@ class orderRepo():
             with open ("./data/orders.csv", "r") as orders_file:
                 for line in orders_file.readlines():
                     orderID, dateOfHandover, returnDate, extraInsurance, orderTotal = line.split(",")
-                    all_orders = order(orderID, dateOfHandover, returnDate, extraInsurance, orderTotal)
+                    all_orders = order(orderID,dateOfHandover,returnDate,orderTotal,extraInsurance)
                     self.__order.append(all_orders)
                     
         return self.__order
