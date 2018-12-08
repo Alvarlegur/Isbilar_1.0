@@ -21,7 +21,7 @@ class customerUI():
                 while len(passportID) != 8:
                     print("Try again!")
                     passportID = input("input passport ID: ")
-                country = input("input country: ")
+                country = input("input country: ").capitalize()
                 SSN = input("input SSN: ")
                 while len(SSN) != 10:
                     print("Try again!")

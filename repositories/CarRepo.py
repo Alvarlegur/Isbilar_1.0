@@ -1,4 +1,5 @@
 from models.car import car
+import csv
 
 
 class CarRepo():
@@ -18,13 +19,30 @@ class CarRepo():
             availability = car.get_availability()
             cars_file.write("{}, {}, {}, {}, {}, {}, {}, {}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,availability))
 
-    def get_car(self):
+    def availability(self):
+        with open('./data/cars.csv','r+') as inp, open('./data/availablecars.csv', 'w') as out1, open('./data/unavailablecars.csv','w') as out2:
+            writer1 = csv.writer(out1)
+            writer2 = csv.writer(out2)
+            for row in csv.reader(inp):
+                if row[7] != 'unavailable':
+                    writer1.writerow(row)
+                else:
+                    writer2.writerow(row)
+
+    def get_AvailCars(self):
         if self.__cars == []:
-            with open ("./data/cars.csv", "r") as cars_file:
-                for line in cars_file.readlines():
-                    licensePlate,manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear,availability = line.split(",")
-                    all_cars = car(licensePlate,manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear,availability)
-                    self.__cars.append(all_cars)
+            with open('./data/availablecars.csv','r') as laust:
+                reader = csv.reader(laust)
+                for row in reader:
+                    self.__cars.append(row)
+        return self.__cars
+
+    def get_UnavailCars(self):
+        if self.__cars == []:
+            with open('.data/unavailablecars.csv','r') as tekid:
+                reader = csv.reader(tekid)
+                for row in reader:
+                    self.__cars.append(row)
         return self.__cars
 
     def delete_car(self):
