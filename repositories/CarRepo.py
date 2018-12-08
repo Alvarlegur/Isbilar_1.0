@@ -9,6 +9,7 @@ class CarRepo():
 
     def add_car(self,car):
         with open ("./data/cars.csv","a+") as cars_file:
+            writer = csv.writer(cars_file)
             licensePlate = car.get_licensePlate()
             manufacturer = car.get_manufacturer()
             typeCar = car.get_typeCar()
@@ -17,7 +18,7 @@ class CarRepo():
             priceGroup = car.get_priceGroup()
             manufYear = car.get_manufYear()
             availability = car.get_availability()
-            cars_file.write("{}, {}, {}, {}, {}, {}, {}, {}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,availability))
+            writer.writerow(["{}, {}, {}, {}, {}, {}, {}, {}".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,availability)])
 
     def availability(self):
         with open('./data/cars.csv','r+') as inp, open('./data/availablecars.csv', 'w') as out1, open('./data/unavailablecars.csv','w') as out2:
