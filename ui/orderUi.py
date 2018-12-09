@@ -1,5 +1,6 @@
 from services.orderService import orderService
 from models.order import order
+from services import carService
 
 class orderUI():
 
@@ -19,8 +20,13 @@ class orderUI():
             
             if choice == '1':
                 #orderID = input("Input orderID: ")
-                carID = input("License plate number: ") # checka hvort fastanr sé til í lausir bílar
-                customerSSN = input("Customer social security number: ") # checka hvort það sé búið að skrá þennan
+                carID = input("License plate number: ")
+                #while carService.is_available(carID) != True:
+                    #print("This vehicle is not available, please try again")
+                    #carID = input("License plate number: ")
+                # checka hvort fastanr sé til í lausir bílar
+                customerSSN = input("Customer social security number: ") 
+                # checka hvort það sé búið að skrá þennan
                 dateOfHandover = input("Pick-up date (yy, mm, dd): ")
                 returnDate = input("Return date (yy, mm, dd): ")
                 extrainsurance = input("Extra insurance (Y = Yes, N = No): ").lower()
