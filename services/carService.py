@@ -24,4 +24,9 @@ class carService():
     def is_valid_car(self,car):
         return True ## breyta þessu
     
-    
+    #def is_available(self,carID):
+       #return self.modelCar.get_availability(carID)
+
+    def add_customer(self,customer):
+        if self.is_valid_customer(customer):
+            self.__customer_repo.add_customer(customer)

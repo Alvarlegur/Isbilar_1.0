@@ -54,7 +54,7 @@ class carUI():
                 elif priceGroup == "l":
                     priceGroup = "Luxusbill"
                 manufYear = input("input manufacturer year: ")
-                availability = input("available? ")
+                availability = input("available (Y/N)? ")
                 new_car = car(licensePlate,manufacturer,carType,manOrAuto,fuelType,priceGroup,manufYear,availability)
                 self.__car_service.add_car(new_car)
 
