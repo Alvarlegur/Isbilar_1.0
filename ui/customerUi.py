@@ -17,7 +17,7 @@ class customerUI():
             if choice == "1":
                 firstName = input("input first name: ").capitalize()
                 lastName = input("input last name: ").capitalize()
-                passportID = input("input passport ID: ").capitalize()
+                passportID = input("input passport ID: ")
                 while len(passportID) != 8:
                     print("Try again!")
                     passportID = input("input passport ID: ")

@@ -1,6 +1,5 @@
 from models.customer import customer
 
-
 class customerRepo:
     def __init__(self):
         self.__customer = []
@@ -19,7 +18,7 @@ class customerRepo:
         if self.__customer == []:
             with open("./data/customers.csv", "r") as customers_file:
                 for line in customers_file.readlines():
-                    firstName, lastName, passportID, country, SSN = line.split(",")
+                    firstName,lastName,passportID, country, SSN = line.split(",")
                     all_customers = customer(firstName,lastName,passportID, country, SSN)
                     self.__customer.append(all_customers)
 
