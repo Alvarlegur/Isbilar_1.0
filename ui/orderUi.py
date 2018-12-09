@@ -1,5 +1,6 @@
 from services.orderService import orderService
 from models.order import order
+from services import carService
 
 class orderUI():
 
@@ -18,12 +19,24 @@ class orderUI():
             choice = input("Choice a option: ").lower()
             
             if choice == '1':
-                orderID = input("Input orderID: ")
-                carID = input("License plate number: ") # checka hvort fastanr sé til í lausir bílar
-                customerSSN = input("Customer social security number: ") # checka hvort það sé búið að skrá þennan
+                #orderID = input("Input orderID: ")
+                carID = input("License plate number: ")
+                #while carService.is_available(carID) != True:
+                    #print("This vehicle is not available, please try again")
+                    #carID = input("License plate number: ")
+                # checka hvort fastanr sé til í lausir bílar
+                customerSSN = input("Customer social security number: ") 
+                # checka hvort það sé búið að skrá þennan
                 dateOfHandover = input("Pick-up date (yy, mm, dd): ")
-                returnDate = input("Return date: (yy, mm, dd)")
-                extrainsurance = input("Extra insurance: (Yes/No)")
+                returnDate = input("Return date (yy, mm, dd): ")
+                extrainsurance = input("Extra insurance (Y = Yes, N = No): ").lower()
+                while extrainsurance != "y" and extrainsurance != "n":
+                    print("Please enter Y or N!")
+                    extrainsurance = input("Extra insurance (Y = Yes, N = No): ").lower()
+                if extrainsurance == "y":
+                    extrainsurance = "Yes"
+                elif extrainsurance == "n":
+                    extrainsurance = "No"
                 orderTotal = input("Total Prize: ")
                 new_order = order(orderID,dateOfHandover,returnDate,orderTotal)
                 self.__order_service.add_order(new_order)

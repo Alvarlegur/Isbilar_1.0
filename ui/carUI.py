@@ -13,9 +13,8 @@ class carUI():
         choice = ""
         while choice != "q":
             print("Press 1 to add a Car")
-            print("Press 2 to print out available cars")
-            print("Press 3 to print out unavailable cars")
-            print("Press 4 to delete car")
+            print("Press 2 to print out cars")
+            print("Press 3 to delete car")
             print("Press q to go back")
 
             choice = input("Choose a option: ").lower()
@@ -54,21 +53,15 @@ class carUI():
                 elif priceGroup == "l":
                     priceGroup = "Luxusbill"
                 manufYear = input("input manufacturer year: ")
-                availability = input("available? ")
+                availability = input("available (Y/N)? ")
                 new_car = car(licensePlate,manufacturer,carType,manOrAuto,fuelType,priceGroup,manufYear,availability)
                 self.__car_service.add_car(new_car)
 
             elif choice == "2":
-                self.__car_service.get_availability
-                cars = self.__car_service.get_availablecars
+                cars = self.__car_service.get_car()
                 print(cars)
 
             elif choice == "3":
-                self.__car_service.get_availability
-                cars = self.__car_service.get_unavailablecars
-                print(cars)
-
-            elif choice == "4":
                 cars = self.__car_service.delete_car()
             
             elif choice != "1" or choice != "2" or choice != "3" or choice != "q":

@@ -1,6 +1,6 @@
 class car:
     #defining inital class instance
-    def __init__(self,licensePlate, manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear,availability):
+    def __init__(self,licensePlate, manufacturer, typeCar, manOrAuto, fuelType, priceGroup, manufYear):
         self.__licensePlate = licensePlate
         self.__manufacturer = manufacturer
         self.__typeCar = typeCar
@@ -8,10 +8,10 @@ class car:
         self.__fuelType = fuelType
         self.__priceGroup = priceGroup
         self.__manufYear = manufYear
-        self.__availability = availability
+
 
     def __str__(self):
-        return ("\t{}\n\t{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}\n".format("License Plate\tManufacturer\tType Car\tManual or Auto\tFuel Type\tPrice Group\tManufacturer Year\t",self.__licensePlate, self.__manufacturer,self.__typeCar,self.__manOrAuto,self.__fuelType,self.__priceGroup,self.__manufYear, self.__availability))
+        return ("\t{}\n\t{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}\n".format("License Plate\tManufacturer\tType Car\tManual or Auto\tFuel Type\tPrice Group\tManufacturer Year\t",self.__licensePlate, self.__manufacturer,self.__typeCar,self.__manOrAuto,self.__fuelType,self.__priceGroup,self.__manufYear))
 
     def get_licensePlate(self):
         return self.__licensePlate
@@ -34,11 +34,6 @@ class car:
     def get_fuelType(self):
         return self.__fuelType
 
-    def get_availability(self):
-        return self.__availability
-
     def __repr__(self):
         return self.__str__()
-
-    
     

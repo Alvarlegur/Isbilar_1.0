@@ -9,14 +9,8 @@ class carService():
         if self.is_valid_car(car):
             self.__car_repo.add_car(car)
     
-    def get_availability(self):
-        return self.__car_repo.availability()
-
-    def get_availablecars(self):
-        return self.__car_repo.get_AvailCars()
-    
-    def get_unavailablecars(self):
-        return self.__car_repo.get_UnavailCars()
+    def get_car(self):
+        return self.__car_repo.get_car()
     
     def delete_car(self):
         return self.__car_repo.delete_car()
@@ -24,4 +18,9 @@ class carService():
     def is_valid_car(self,car):
         return True ## breyta þessu
     
-    
+    #def is_available(self,carID):
+       #return self.modelCar.get_availability(carID)
+
+    def add_customer(self,customer):
+        if self.is_valid_customer(customer):
+            self.__customer_repo.add_customer(customer)
