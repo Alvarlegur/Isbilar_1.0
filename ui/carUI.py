@@ -59,13 +59,13 @@ class carUI():
                 self.__car_service.add_car(new_car)
 
             elif choice == "2":
-                self.__car_service.get_availability()
-                cars = self.__car_service.get_availablecars()
+                self.__car_service.get_availability
+                cars = self.__car_service.get_availablecars
                 print(cars)
 
             elif choice == "3":
-                self.__car_service.get_availability()
-                cars = self.__car_service.get_unavailablecars()
+                self.__car_service.get_availability
+                cars = self.__car_service.get_unavailablecars
                 print(cars)
 
             elif choice == "4":
