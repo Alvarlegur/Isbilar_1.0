@@ -37,6 +37,12 @@ class car:
     def get_availability(self):
         return self.__availability
 
+    def set_availability(self):
+        if self.__availability == "available":
+            self.__availability = "unavailable"
+        else:
+            self.__availability = "available"
+
     def __repr__(self):
         return self.__str__()
     

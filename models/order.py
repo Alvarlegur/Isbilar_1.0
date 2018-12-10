@@ -62,7 +62,7 @@ class order:
         delta = dateReturn - dateHandover
         pg = self.get_priceGroupCost(self.__priceGroup)
         if self.__extrainsurance == "Yes":
-            total = delta.days * pg + 2000
+            total = delta.days * (pg + 2000)
         else:
             total = delta.days * pg
         return total

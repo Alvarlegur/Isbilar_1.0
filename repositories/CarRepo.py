@@ -16,7 +16,6 @@ class CarRepo():
             fuelType = car.get_fuelType()
             priceGroup = car.get_priceGroup().capitalize()
             manufYear = car.get_manufYear()
-<<<<<<< HEAD
             cars_file.write("{}, {}, {}, {}, {}, {}, {}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear))
 
     def availability(self):
@@ -31,23 +30,13 @@ class CarRepo():
     
     def return_randomCar(self, carType):
         carID = ""
-        print("i was here not in loop car repo")
         with open('./data/availablecars.csv','r') as aCar:
             reader = csv.DictReader(aCar)
             for row in reader:
-                print("i was here in for loop")
-                print(row['LicensePlate'])
-                print(row['priceGroup'])
                 if row['priceGroup'] == carType:
-                    print("i was here")
                     carID = row['LicensePlate']
-                    break #kemur ekki license plate
+                    break
         return carID
-=======
-            availability = car.get_availability()
-            cars_file.write("{}, {}, {}, {}, {}, {}, {},{}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,availability))
-
->>>>>>> 19d8bf9ed364083a5e01651c040328641cc27a8c
 
     def get_AvailCars(self):
         self.__cars = []
