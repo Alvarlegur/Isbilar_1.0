@@ -14,7 +14,7 @@ class CarRepo():
             typeCar = car.get_typeCar()
             manOrAuto = car.get_manOrAuto()
             fuelType = car.get_fuelType()
-            priceGroup = car.get_priceGroup()
+            priceGroup = car.get_priceGroup().capitalize()
             manufYear = car.get_manufYear()
             cars_file.write("{}, {}, {}, {}, {}, {}, {}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear))
 
