@@ -27,6 +27,21 @@ class CarRepo():
                     writer1.writerow(row)
                 else:
                     writer2.writerow(row)
+    
+    def return_randomCar(self, carType):
+        carID = ""
+        print("i was here not in loop car repo")
+        with open('./data/availablecars.csv','r') as aCar:
+            reader = csv.DictReader(aCar)
+            for row in reader:
+                print("i was here in for loop")
+                print(row['LicensePlate'])
+                print(row['priceGroup'])
+                if row['priceGroup'] == carType:
+                    print("i was here")
+                    carID = row['LicensePlate']
+                    break #kemur ekki license plate
+        return carID
 
     def get_AvailCars(self):
         if self.__cars == []:

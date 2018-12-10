@@ -1,12 +1,19 @@
 from repositories.orderRepo import orderRepo
+from repositories.CarRepo import CarRepo
 
 class orderService():
     def __init__(self):
         self.__order_repo = orderRepo()
+        self.__car_repo = CarRepo()
 
     def add_order(self,order):
         if self.is_valid_order(order):
             self.__order_repo.add_order(order)
+
+    def get_RandomAvailCar(self,carType):
+        print("i went in here order_service")
+        carToReturn = self.__car_repo.return_randomCar(carType)
+        return carToReturn
 
     def get_order(self):
         return self.__order_repo.get_order()

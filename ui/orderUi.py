@@ -19,20 +19,13 @@ class orderUI():
             choice = input("Choose an option: ").lower()
             
             if choice == '1':
-<<<<<<< HEAD
-                print("What type of car?: ")
-                priceGroup = input("(F for Folksbill 10.000kr \n J for Jeep 15.000kr \n L for Luxusbil 20.000kr)")
-=======
-                #orderID = input("Input orderID: ")
-                carID = input("License plate number: ")
-                while len(carID) != 5:
-                    print("Please enter a valid license plate number!")
-                    carID = input("input license Plate: ")
->>>>>>> 6863e85e848b1047de3bb12f57d44a2ebeecb0e0
-                #while carService.is_available(carID) != True:
-                    #print("This vehicle is not available, please try again")
-                    #carID = input("License plate number: ")
-                # checka hvort fastanr sé til í lausir bílar
+                print("F for Folksbill 10.000kr \n J for Jeppi 15.000kr \n L for Luxusbill 20.000kr")
+                priceGroup = input("What type of car?: ").capitalize()
+                while priceGroup != "F" and priceGroup != "J" and priceGroup != "L":
+                    print("Try again")
+                    priceGroup = input("Please choose F, J or L for car type: ").capitalize()
+                carID = self.__order_service.get_RandomAvailCar(priceGroup)
+                print("I've gone past the carID")
                 customerSSN = input("Customer social security number: ") 
                 # checka hvort það sé búið að skrá þennan
                 dateOfHandover = input("Pick-up date (dd/mm/yy): ")
@@ -45,12 +38,7 @@ class orderUI():
                     extrainsurance = "Yes"
                 elif extrainsurance == "n":
                     extrainsurance = "No"
-<<<<<<< HEAD
-                new_order = order(carID, customerSSN, dateOfHandover,returnDate, extrainsurance)
-=======
-                #orderTotal = input("Total Prize: ")
-                new_order = order(carID,customerSSN,dateOfHandover,returnDate,extrainsurance)
->>>>>>> 6863e85e848b1047de3bb12f57d44a2ebeecb0e0
+                new_order = order(carID, customerSSN, priceGroup, dateOfHandover,returnDate, extrainsurance)
                 self.__order_service.add_order(new_order)
 
             elif choice == '2':

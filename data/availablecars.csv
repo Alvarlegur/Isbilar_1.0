@@ -1,12 +1,12 @@
 LicensePlate,manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,status
 
-ABC12, Dacia, Duster, manual, bensin, JEPPI, 2018,available
+ABC12, Dacia, Duster, manual, bensin,J, 2018,available
 
-HJE55, Toyota, Rav, manual, bensin, JEPPI, 2017,available
+HJE55, Toyota, Rav, manual, bensin,J, 2017,available
 
-HJK12, Toyota, Yaris, m, bensin, JEPPI, 2016,available
+HJK12, Toyota, Yaris, m, bensin,J, 2016,available
 
-GHJ12, toyota, yaris, Manual, bensin, JEPPI, 2019,available
+GHJ12, toyota, yaris, Manual, bensin,J, 2019,available
 
-GJH22, Toyota, Yaris, Manual, Disel, LUXUSBILL, 2018, available
+GJH22, Toyota, Yaris, Manual, Disel,L, 2018, available
 

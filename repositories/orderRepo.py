@@ -7,11 +7,13 @@ class orderRepo():
     def add_order(self,order):
         with open ("./data/orders.csv", "a+") as orders_file:
             orderID = order.get_orderID()
+            carID = order.get_carID()
+            customerSSN = order.get_customerSSN()
             dateOfHandover = order.get_dateOfHandover()
             returnDate = order.get_returnDate()
             extraInsurance = order.get_extraInsurance()
             orderTotal = order.get_orderTotal()
-            orders_file.write("{},{},{},{},{}\n".format(orderID,dateOfHandover, returnDate, extraInsurance, orderTotal))
+            orders_file.write("{},{},{},{},{},{},{}\n".format(orderID,carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal))
 
     def get_order(self):
         if self.__order == []:
