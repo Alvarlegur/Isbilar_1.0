@@ -19,16 +19,8 @@ class orderUI():
             choice = input("Choose an option: ").lower()
             
             if choice == '1':
-<<<<<<< HEAD
                 print("What type of car?: ")
                 priceGroup = input("(F for Folksbill 10.000kr \n J for Jeep 15.000kr \n L for Luxusbil 20.000kr)")
-=======
-                #orderID = input("Input orderID: ")
-                carID = input("License plate number: ")
-                while len(carID) != 5:
-                    print("Please enter a valid license plate number!")
-                    carID = input("input license Plate: ")
->>>>>>> 6863e85e848b1047de3bb12f57d44a2ebeecb0e0
                 #while carService.is_available(carID) != True:
                     #print("This vehicle is not available, please try again")
                     #carID = input("License plate number: ")
@@ -45,12 +37,7 @@ class orderUI():
                     extrainsurance = "Yes"
                 elif extrainsurance == "n":
                     extrainsurance = "No"
-<<<<<<< HEAD
                 new_order = order(carID, customerSSN, dateOfHandover,returnDate, extrainsurance)
-=======
-                #orderTotal = input("Total Prize: ")
-                new_order = order(carID,customerSSN,dateOfHandover,returnDate,extrainsurance)
->>>>>>> 6863e85e848b1047de3bb12f57d44a2ebeecb0e0
                 self.__order_service.add_order(new_order)
 
             elif choice == '2':

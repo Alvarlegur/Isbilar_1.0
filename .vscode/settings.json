@@ -1,7 +1,3 @@
 {
-<<<<<<< HEAD
-  "python.pythonPath": "/usr/local/bin/python3"
-=======
-  "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.7/bin/python3"
->>>>>>> 6863e85e848b1047de3bb12f57d44a2ebeecb0e0
+  "python.pythonPath": "C:\\Users\\Notandi\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe"
 }
