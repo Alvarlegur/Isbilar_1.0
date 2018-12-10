@@ -8,7 +8,7 @@ class CarRepo():
         self.__cars = []
 
     def add_car(self,car):
-        with open ("./data/cars.txt","a+") as cars_file:
+        with open ("./data/cars.csv","a+") as cars_file:
             licensePlate = car.get_licensePlate()
             manufacturer = car.get_manufacturer()
             typeCar = car.get_typeCar()
@@ -16,6 +16,7 @@ class CarRepo():
             fuelType = car.get_fuelType()
             priceGroup = car.get_priceGroup().capitalize()
             manufYear = car.get_manufYear()
+<<<<<<< HEAD
             cars_file.write("{}, {}, {}, {}, {}, {}, {}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear))
 
     def availability(self):
@@ -42,26 +43,35 @@ class CarRepo():
                     carID = row['LicensePlate']
                     break #kemur ekki license plate
         return carID
+=======
+            availability = car.get_availability()
+            cars_file.write("{}, {}, {}, {}, {}, {}, {},{}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,availability))
+
+>>>>>>> 19d8bf9ed364083a5e01651c040328641cc27a8c
 
     def get_AvailCars(self):
-        if self.__cars == []:
-            with open('./data/availablecars.csv','r') as laust:
-                reader = csv.reader(laust)
-                for row in reader:
-                    self.__cars.append(row)
-        return self.__cars
+        self.__cars = []
+        with open('./data/cars.csv','r') as laust:
+            reader = csv.reader(laust)
+            for row in reader:
+                if row[7] != "unavailable":
+                    availCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
+                    self.__cars.append(availCars)
+        return self.__cars                  #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum
 
     def get_UnavailCars(self):
-        if self.__cars == []:
-            with open('.data/unavailablecars.csv','r') as tekid:
-                reader = csv.reader(tekid)
-                for row in reader:
-                    self.__cars.append(row)
-        return self.__cars
+        self.__cars = []
+        with open('./data/cars.csv','r') as tekid:
+            reader = csv.reader(tekid)
+            for row in reader:
+                if row[7] == "unavailable":
+                    unavailCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
+                    self.__cars.append(unavailCars)
+        return self.__cars                     #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum
 
     def delete_car(self):
         entername = str(input("Enter cars license plate: "))
-        with open("./data/cars.txt", "r+") as cars_file:
+        with open("./data/cars.csv", "r+") as cars_file:
             temp = cars_file.readlines()
             cars_file.seek(0)
             for line in temp:

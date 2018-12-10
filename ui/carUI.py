@@ -21,7 +21,7 @@ class carUI():
             choice = input("Choose a option: ").lower()
 
             if choice == "1":
-                licensePlate = input("input license Plate (5 letters): ")
+                licensePlate = input("input license Plate (5 letters): ").upper()
                 while len(licensePlate) != 5:
                     print("Try again!")
                     licensePlate = input("input license Plate: ")
@@ -54,17 +54,25 @@ class carUI():
                 elif priceGroup == "l":
                     priceGroup = "Luxusbill"
                 manufYear = input("input manufacturer year: ")
-                availability = input("available? ")
+                while len(manufYear) != 4:
+                    print("Try again!")
+                    manufYear = input("input manufacturer year: ")
+                availability = input("available? (Y = Yes, N = No): ").lower()
+                while availability != "y" and availability != "n":
+                    print("Try again!")
+                    availability = input("available? (Y = Yes, N = No").lower()
+                if availability == "y":
+                    availability = "available"
+                elif availability == "n":
+                    availability = "unavailable"
                 new_car = car(licensePlate,manufacturer,carType,manOrAuto,fuelType,priceGroup,manufYear,availability)
                 self.__car_service.add_car(new_car)
 
             elif choice == "2":
-                self.__car_service.get_availability()
                 cars = self.__car_service.get_availablecars()
                 print(cars)
 
             elif choice == "3":
-                self.__car_service.get_availability()
                 cars2 = self.__car_service.get_unavailablecars()
                 print(cars2)
 

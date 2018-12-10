@@ -19,6 +19,7 @@ class orderUI():
             choice = input("Choose an option: ").lower()
             
             if choice == '1':
+<<<<<<< HEAD
                 print("F for Folksbill 10.000kr \n J for Jeppi 15.000kr \n L for Luxusbill 20.000kr")
                 priceGroup = input("What type of car?: ").capitalize()
                 while priceGroup != "F" and priceGroup != "J" and priceGroup != "L":
@@ -27,9 +28,27 @@ class orderUI():
                 carID = self.__order_service.get_RandomAvailCar(priceGroup)
                 print("I've gone past the carID")
                 customerSSN = input("Customer social security number: ") 
+=======
+                print("What type of car?: ")
+                priceGroup = input("(F for Folksbill 10.000kr \n J for Jeep 15.000kr \n L for Luxusbil 20.000kr)")
+                #while carService.is_available(carID) != True:
+                    #print("This vehicle is not available, please try again")
+                    #carID = input("License plate number: ")
+                # checka hvort fastanr sé til í lausir bílar
+                customerSSN = input("Customer social security number: ")
+                while len(customerSSN) != 10:
+                    print("Please enter a valid SSN!")
+                    customerSSN = input("Customer social security number: ")
+>>>>>>> 19d8bf9ed364083a5e01651c040328641cc27a8c
                 # checka hvort það sé búið að skrá þennan
-                dateOfHandover = input("Pick-up date (dd/mm/yy): ")
+                dateOfHandover = input("Pick-up date (dd/mm/yyyy): ")
+                while len(dateOfHandover) != 8:
+                    print("Please enter a valid date!")
+                    dateOfHandover = input("Pick-up date (dd/mm/yyyy): ")
                 returnDate = input("Return date (dd/mm/yy): ")
+                while len(returnDate) !=8:
+                    print("Please enter a valid date!")
+                    returnDate = input("Return date (dd/mm/yy): ")
                 extrainsurance = input("Extra insurance (Y = Yes, N = No): ").lower()
                 while extrainsurance != "y" and extrainsurance != "n":
                     print("Please enter Y or N!")
@@ -38,7 +57,11 @@ class orderUI():
                     extrainsurance = "Yes"
                 elif extrainsurance == "n":
                     extrainsurance = "No"
+<<<<<<< HEAD
                 new_order = order(carID, customerSSN, priceGroup, dateOfHandover,returnDate, extrainsurance)
+=======
+                new_order = order(carID, customerSSN, dateOfHandover,returnDate, extrainsurance)
+>>>>>>> 19d8bf9ed364083a5e01651c040328641cc27a8c
                 self.__order_service.add_order(new_order)
 
             elif choice == '2':

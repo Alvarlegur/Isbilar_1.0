@@ -11,7 +11,7 @@ class car:
         self.__availability = availability
 
     def __str__(self):
-        return ("\t{}\n\t{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}\n".format("License Plate\tManufacturer\tType Car\tManual or Auto\tFuel Type\tPrice Group\tManufacturer Year\t",self.__licensePlate, self.__manufacturer,self.__typeCar,self.__manOrAuto,self.__fuelType,self.__priceGroup,self.__manufYear, self.__availability))
+        return ("\t{:>10s}\t{:>10s}\t{:>10s}\t{:>10s}\t{:>10s}\t{:>10s}\t{:>10s}\t{:>10s}\n".format(self.__licensePlate, self.__manufacturer,self.__typeCar,self.__manOrAuto,self.__fuelType,self.__priceGroup,self.__manufYear, self.__availability))
 
     def get_licensePlate(self):
         return self.__licensePlate

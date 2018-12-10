@@ -10,7 +10,7 @@ class customer:
         self.__SSN = SSN
 
     def __str__(self):
-        return "\t{:>5s}\n\t{:>5s}\t\t{:>5s}\t{:>5s}\n".format("First name\tLast name\tSSN",self.__firstName, self.__lastName, self.__SSN)
+        return "\t{:>5s}\n\t{:>5s}\t\t{:>5s}\t\t{:>5s}\n".format("First name\tLast name\tSSN",self.__firstName, self.__lastName, self.__SSN)
 
     def __repr__(self):
         return self.__str__()
