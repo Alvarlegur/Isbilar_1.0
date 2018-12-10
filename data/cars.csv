@@ -1,17 +1,12 @@
 licensePlate,manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,status
-ABC12, Dacia, Duster, manual, bensin, Jeppi, 2018,available
-HJE55, Toyota, Rav, manual, bensin, jeppi, 2017,available
-HJK12, Toyota, Yaris, m, bensin, jeppi, 2016,available
-GHJ12, toyota, yaris, Manual, bensin, jepip, 2019,available
-FHJ25, Toyota, Avenvis, Manual, Disel, Folksbill, 19932,unavailable
-HJE23, Toyota, yaris, Manual, Disel, Jeppi, 2006,unavailable
-FGH12, Toyota, yaris, Manual, Disel, Jeppi, 2007,unavailable
-GHYo2, Toyota, Yaris, Auto, Bensin, l, 1996,unavailable
-efju2, Dacia, Duster, Manual, Bensin, Luxusbill, 2018,unavailable
-HYU22, Toyota, Yaris, Manual, Bensin, Folksbill, 2008,unavailable
-GJH22, Toyota, Yaris, Manual, Disel, Luxusbill, 2018,available
-er123, Maaee, Efef, Manual, Bensin, Folksbill, 1992,available
-GJH12, Toyota, Yaris, Manual, Bensin, Folksbill, 2018,available
-efij1, Toyota, Yaris, Manual, Bensin, Jeppi, 2018,available
-jiu12, Toyota, Yaris, Manual, Disel, Folksbill, 2018,available
-efij1, Toyota, Yaris, Manual, Disel, Jeppi, 2011,available
+ABC12, Dacia, Duster, manual, bensin, JEPPI, 2018,available
+HJE55, Toyota, Rav, manual, bensin, JEPPI, 2017,available
+HJK12, Toyota, Yaris, m, bensin, JEPPI, 2016,available
+GHJ12, toyota, yaris, Manual, bensin, JEPPI, 2019,available
+FHJ25, Toyota, Avenvis, Manual, Disel, FOLKSBILL, 19932,unavailable
+HJE23, Toyota, yaris, Manual, Disel, JEPPI, 2006,unavailable
+FGH12, Toyota, yaris, Manual, Disel, JEPPI, 2007,unavailable
+GHYo2, Toyota, Yaris, Auto, Bensin, LUXUSBILL, 1996,unavailable
+efju2, Dacia, Duster, Manual, Bensin, LUXUSBILL, 2018,unavailable
+HYU22, Toyota, Yaris, Manual, Bensin, FOLKSBILL, 2008,unavailable
+GJH22, Toyota, Yaris, Manual, Disel, LUXUSBILL, 2018, available
