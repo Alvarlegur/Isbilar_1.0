@@ -25,10 +25,19 @@ class orderUI():
                     #print("This vehicle is not available, please try again")
                     #carID = input("License plate number: ")
                 # checka hvort fastanr sé til í lausir bílar
-                customerSSN = input("Customer social security number: ") 
+                customerSSN = input("Customer social security number: ")
+                while len(customerSSN) != 10:
+                    print("Please enter a valid SSN!")
+                    customerSSN = input("Customer social security number: ")
                 # checka hvort það sé búið að skrá þennan
-                dateOfHandover = input("Pick-up date (dd/mm/yy): ")
+                dateOfHandover = input("Pick-up date (dd/mm/yyyy): ")
+                while len(dateOfHandover) != 8:
+                    print("Please enter a valid date!")
+                    dateOfHandover = input("Pick-up date (dd/mm/yyyy): ")
                 returnDate = input("Return date (dd/mm/yy): ")
+                while len(returnDate) !=8:
+                    print("Please enter a valid date!")
+                    returnDate = input("Return date (dd/mm/yy): ")
                 extrainsurance = input("Extra insurance (Y = Yes, N = No): ").lower()
                 while extrainsurance != "y" and extrainsurance != "n":
                     print("Please enter Y or N!")
