@@ -8,7 +8,7 @@ class carService():
     def add_car(self,car):
         if self.is_valid_car(car):
             self.__car_repo.add_car(car)
-    
+
 
     def get_availablecars(self):
         return self.__car_repo.get_AvailCars()

@@ -1,4 +1,5 @@
 from models.customer import customer
+import csv
 
 class customerRepo:
     def __init__(self):
@@ -33,3 +34,11 @@ class customerRepo:
                 if not entername in line:
                     customers_file.write(line)
             customers_file.truncate()
+
+    def customerIsRegistered(self,x):
+        with open('./data/customers.csv', 'r') as cust:
+            reader = csv.reader(cust)
+            for row in reader:
+                if row['SSN'] == x: #þarf að laga þetta 
+                    return True
+        return False

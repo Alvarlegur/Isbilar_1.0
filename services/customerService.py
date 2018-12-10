@@ -17,3 +17,6 @@ class customerService():
     def is_valid_customer(self,customer):
         return True
         #######verður að breyta þessu
+    
+    def customerExists(self, x):
+        self.__customer_repo.customerIsRegistered(x)
