@@ -16,11 +16,14 @@ class orderUI():
             print("Press 3 to delete order")
             print("Press q to go back")
 
-            choice = input("Choice a option: ").lower()
+            choice = input("Choose an option: ").lower()
             
             if choice == '1':
                 #orderID = input("Input orderID: ")
                 carID = input("License plate number: ")
+                while len(carID) != 5:
+                    print("Please enter a valid license plate number!")
+                    carID = input("input license Plate: ")
                 #while carService.is_available(carID) != True:
                     #print("This vehicle is not available, please try again")
                     #carID = input("License plate number: ")
@@ -37,8 +40,8 @@ class orderUI():
                     extrainsurance = "Yes"
                 elif extrainsurance == "n":
                     extrainsurance = "No"
-                orderTotal = input("Total Prize: ")
-                new_order = order(orderID,dateOfHandover,returnDate,orderTotal)
+                #orderTotal = input("Total Prize: ")
+                new_order = order(carID,customerSSN,dateOfHandover,returnDate,extrainsurance)
                 self.__order_service.add_order(new_order)
 
             elif choice == '2':

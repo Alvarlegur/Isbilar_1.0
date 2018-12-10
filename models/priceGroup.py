@@ -5,4 +5,3 @@ class priceGroup():
     b = 15000
     c = 10000
   
-  
