@@ -27,7 +27,7 @@ class CarRepo():
             for row in reader:
                 if row[7] != "unavailable":
                     self.__cars.append(row)
-        return self.__cars
+        return self.__cars[1:]                   #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum
 
     def get_UnavailCars(self):
         self.__cars = []
@@ -36,7 +36,7 @@ class CarRepo():
             for row in reader:
                 if row[7] == "unavailable":
                     self.__cars.append(row)
-        return self.__cars
+        return self.__cars                      #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum
 
     def delete_car(self):
         entername = str(input("Enter cars license plate: "))
