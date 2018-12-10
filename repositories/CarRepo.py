@@ -26,8 +26,9 @@ class CarRepo():
             reader = csv.reader(laust)
             for row in reader:
                 if row[7] != "unavailable":
-                    self.__cars.append(row)
-        return self.__cars[1:]                   #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum
+                    availCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
+                    self.__cars.append(availCars)
+        return self.__cars                  #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum
 
     def get_UnavailCars(self):
         self.__cars = []
@@ -35,8 +36,9 @@ class CarRepo():
             reader = csv.reader(tekid)
             for row in reader:
                 if row[7] == "unavailable":
-                    self.__cars.append(row)
-        return self.__cars                      #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum
+                    unavailCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
+                    self.__cars.append(unavailCars)
+        return self.__cars                     #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum
 
     def delete_car(self):
         entername = str(input("Enter cars license plate: "))
