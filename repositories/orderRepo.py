@@ -1,16 +1,13 @@
 from models.order import order
-from models.car import car
 
 class orderRepo():
     def __init__(self):
         self.__order = []
-        self.__car = car()
 
     def add_order(self,order):
         with open ("./data/orders.csv", "a+") as orders_file:
             orderID = order.get_orderID()
             carID = order.get_carID()
-            
             customerSSN = order.get_customerSSN()
             dateOfHandover = order.get_dateOfHandover()
             returnDate = order.get_returnDate()

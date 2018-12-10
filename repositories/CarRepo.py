@@ -18,24 +18,16 @@ class CarRepo():
             manufYear = car.get_manufYear()
             cars_file.write("{}, {}, {}, {}, {}, {}, {}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear))
 
-    def availability(self):
-        with open('./data/cars.csv','r+') as inp, open('./data/availablecars.csv', 'w') as out1, open('./data/unavailablecars.csv','w') as out2:
-            writer1 = csv.writer(out1)
-            writer2 = csv.writer(out2)
-            for row in csv.reader(inp):
-                if row[7] != 'unavailable':
-                    writer1.writerow(row)
-                else:
-                    writer2.writerow(row)
-    
     def return_randomCar(self, carType):
         carID = ""
-        with open('./data/availablecars.csv','r') as aCar:
+        with open('./data/cars.csv','r') as aCar:
             reader = csv.DictReader(aCar)
             for row in reader:
-                if row['priceGroup'] == carType:
-                    carID = row['LicensePlate']
+                if row['priceGroup'] == carType and row['status'] == "available":
+                    carID = row['licensePlate']
+                    row['status'] = "unavailable"
                     break
+        print("CarID: " carID)
         return carID
 
     def get_AvailCars(self):
@@ -43,7 +35,7 @@ class CarRepo():
         with open('./data/cars.csv','r') as laust:
             reader = csv.reader(laust)
             for row in reader:
-                if row[7] != "unavailable":
+                if row['status'] != "unavailable":
                     availCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
                     self.__cars.append(availCars)
         return self.__cars                  #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum
@@ -53,7 +45,7 @@ class CarRepo():
         with open('./data/cars.csv','r') as tekid:
             reader = csv.reader(tekid)
             for row in reader:
-                if row[7] == "unavailable":
+                if row['status'] == "unavailable":
                     unavailCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
                     self.__cars.append(unavailCars)
         return self.__cars                     #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum

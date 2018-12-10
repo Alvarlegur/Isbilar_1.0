@@ -11,9 +11,7 @@ class orderService():
             self.__order_repo.add_order(order)
 
     def get_RandomAvailCar(self,carType):
-        print("i went in here order_service")
-        carToReturn = self.__car_repo.return_randomCar(carType)
-        return carToReturn
+        return self.__car_repo.return_randomCar(carType)
 
     def get_order(self):
         return self.__order_repo.get_order()

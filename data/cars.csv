@@ -1,12 +1,12 @@
 licensePlate,manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,status
-ABC12, Dacia, Duster, manual, bensin, J, 2018,available
-HJE55, Toyota, Rav, manual, bensin, J, 2017,available
-HJK12, Toyota, Yaris, m, bensin, J, 2016,available
-GHJ12, toyota, yaris, Manual, bensin, J, 2019,available
-FHJ25, Toyota, Avenvis, Manual, Disel, F, 19932,unavailable
-HJE23, Toyota, yaris, Manual, Disel, J, 2006,unavailable
-FGH12, Toyota, yaris, Manual, Disel, J, 2007,unavailable
-GHYo2, Toyota, Yaris, Auto, Bensin, L, 1996,unavailable
-efju2, Dacia, Duster, Manual, Bensin, L, 2018,unavailable
-HYU22, Toyota, Yaris, Manual, Bensin, F, 2008,unavailable
-GJH22, Toyota, Yaris, Manual, Disel, L, 2018, available
+ABC12,Dacia,Duster,manual,bensin,J,2018,available
+HJE55,Toyota,Rav,manual,bensin,J,2017,available
+HJK12,Toyota,Yaris,m,bensin,J,2016,available
+GHJ12,toyota,yaris,Manual,bensin,J,2019,available
+FHJ25,Toyota,Avenvis,Manual,Disel,F,19932,unavailable
+HJE23,Toyota,yaris,Manual,Disel,J,2006,unavailable
+FGH12,Toyota,yaris,Manual,Disel,J,2007,unavailable
+GHYo2,Toyota,Yaris,Auto,Bensin,L,1996,unavailable
+efju2,Dacia,Duster,Manual,Bensin,L,2018,unavailable
+HYU22,Toyota,Yaris,Manual,Bensin,F,2008,unavailable
+GJH22,Toyota,Yaris,Manual,Disel,L,2018,available
