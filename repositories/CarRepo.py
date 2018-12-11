@@ -26,8 +26,7 @@ class CarRepo():
             for row in reader:
                 if row['priceGroup'] == carType and row['status'] == "available":
                     carID = row['licensePlate']
-                    row['status'] = "unavailable" # vantar að finna út hvernig
-                    # ég get breytt status á bílnum yfir í unavailable eftir að ég set hann í pöntun
+                    row['status'] = "unavailable"
                     break
         print("CarID: " + carID)
         return carID
@@ -47,7 +46,7 @@ class CarRepo():
         with open('./data/cars.csv','r') as tekid:
             reader = csv.reader(tekid)
             for row in reader:
-                if row[7] == "unavailable":
+                if row[7] != "available":
                     unavailCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
                     self.__cars.append(unavailCars)
         return self.__cars                     
