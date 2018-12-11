@@ -46,7 +46,7 @@ class CarRepo():
         with open('./data/cars.csv','r') as tekid:
             reader = csv.reader(tekid)
             for row in reader:
-                if row[7] == "unavailable":
+                if row[7] != "available":
                     unavailCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
                     self.__cars.append(unavailCars)
         return self.__cars                     
