@@ -4,7 +4,7 @@ from datetime import datetime
 import csv
 
 class order:
-    def __init__(self, carID, customerSSN ,priceGroup, dateOfHandover, returnDate,extraInsurance):
+    def __init__(self, carID, customerSSN ,priceGroup, dateOfHandover, returnDate, extraInsurance, cardnum):
         self.__orderID = id(self)
         self.__carID = carID
         self.__customerSSN = customerSSN
@@ -12,10 +12,11 @@ class order:
         self.__dateOfHandover = dateOfHandover
         self.__returnDate = returnDate
         self.__extraInsurance = extraInsurance
+        self.__cardnum = cardnum
         self.__orderTotal = self.totalPrice()
 
     def __str__(self):
-        return "{}\t{}\t{}\t{}\t{}\t{}\t{} \n".format(self.__orderID, self.__carID, self.__customerSSN, self.__dateOfHandover, self.__returnDate, self.__extrainsurance, self.__orderTotal)
+        return "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{} \n".format(self.__orderID, self.__carID, self.__customerSSN, self.__dateOfHandover, self.__returnDate, self.__extraInsurance, self.__orderTotal, self.__cardnum)
 
     def get_orderID(self):
         return self.__orderID
@@ -33,7 +34,10 @@ class order:
         return self.__returnDate
 
     def get_extraInsurance(self):
-        return self.__extrainsurance
+        return self.__extraInsurance
+    
+    def get_cardnum(self):
+        return self.__cardnum
 
     def get_orderTotal(self):
         return self.__orderTotal
@@ -61,7 +65,7 @@ class order:
         dateHandover = datetime.strptime(self.__dateOfHandover, date_format)
         delta = dateReturn - dateHandover
         pg = self.get_priceGroupCost(self.__priceGroup)
-        if self.__extrainsurance == "Yes":
+        if self.__extraInsurance == "Yes":
             total = delta.days * (pg + 2000)
         else:
             total = delta.days * pg
