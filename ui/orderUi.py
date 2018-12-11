@@ -21,7 +21,7 @@ class orderUI():
             choice = input("Choose an option: ").lower()
             
             if choice == '1':
-                print("F for Folksbill 10.000kr \n J for Jeppi 15.000kr \n L for Luxusbill 20.000kr")
+                print("F for Folksbill 10.000kr \nJ for Jeppi 15.000kr \nL for Luxusbill 20.000kr")
                 priceGroup = input("What type of car?: ").capitalize()
                 while priceGroup != "F" and priceGroup != "J" and priceGroup != "L":
                     print("Try again")
