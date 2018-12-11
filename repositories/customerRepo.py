@@ -70,7 +70,7 @@ class customerRepo:
                         writer.writerow(row)
                         os.remove('./data/customers.csv')
                         os.rename('./data/temp.csv','./data/customers.csv')
-                    
+                        
                     elif choice == '2':
                         breyting = input("Enter a change of last name: ")
                         row['lastname'] = breyting
