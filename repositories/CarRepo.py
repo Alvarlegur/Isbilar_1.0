@@ -17,7 +17,7 @@ class CarRepo():
             priceGroup = car.get_priceGroup().capitalize()
             manufYear = car.get_manufYear()
             availability = car.get_availability()
-            cars_file.write("{},{},{},{},{},{},{}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,availability))
+            cars_file.write("{},{},{},{},{},{},{},{}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,availability))
 
     def return_randomCar(self, carType):
         carID = ""
@@ -37,7 +37,7 @@ class CarRepo():
         with open('./data/cars.csv','r') as laust:
             reader = csv.reader(laust)
             for row in reader:
-                if row['status'] != "unavailable":
+                if row[7] != "unavailable":
                     availCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
                     self.__cars.append(availCars)
         return self.__cars                  #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum
@@ -47,7 +47,7 @@ class CarRepo():
         with open('./data/cars.csv','r') as tekid:
             reader = csv.reader(tekid)
             for row in reader:
-                if row['status'] == "unavailable":
+                if row[7] == "unavailable":
                     unavailCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
                     self.__cars.append(unavailCars)
         return self.__cars                     #Vantar að setja inn í model lagið þannig að bílarnir prentist út frá __str__ fallinu í car klasanum
