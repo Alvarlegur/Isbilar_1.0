@@ -20,3 +20,6 @@ class customerService():
     
     def customerExists(self, x):
         return self.__customer_repo.customerIsRegistered(x)
+    
+    def changeCustomer(self):
+        return self.__customer_repo.changeCustomer()

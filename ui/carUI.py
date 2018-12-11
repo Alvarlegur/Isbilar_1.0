@@ -47,6 +47,12 @@ class carUI():
                 while priceGroup != "F" and priceGroup != "J" and priceGroup != "L":
                     print("Try again!")
                     priceGroup = input("input price group (F = Folksbill, J = Jeppi, L = Luxusbill): ").upper()
+                if priceGroup == "F":
+                    priceGroup = "FOLKSBILL"
+                elif priceGroup == "J":
+                    priceGroup = "JEPPI"
+                elif priceGroup == "L":
+                    priceGroup = "LUXUSBILL"
                 manufYear = input("input manufacturer year: ")
                 while len(manufYear) != 4:
                     print("Try again!")

@@ -23,3 +23,5 @@ class orderService():
         return True
         ### verður að breyta þessu
 
+    def changeOrder(self):
+        return self.__order_repo.changeOrder()
