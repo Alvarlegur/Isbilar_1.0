@@ -52,7 +52,11 @@ class orderUI():
                     extrainsurance = "Yes"
                 elif extrainsurance == "n":
                     extrainsurance = "No"
-                new_order = order(carID, customerSSN, priceGroup, dateOfHandover,returnDate, extrainsurance)
+                cardnum = input("Enter a creditcard number: ")
+                while len(cardnum) !=16:
+                    print("Please enter a valid creditcard number!")
+                    cardnum = input("Enter a creditcard number: ")
+                new_order = order(carID, customerSSN, priceGroup, dateOfHandover, returnDate, extrainsurance, cardnum)
                 self.__order_service.add_order(new_order)
 
             elif choice == '2':

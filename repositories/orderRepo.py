@@ -16,14 +16,15 @@ class orderRepo():
             returnDate = order.get_returnDate()
             extraInsurance = order.get_extraInsurance()
             orderTotal = order.get_orderTotal()
-            orders_file.write("{},{},{},{},{},{},{}\n".format(orderID,carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal))
+            cardnum = order.get_cardnum()
+            orders_file.write("{},{},{},{},{},{},{},{}\n".format(orderID,carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum))
 
     def get_order(self):
         if self.__order == []:
             with open ("./data/orders.csv", "r") as orders_file:
                 for line in orders_file.readlines():
-                    orderID, dateOfHandover, returnDate, orderTotal, extraInsurance = line.split(",")
-                    all_orders = order(orderID,dateOfHandover,returnDate,orderTotal,extraInsurance)
+                    orderID, carID, customerSSN, dateOfHandover, returnDate, orderTotal, extraInsurance, cardnum = line.split(",")
+                    all_orders = order(orderID,carID,customerSSN,dateOfHandover,returnDate,orderTotal,extraInsurance,cardnum)
                     self.__order.append(all_orders)
                     
         return self.__order
