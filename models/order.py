@@ -11,11 +11,11 @@ class order:
         self.__priceGroup = priceGroup
         self.__dateOfHandover = dateOfHandover
         self.__returnDate = returnDate
-        self.__extrainsurance = extraInsurance
+        self.__extraInsurance = extraInsurance
         self.__orderTotal = self.totalPrice()
 
     def __str__(self):
-        return "{}\t{}\t{}\t{}\t{}\t{}\t{} \n".format(self.__orderID,self.carID, self.__customerSSN, self.__dateOfHandover, self.__returnDate, self.__extrainsurance, self.__orderTotal)
+        return "{}\t{}\t{}\t{}\t{}\t{}\t{} \n".format(self.__orderID, self.__carID, self.__customerSSN, self.__dateOfHandover, self.__returnDate, self.__extrainsurance, self.__orderTotal)
 
     def get_orderID(self):
         return self.__orderID
