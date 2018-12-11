@@ -14,7 +14,6 @@ class customerUI():
             print("Press 4 to change a customer")
             print("Press q to go back")
             choice = input("choose an option: ").lower()
-            
             if choice == "1":
                 firstName = input("input first name: ").capitalize()
                 lastName = input("input last name: ").capitalize()
