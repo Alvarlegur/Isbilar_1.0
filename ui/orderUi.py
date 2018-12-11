@@ -29,8 +29,8 @@ class orderUI():
                 carID = self.__order_service.get_RandomAvailCar(priceGroup)
                 customerSSN = input("Customer social security number: ") 
                 while self.__customer_service.customerExists(customerSSN) != True:
-                    print("Please try again")
-                    customerSSN = input("Enter a registered SSN: ")
+                    print("Please enter a valid customer!")
+                    customerSSN = input("Enter a registered SSN: ")                
                 dateOfHandover = input("Pick-up date (dd/mm/yyyy): ")
                 while len(dateOfHandover) != 10:
                     print("Please enter a valid date!")

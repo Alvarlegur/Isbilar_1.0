@@ -19,7 +19,7 @@ class orderRepo():
         if self.__order == []:
             with open ("./data/orders.csv", "r") as orders_file:
                 for line in orders_file.readlines():
-                    orderID, dateOfHandover, returnDate, extraInsurance, orderTotal = line.split(",")
+                    orderID, dateOfHandover, returnDate, orderTotal, extraInsurance = line.split(",")
                     all_orders = order(orderID,dateOfHandover,returnDate,orderTotal,extraInsurance)
                     self.__order.append(all_orders)
                     
