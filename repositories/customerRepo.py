@@ -1,5 +1,6 @@
 from models.customer import customer
 import csv
+import os
 
 class customerRepo:
     def __init__(self):
@@ -43,3 +44,60 @@ class customerRepo:
                     print("Customer: " + row['firstName'])
                     return True
         return False
+    
+    def changeCustomer(self):
+        kennitala = str(input("Enter a customer SSN: "))
+        with open("./data/customers.csv",'r+') as customers_file_r, open("./data/temp.csv","w+") as customers_file_w:
+            reader = csv.DictReader(customers_file_r)
+            writer = csv.DictWriter(customers_file_w,fieldnames= ['firstName','lastname','passportID','country','SSN'])
+            writer.writeheader()
+            for row in reader:
+
+                if row['SSN'] != kennitala:
+                    writer.writerow(row)
+                if row['SSN'] == kennitala:
+                    
+                    print('1 to change first name')
+                    print('2 to change last name')
+                    print('3 to change passport ID')
+                    print('4 to change country of origin')
+                    print('5 to change SSN')
+                    
+                    choice = input("What would you like to change? ")
+                    if choice == '1':
+                        breyting = input("Enter a change of first name: ")
+                        row['firstName'] = breyting
+                        writer.writerow(row)
+                        os.remove('./data/customers.csv')
+                        os.rename('./data/temp.csv','./data/customers.csv')
+                    
+                    elif choice == '2':
+                        breyting = input("Enter a change of last name: ")
+                        row['lastname'] = breyting
+                        writer.writerow(row)
+                        os.remove('./data/customers.csv')
+                        os.rename('./data/temp.csv','./data/customers.csv')
+                    
+                    elif choice == '3':
+                        breyting = input("Enter a change of passport ID: ")
+                        row['passportID'] = breyting
+                        writer.writerow(row)
+                        os.remove('./data/customers.csv')
+                        os.rename('./data/temp.csv','./data/customers.csv')
+
+                    elif choice == '4':
+                        breyting = input("Enter a change of country of origin: ")
+                        row['country'] = breyting
+                        writer.writerow(row)
+                        os.remove('./data/customers.csv')
+                        os.rename('./data/temp.csv','./data/customers.csv')
+
+                    elif choice == '5':
+                        breyting = input("Enter a change of country of origin: ")
+                        row['SSN'] = breyting
+                        writer.writerow(row)
+                        os.remove('./data/customers.csv')
+                        os.rename('./data/temp.csv','./data/customers.csv')
+
+                    else:
+                        print("Incorrect SSN")
