@@ -12,14 +12,14 @@ class mainMenuUI():
         choice = ""
         print(" \n \n /$$$$$$           /$$       /$$ /$$ \n|_  $$_/          | $$      |__/| $$ \n  | $$    /$$$$$$$| $$$$$$$  /$$| $$  /$$$$$$   /$$$$$$ \n  | $$   /$$_____/| $$__  $$| $$| $$ |____  $$ /$$__  $$\n  | $$  |  $$$$$$ | $$  \ $$| $$| $$  /$$$$$$$| $$  \__/\n  | $$   \____  $$| $$  | $$| $$| $$ /$$__  $$| $$ \n /$$$$$$ /$$$$$$$/| $$$$$$$/| $$| $$|  $$$$$$$| $$  \n|______/|_______/ |_______/ |__/|__/ \_______/|__/   \n \n")
 
-        clear = lambda: os.system('cls')
         while choice != "q":
             print("Press 1 for Cars")
             print("Press 2 for Customers")
             print("Press 3 for Orders")
             print("Press q to quit")
             choice = input("choose an option: ").lower()
-            clear()
+
+            os.system('cls' if os.name == 'nt' else 'clear')
             if choice == "1":
                 ui = carUI()
                 ui.menu()
