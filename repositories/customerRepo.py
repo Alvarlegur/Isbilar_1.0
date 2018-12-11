@@ -37,8 +37,9 @@ class customerRepo:
 
     def customerIsRegistered(self,x):
         with open('./data/customers.csv', 'r') as cust:
-            reader = csv.reader(cust)
+            reader = csv.DictReader(cust)
             for row in reader:
-                if row['SSN'] == x: #þarf að laga þetta 
+                if row['SSN'] == x:
+                    print("Customer: " + row['firstName'])
                     return True
         return False

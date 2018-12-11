@@ -28,8 +28,7 @@ class orderUI():
                     priceGroup = input("Please choose F, J or L for car type: ").capitalize()
                 carID = self.__order_service.get_RandomAvailCar(priceGroup)
                 customerSSN = input("Customer social security number: ") 
-                # checka hvort það sé búið að skrá þennan
-                while self.__customer_service.customerExists(customerSSN) != True:
+                while self.__customer_service.customerExists(customerSSN) != False:
                     print("Please try again")
                     customerSSN = input("Enter a registered SSN: ")
                 dateOfHandover = input("Pick-up date (dd/mm/yyyy): ")
