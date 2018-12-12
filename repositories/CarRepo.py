@@ -26,7 +26,8 @@ class CarRepo():
             for row in reader:
                 if row['priceGroup'] == carType and row['status'] == "available":
                     carID = row['licensePlate']
-                    row['status'] = "unavailable"
+                    row['status'] = "unavailable" # vantar að finna út hvernig
+                    # ég get breytt status á bílnum yfir í unavailable eftir að ég set hann í pöntun
                     break
         print("CarID: " + carID)
         return carID

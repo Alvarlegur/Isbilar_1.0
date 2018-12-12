@@ -12,6 +12,7 @@ class carUI():
 
         choice = ""
         while choice != "q":
+            print("---------------CARS---------------\n")
             print("Press 1 to add a Car")
             print("Press 2 to print out available cars")
             print("Press 3 to print out unavailable cars")

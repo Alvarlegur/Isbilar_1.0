@@ -15,6 +15,7 @@ class orderUI():
         
         choice = ''
         while choice != 'q':
+            print("---------------ORDERS---------------\n")
             print("Press 1 to add a order")
             print("Press 2 to print out all orders")
             print("Press 3 to delete order")

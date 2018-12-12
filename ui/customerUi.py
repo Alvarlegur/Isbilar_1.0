@@ -8,6 +8,7 @@ class customerUI():
     def menu(self):
         choice = ""
         while choice != "q":
+            print("---------------CUSTOMERS---------------\n")
             print("Press 1 to add customer")
             print("Press 2 to list all customers")
             print("Press 3 to delete a customer")
