@@ -1,5 +1,6 @@
 from models.car import car
 import csv
+import os
 
 
 class CarRepo():
@@ -32,7 +33,7 @@ class CarRepo():
                     writer.writerow(row)
                     break
                 else:
-                writer.writerow(row)
+                    writer.writerow(row)
             for row in reader:
                 if row not in updCar:
                     writer.writerow(row)
