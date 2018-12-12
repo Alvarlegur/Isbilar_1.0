@@ -51,6 +51,9 @@ class orderUI():
                 while len(returnDate) !=10:
                     print("Please enter a valid date!")
                     returnDate = input("Return date (dd/mm/yyyy): ")
+                while dateOfHandover > returnDate or dateOfHandover == returnDate:
+                    print("Invalid dates, please try again.")
+                    returnDate = input("Return date (dd/mm/yyyy): ")
                 extrainsurance = input("Extra insurance (Y = Yes, N = No): ").lower()
                 while extrainsurance != "y" and extrainsurance != "n":
                     print("Please enter Y or N!")
