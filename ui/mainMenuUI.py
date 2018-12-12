@@ -31,5 +31,5 @@ class mainMenuUI():
             elif choice == "3":
                 ui3 = orderUI()
                 ui3.menu()
-            else:
+            elif choice != "q":
                 print("please try again")
