@@ -27,16 +27,22 @@ class orderUI():
             if choice == '1':
                 print("F for Folksbill 10.000kr \nJ for Jeppi 15.000kr \nL for Luxusbill 20.000kr")
                 priceGroup = input("What type of car?: ").lower()
-                while priceGroup != "f" and priceGroup != "j" and priceGroup != "l":
-                    print("Try again")
-                    priceGroup = input("Please choose F, J or L for car type: ").lower()
-                if priceGroup == "f":
-                    priceGroup = "Folksbill"
-                elif priceGroup == "j":
-                    priceGroup = "Jeppi"
-                elif priceGroup == "l":
-                    priceGroup = "Luxusbill"
-                carID = self.__order_service.get_RandomAvailCar(priceGroup)
+                carID = ""
+                while carID == "":
+                    while priceGroup != "f" and priceGroup != "j" and priceGroup != "l":
+                        print("Try again")
+                        priceGroup = input("Please choose F, J or L for car type: ").lower()
+                    if priceGroup == "f":
+                        priceGroup = "Folksbill"
+                    elif priceGroup == "j":
+                        priceGroup = "Jeppi"
+                    elif priceGroup == "l":
+                        priceGroup = "Luxusbill"
+                    carID = self.__order_service.get_RandomAvailCar(priceGroup)
+                    if carID == "":
+                        print("There are no cars available in this price group.")
+                    else:
+                        print("CarID: " + carID)
                 customerSSN = input("Customer social security number: ").upper()
                 while self.__customer_service.customerExists(customerSSN) != True:
                     print("Please try again \nYou can also press N to register new customer")
