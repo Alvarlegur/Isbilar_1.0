@@ -30,6 +30,12 @@ class orderUI():
                 while priceGroup != "F" and priceGroup != "J" and priceGroup != "L":
                     print("Try again")
                     priceGroup = input("Please choose F, J or L for car type: ").capitalize()
+                if priceGroup == "F":
+                    priceGroup = "Folksbill"
+                elif priceGroup == "J":
+                    priceGroup = "Jeppi"
+                elif priceGroup == "L":
+                    priceGroup = "Luxusbill"
                 carID = self.__order_service.get_RandomAvailCar(priceGroup)
                 customerSSN = input("Customer social security number: ").upper()
                 while self.__customer_service.customerExists(customerSSN) != True:
