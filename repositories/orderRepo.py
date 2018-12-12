@@ -17,7 +17,7 @@ class orderRepo():
             extraInsurance = order.get_extraInsurance()
             orderTotal = order.get_orderTotal()
             cardnum = order.get_cardnum()
-            orders_file.write("{},{},{},{},{},{},{},{}\n".format(orderID,carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum))
+            orders_file.write("{},{},{},{},{},{},{},{}\n".format(orderID, carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum))
 
     def get_order(self):
         if self.__order == []:
