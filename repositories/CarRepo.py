@@ -17,7 +17,7 @@ class CarRepo():
             priceGroup = car.get_priceGroup().capitalize()
             manufYear = car.get_manufYear()
             availability = car.get_availability()
-            cars_file.write("{},{},{},{},{},{},{},{}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,availability))
+            cars_file.write("{},{},{},{},{},{},{},{}\n".format(licensePlate,manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,availability))
 
     def return_randomCar(self, carType):
         carID = ""

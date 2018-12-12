@@ -12,7 +12,7 @@ class carUI():
 
         choice = ""
         while choice != "q":
-            print("---------------CARS---------------\n")
+            print("----------------CARS---------------\n")
             print("Press 1 to add a Car")
             print("Press 2 to print out available cars")
             print("Press 3 to print out unavailable cars")
@@ -26,46 +26,46 @@ class carUI():
                 while len(licensePlate) != 5:
                     print("Try again!")
                     licensePlate = input("input license Plate: ")
-                manufacturer = input("input manufacturer: ").upper()
-                carType = input("input Car Type: ").upper()
-                manOrAuto = input("input manual or auto (M = Manual, A = Auto): ").upper()
-                while manOrAuto != "M" and manOrAuto != "A":
+                manufacturer = input("input manufacturer: ").capitalize()
+                carType = input("input Car Type: ").capitalize()
+                manOrAuto = input("input manual or auto (M = Manual, A = Auto): ").lower()
+                while manOrAuto != "m" and manOrAuto != "a":
                     print("Try again!")
-                    manOrAuto = input("input manual or auto (M = Manual, A = Auto): ").upper()
-                if manOrAuto == "M":
-                        manOrAuto = "MANUAL"
-                elif manOrAuto == "A":
-                        manOrAuto = "AUTO"
-                fuelType = input("input fuel type (B = Bensin, D = Disel): ").upper()
-                while fuelType != "B" and fuelType != "D":
+                    manOrAuto = input("input manual or auto (M = Manual, A = Auto): ").lower()
+                if manOrAuto == "m":
+                        manOrAuto = "Manual"
+                elif manOrAuto == "a":
+                        manOrAuto = "Auto"
+                fuelType = input("input fuel type (B = Bensin, D = Disel): ").lower()
+                while fuelType != "b" and fuelType != "d":
                     print("Try again!")
-                    fuelType = input("input fuel type (B = Bensin, D = Disel): ").upper()
-                if fuelType == "B":
-                    fuelType = "BENSIN"
-                elif fuelType == "D":
-                    fuelType = "DISEL"
-                priceGroup = input("input price group (F = Folksbill, J = Jeppi, L = Luxusbill): ").upper()
-                while priceGroup != "F" and priceGroup != "J" and priceGroup != "L":
+                    fuelType = input("input fuel type (B = Bensin, D = Disel): ").lower()
+                if fuelType == "b":
+                    fuelType = "Bensin"
+                elif fuelType == "d":
+                    fuelType = "Disel"
+                priceGroup = input("input price group (F = Folksbill, J = Jeppi, L = Luxusbill): ").lower()
+                while priceGroup != "f" and priceGroup != "j" and priceGroup != "l":
                     print("Try again!")
-                    priceGroup = input("input price group (F = Folksbill, J = Jeppi, L = Luxusbill): ").upper()
-                if priceGroup == "F":
-                    priceGroup = "FOLKSBILL"
-                elif priceGroup == "J":
-                    priceGroup = "JEPPI"
-                elif priceGroup == "L":
-                    priceGroup = "LUXUSBILL"
+                    priceGroup = input("input price group (F = Folksbill, J = Jeppi, L = Luxusbill): ").lower()
+                if priceGroup == "f":
+                    priceGroup = "Folksbill"
+                elif priceGroup == "j":
+                    priceGroup = "Jeppi"
+                elif priceGroup == "l":
+                    priceGroup = "Luxusbill"
                 manufYear = input("input manufacturer year: ")
                 while len(manufYear) != 4:
                     print("Try again!")
                     manufYear = input("input manufacturer year: ")
-                availability = input("available? (Y = Yes, N = No): ").upper()
-                while availability != "Y" and availability != "N":
+                availability = input("available? (Y = Yes, N = No): ").lower()
+                while availability != "y" and availability != "n":
                     print("Try again!")
-                    availability = input("available? (Y = Yes, N = No").upper()
-                if availability == "Y":
-                    availability = "AVAILABLE"
-                elif availability == "N":
-                    availability = "UNAVAILABLE"
+                    availability = input("available? (Y = Yes, N = No").lower()
+                if availability == "y":
+                    availability = "available"
+                elif availability == "n":
+                    availability = "unavailable"
                 new_car = car(licensePlate,manufacturer,carType,manOrAuto,fuelType,priceGroup,manufYear,availability)
                 self.__car_service.add_car(new_car)
 
