@@ -9,7 +9,6 @@ class carService():
         if self.is_valid_car(car):
             self.__car_repo.add_car(car)
 
-
     def get_availablecars(self):
         return self.__car_repo.get_AvailCars()
     
@@ -20,5 +19,5 @@ class carService():
         return self.__car_repo.delete_car()
 
     def is_valid_car(self,car):
-        return True ## breyta þessu
+        return True
     

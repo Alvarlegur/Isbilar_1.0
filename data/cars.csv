@@ -1,6 +1,7 @@
 licensePlate,manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,status
-NUJ52,Toyota,Yaris,Manual,Bensin,Folksbill,2019,available
+NUJ52,Toyota,Yaris,Manual,Bensin,Folksbill,2019,unavailable
 GHJ12,Dacia,Duster,Manual,Bensin,Jeppi,2019,available
-LOI12,Mercedes,S class,Manual,Bensin,Luxusbill,2019,available
+LOI12,Mercedes,S class,Manual,Bensin,Luxusbill,2019,unavailable
 FEL12,Toyota,Yaris,Auto,Bensin,Folksbill,2018,unavailable
-HAX69,Mercedes benz,G-class,Auto,Disel,Luxusbill,2019,available
+HAX69,Mercedes benz,G-class,Auto,Disel,Luxusbill,2019,unavailable
+JM213,Toyota,Avensis,Auto,Bensin,Folksbill,2005,unavailable

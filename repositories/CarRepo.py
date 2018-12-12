@@ -39,7 +39,6 @@ class CarRepo():
                     writer.writerow(row)
             os.remove('./data/cars.csv')
             os.rename('./data/temp.csv','./data/cars.csv')
-            print("CarID: " + carID)
             return carID
 
     def get_AvailCars(self):
