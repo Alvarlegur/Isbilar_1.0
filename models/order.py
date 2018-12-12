@@ -12,11 +12,11 @@ class order:
         self.__dateOfHandover = dateOfHandover
         self.__returnDate = returnDate
         self.__extraInsurance = extraInsurance
-        self.__cardnum = cardnum
         self.__orderTotal = self.totalPrice()
+        self.__cardnum = cardnum
 
     def __str__(self):
-        return "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{} \n".format(self.__orderID, self.__carID, self.__customerSSN, self.__dateOfHandover, self.__returnDate, self.__extraInsurance, self.__orderTotal, self.__cardnum)
+        return "\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5} \n".format(self.__carID,self.__customerSSN, self.__dateOfHandover, self.__returnDate, self.__extraInsurance, self.__orderTotal, self.__cardnum)
 
     def get_orderID(self):
         return self.__orderID
@@ -47,11 +47,11 @@ class order:
 
     def get_priceGroupCost(self, x):
         pg = 0
-        if x == "F":
+        if x == "Folksbill":
             pg = 10000
-        elif x == "J":
+        elif x == "Jeppi":
             pg = 15000
-        elif x == "L":
+        elif x == "Luxusbill":
             pg = 20000
         return pg
             

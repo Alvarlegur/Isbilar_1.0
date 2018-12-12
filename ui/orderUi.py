@@ -15,6 +15,7 @@ class orderUI():
         
         choice = ''
         while choice != 'q':
+            print("---------------ORDERS---------------\n")
             print("Press 1 to add a order")
             print("Press 2 to print out all orders")
             print("Press 3 to delete order")
@@ -25,10 +26,16 @@ class orderUI():
             
             if choice == '1':
                 print("F for Folksbill 10.000kr \nJ for Jeppi 15.000kr \nL for Luxusbill 20.000kr")
-                priceGroup = input("What type of car?: ").capitalize()
-                while priceGroup != "F" and priceGroup != "J" and priceGroup != "L":
+                priceGroup = input("What type of car?: ").lower()
+                while priceGroup != "f" and priceGroup != "j" and priceGroup != "l":
                     print("Try again")
-                    priceGroup = input("Please choose F, J or L for car type: ").capitalize()
+                    priceGroup = input("Please choose F, J or L for car type: ").lower()
+                if priceGroup == "f":
+                    priceGroup = "Folksbill"
+                elif priceGroup == "j":
+                    priceGroup = "Jeppi"
+                elif priceGroup == "l":
+                    priceGroup = "Luxusbill"
                 carID = self.__order_service.get_RandomAvailCar(priceGroup)
                 customerSSN = input("Customer social security number: ").upper()
                 while self.__customer_service.customerExists(customerSSN) != True:

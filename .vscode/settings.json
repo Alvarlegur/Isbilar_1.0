@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
   "python.pythonPath": "/usr/local/bin/python3"
+=======
+  "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.7/bin/python3"
+>>>>>>> c52ff2a183888abbe93a7dc29f371bdbb948a91f
 }

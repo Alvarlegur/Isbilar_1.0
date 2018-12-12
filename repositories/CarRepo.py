@@ -1,5 +1,6 @@
 from models.car import car
 import csv
+import os
 
 
 class CarRepo():
@@ -17,19 +18,29 @@ class CarRepo():
             priceGroup = car.get_priceGroup().capitalize()
             manufYear = car.get_manufYear()
             availability = car.get_availability()
-            cars_file.write("{},{},{},{},{},{},{},{}\n".format(licensePlate, manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,availability))
+            cars_file.write("{},{},{},{},{},{},{},{}\n".format(licensePlate,manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,availability))
 
     def return_randomCar(self, carType):
         carID = ""
-        with open('./data/cars.csv','r') as aCar:
+        with open('./data/cars.csv','r') as aCar, open('./data/temp.csv','w+') as updCar:
             reader = csv.DictReader(aCar)
+            writer = csv.DictWriter(updCar,fieldnames= ['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
+            writer.writeheader()
             for row in reader:
                 if row['priceGroup'] == carType and row['status'] == "available":
-                    carID = row['licensePlate']
-                    row['status'] = "unavailable"
+                    carID += row['licensePlate']
+                    row['status'] = 'unavailable'
+                    writer.writerow(row)
                     break
-        print("CarID: " + carID)
-        return carID
+                else:
+                    writer.writerow(row)
+            for row in reader:
+                if row not in updCar:
+                    writer.writerow(row)
+            os.remove('./data/cars.csv')
+            os.rename('./data/temp.csv','./data/cars.csv')
+            print("CarID: " + carID)
+            return carID
 
     def get_AvailCars(self):
         self.__cars = []
