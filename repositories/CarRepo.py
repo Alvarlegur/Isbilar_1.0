@@ -8,7 +8,7 @@ class CarRepo():
 
     def __init__(self):
         self.__cars = []
-        self.check_status()
+        #self.check_status()
 
     def add_car(self,car):
         with open ("./data/cars.csv","a+") as cars_file:
