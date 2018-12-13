@@ -17,7 +17,7 @@ class order:
         self.__paymentMethod = paymentMethod
 
     def __str__(self):
-        return "\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5} \n".format(self.__orderID,self.__carID,self.__customerSSN, self.__dateOfHandover, self.__returnDate, self.__extraInsurance, self.__orderTotal, self.__cardnum)
+        return "\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5} \n".format(self.__orderID,self.__carID,self.__customerSSN, self.__dateOfHandover, self.__returnDate, self.__extraInsurance, self.__orderTotal, self.__cardnum, self.__paymentMethod)
 
     def get_orderID(self):
         return self.__orderID
