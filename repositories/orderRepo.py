@@ -12,6 +12,7 @@ class orderRepo():
         with open ("./data/orders.csv", "a+") as orders_file:
             orderID = order.get_orderID()
             carID = order.get_carID()
+            priceGroup = order.get_priceGroup()
             customerSSN = order.get_customerSSN()
             dateOfHandover = order.get_dateOfHandover()
             returnDate = order.get_returnDate()
@@ -23,12 +24,12 @@ class orderRepo():
 
     def get_order(self):
         if self.__order == []:
-            with open ("./data/orders.csv", "r") as orders_file:
-                for line in orders_file.readlines():
-                    orderID, carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum, paymentMethod = line.split(",")
-                    all_orders = order(carID,customerSSN,orderTotal,dateOfHandover,returnDate,extraInsurance,cardnum, paymentMethod)
+            with open('./data/orders.csv', 'r') as orders_file:
+                reader = csv.DictReader(orders_file)
+                for row in reader:
+                    all_orders = order(row['carID'],row['priceGroup'], row['customerSSN'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'], row['cardnum'], row['paymentMethod'])
                     self.__order.append(all_orders)
-        return self.__order
+            return self.__order
             
     def delete_order(self):
         entername = str(input("Enter orders ID: "))
@@ -47,12 +48,22 @@ class orderRepo():
             order_reader = csv.DictReader(orderReader)
             today = datetime.today().strftime('%d/%m/%Y')
             for row in order_reader:
-                if row['dateOfHandover'] <= today and row['returnDate']
+                if row['dateOfHandover'] <= today and row['returnDate'] >= today:
+                    carToChange = row['carID']
+                    for row in car_reader:
+                        if carToChange == row['carID']:
+                            row['status'] = 'unavailable'
+                            car_writer.writerow(row)
+                else:
+                    car_writer.writerow(row)
+            os.remove('./data/cars.csv')
+            os.rename('./data/temp.csv','./data/cars.csv')
+
     def changeOrder(self):
         orderID = str(input("Enter a order ID: "))
         with open("./data/orders.csv",'r+') as orders_file_r, open("./data/temp.csv","w+") as orders_file_w:
             reader = csv.DictReader(orders_file_r)
-            writer = csv.DictWriter(orders_file_w,fieldnames= ['orderID','carID','customerSSN','dateOfHandover','returnDate','extraInsurance','orderTotal','cardnum', 'paymentMethod'])
+            writer = csv.DictWriter(orders_file_w,fieldnames= ['orderID','carID','priceGroup','customerSSN','dateOfHandover','returnDate','extraInsurance','orderTotal','cardnum', 'paymentMethod'])
             writer.writeheader()
             for row in reader:
 

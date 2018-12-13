@@ -4,11 +4,11 @@ from datetime import datetime
 import csv
 
 class order:
-    def __init__(self, carID, customerSSN ,priceGroup, dateOfHandover, returnDate, extraInsurance, cardnum, paymentMethod):
+    def __init__(self, carID, priceGroup, customerSSN, dateOfHandover, returnDate, extraInsurance, cardnum, paymentMethod):
         self.__orderID = id(self)
         self.__carID = carID
-        self.__customerSSN = customerSSN
         self.__priceGroup = priceGroup
+        self.__customerSSN = customerSSN
         self.__dateOfHandover = dateOfHandover
         self.__returnDate = returnDate
         self.__extraInsurance = extraInsurance
@@ -42,6 +42,9 @@ class order:
 
     def get_paymentMethod(self):
         return self.__paymentMethod
+    
+    def get_priceGroup(self):
+        return self.__priceGroup
 
     def get_orderTotal(self):
         return self.__orderTotal
@@ -63,7 +66,7 @@ class order:
         return self.__priceGroup
 
     def totalPrice(self):
-        date_format = "%d/%m/%Y"
+        date_format = "%d-%m-%Y"
         total = 0
         dateReturn = datetime.strptime(self.__returnDate, date_format)
         dateHandover = datetime.strptime(self.__dateOfHandover, date_format)
