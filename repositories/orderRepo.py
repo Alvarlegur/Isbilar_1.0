@@ -25,17 +25,17 @@ class orderRepo():
             orders_file.write("{},{},{},{},{},{},{},{},{},{}".format(orderID,carID,priceGroup, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum, paymentMethod))
 
     def get_order(self):
-        if self.__order == []:
-            with open('./data/orders.csv', 'r') as orders_file:
-                reader = csv.DictReader(orders_file)
-                for row in reader:
-                    all_orders = order(row['carID'],row['customerSSN'], row['priceGroup'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'],row['cardnum'], row['paymentMethod'])
-                    self.__order.append("{}{}".format("\nORDER ID: ",row['orderID']))
-                    self.__order.append("{}{}{}".format("ORDER TOTAL: ",row['orderTotal']," ISK"))
-                    self.__order.append("\n\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>15}\t{:>10}".format("Car ID","SSN","Handover date","Return date","Insurance?","Credit card number","Credit,debit or money?"))
-                    self.__order.append(all_orders)
-                    self.__order.append("-"*135)
-            return self.__order
+        self.__order = []
+        with open('./data/orders.csv', 'r') as orders_file:
+            reader = csv.DictReader(orders_file)
+            for row in reader:
+                all_orders = order(row['carID'],row['customerSSN'], row['priceGroup'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'],row['cardnum'], row['paymentMethod'])
+                self.__order.append("{}{}".format("\nORDER ID: ",row['orderID']))
+                self.__order.append("{}{}{}".format("ORDER TOTAL: ",row['orderTotal']," ISK"))
+                self.__order.append("\n\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>15}\t{:>10}".format("Car ID","SSN","Handover date","Return date","Insurance?","Credit card number","Credit,debit or money?"))
+                self.__order.append(all_orders)
+                self.__order.append("-"*135)
+        return self.__order
             
     def delete_order(self):
         entername = str(input("Enter orders ID: "))
