@@ -72,7 +72,13 @@ class orderUI():
                 while len(cardnum) !=16:
                     print("Please enter a valid creditcard number!")
                     cardnum = input("Enter a creditcard number: ")
-                new_order = order(carID, customerSSN, priceGroup, dateOfHandover, returnDate, extrainsurance, cardnum)
+                print("Credit card (C), Debit card (D), Money (M)")
+                paymentMethod = input("Payment method: ").upper()
+                while paymentMethod != "C" and paymentMethod != "D" and paymentMethod != "M":
+                    print("Try again")
+                    print("Please input (C) for Credit card,(D) for Debit card and (M) Money")
+                    paymentMethod = input("Payment method: ").upper()
+                new_order = order(carID, customerSSN, priceGroup, dateOfHandover, returnDate, extrainsurance, cardnum, paymentMethod)
                 self.__order_service.add_order(new_order)
 
             elif choice == '2':
