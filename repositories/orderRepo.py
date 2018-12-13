@@ -30,12 +30,11 @@ class orderRepo():
                 reader = csv.DictReader(orders_file)
                 for row in reader:
                     all_orders = order(row['carID'],row['customerSSN'], row['priceGroup'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'],row['cardnum'], row['paymentMethod'])
-                    self.__order.append("\nORDER ID: ")
-                    self.__order.append(row['orderID'])
-                    self.__order.append("ORDER TOTAL: ")
-                    self.__order.append(row['orderTotal'])
-                    self.__order.append("\t{:>5s}\t{:>5s}\t\t{:>5s}\t{:>5s}\t{:>5s}\t{:>5s}\t\t{:>5s}\n".format("Car ID","SSN","handover date","return date","insurance?","credit card num","Credit,Debit or Cash?"))
+                    self.__order.append("{}{}".format("\nORDER ID: ",row['orderID']))
+                    self.__order.append("{}{}{}".format("ORDER TOTAL: ",row['orderTotal']," ISK"))
+                    self.__order.append("\n\t{:>5s}\t{:>5s}\t\t{:>5s}\t{:>5s}\t{:>5s}\t{:>5s}\t\t{:>5s}\n".format("Car ID","SSN","handover date","return date","insurance?","credit card num","Credit,Debit or Cash?"))
                     self.__order.append(all_orders)
+                    self.__order.append("-----------------------------------------------------------------------------------------------------------------------------")
             return self.__order
             
     def delete_order(self):
