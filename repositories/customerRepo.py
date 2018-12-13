@@ -28,6 +28,9 @@ class customerRepo:
 
     def delete_customer(self):
         entername = str(input("Enter customers SSN: "))
+        while entername.isalnum() =! True and len(entername) != 10:
+            print("Social security number has to be all numbers and with length 10\nPlease try again.")
+            entername = str(input("Enter customers SSN: "))
         with open("./data/customers.csv", "r+") as customers_file:
             temp = customers_file.readlines()
             customers_file.seek(0)
@@ -47,6 +50,9 @@ class customerRepo:
     
     def searchCustomer(self):
         target = input("Enter a customers SSN: ")
+        while target.isalnum() =! True and len(entername) != 10:
+            print("Social security number has to be all numbers and with length 10\nPlease try again.")
+            target = input("Enter customers SSN: ")
         with open('./data/customers.csv','r') as customers_file:
             reader = csv.DictReader(customers_file)
             for row in reader:
