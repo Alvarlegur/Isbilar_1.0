@@ -85,7 +85,7 @@ class orderUI():
                 orders = self.__order_service.get_order()
                 for allOrders in orders:
                     print(allOrders)
-            
+             
             elif choice == "3":
                 orders = self.__order_service.delete_order()
             
