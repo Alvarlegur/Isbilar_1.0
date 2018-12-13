@@ -30,6 +30,11 @@ class orderRepo():
                 reader = csv.DictReader(orders_file)
                 for row in reader:
                     all_orders = order(row['carID'],row['customerSSN'], row['priceGroup'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'],row['cardnum'], row['paymentMethod'])
+                    self.__order.append("\nORDER ID: ")
+                    self.__order.append(row['orderID'])
+                    self.__order.append("ORDER TOTAL: ")
+                    self.__order.append(row['orderTotal'])
+                    self.__order.append("\t{:>5s}\t{:>5s}\t\t{:>5s}\t{:>5s}\t{:>5s}\t{:>5s}\t\t{:>5s}\n".format("Car ID","SSN","handover date","return date","insurance?","credit card num","Credit,Debit or Cash?"))
                     self.__order.append(all_orders)
             return self.__order
             
@@ -48,7 +53,7 @@ class orderRepo():
             car_reader = csv.DictReader(carsReader)
             car_writer = csv.DictWriter(carWriter)
             order_reader = csv.DictReader(orderReader)
-            today = datetime.today().strftime('%d/%m/%Y')
+            today = datetime.today().strftime('%d-%m-%Y')
             for row in order_reader:
                 if row['dateOfHandover'] <= today and row['returnDate'] >= today:
                     carToChange = row['carID']

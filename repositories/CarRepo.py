@@ -68,7 +68,7 @@ class CarRepo():
             car_reader = csv.DictReader(carsReader)
             car_writer = csv.DictWriter(carWriter, fieldnames=['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
             order_reader = csv.DictReader(orderReader)
-            today = datetime.today().strftime('%d/%m/%Y')
+            today = datetime.today().strftime('%d-%m-%Y')
             for row in order_reader:
                 if row['dateOfHandover'] <= today and row['returnDate'] >= today:
                     carToChange = row['carID']
