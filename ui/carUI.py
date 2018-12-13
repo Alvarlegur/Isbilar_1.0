@@ -72,11 +72,13 @@ class carUI():
 
             elif choice == "2":
                 cars = self.__car_service.get_availablecars()
-                print(cars)
+                for availablecars in cars:
+                    print(availablecars)
 
             elif choice == "3":
                 cars2 = self.__car_service.get_unavailablecars()
-                print(cars2)
+                for unavailablecars in cars2:
+                    print(unavailablecars)
 
             elif choice == "4":
                 cars = self.__car_service.delete_car()

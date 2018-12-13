@@ -62,12 +62,15 @@ class CarRepo():
         return self.__cars
 
     def delete_car(self):
-        entername = str(input("Enter cars license plate: ")).upper()
-        with open("./data/cars.csv", "r+") as cars_file:
-            temp = cars_file.readlines()
-            cars_file.seek(0)
-            for line in temp:
-                if not entername in line:
-                    cars_file.write(line)
-            cars_file.truncate()
+        entername = str(input("Enter cars license plate: "))
+        with open("./data/cars.csv", "r+") as cars_file_r, open("./data/temp.csv", "w+") as cars_file_w:
+            reader = csv.DictReader(cars_file_r)
+            writer = csv.DictWriter(cars_file_w,fieldnames= ['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
+            writer.writeheader()
+            for row in reader:
+                if row['licensePlate'] != entername:
+                    writer.writerow(row)
+            os.remove('./data/cars.csv')
+            os.rename('./data/temp.csv','./data/cars.csv')
+
         

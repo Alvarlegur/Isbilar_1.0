@@ -31,13 +31,15 @@ class customerRepo:
         while entername.isalnum() != True and len(entername) != 10:
             print("Social security number has to be all numbers and with length 10\nPlease try again.")
             entername = str(input("Enter customers SSN: "))
-        with open("./data/customers.csv", "r+") as customers_file:
-            temp = customers_file.readlines()
-            customers_file.seek(0)
-            for line in temp:
-                if not entername in line:
-                    customers_file.write(line)
-            customers_file.truncate()
+        with open("./data/customers.csv", "r+") as customers_file_r, open("./data/temp.csv", "w+") as customers_file_w:
+            reader = csv.DictReader(customers_file_r)
+            writer = csv.DictWriter(customers_file_w,fieldnames= ['firstName','lastname','passportID','country','SSN'])
+            writer.writeheader()
+            for row in reader:
+                if row['SSN'] != entername:
+                    writer.writerow(row)
+        os.remove('./data/customers.csv')
+        os.rename('./data/temp.csv','./data/customers.csv')
 
     def customerIsRegistered(self,x):
         with open('./data/customers.csv', 'r') as customers_file:
