@@ -65,14 +65,14 @@ class customerRepo:
                     
                     choice = input("What would you like to change? ")
                     if choice == '1':
-                        breyting = input("Enter a change of first name: ")
+                        breyting = input("Enter a change of first name: ").capitalize()
                         row['firstName'] = breyting
                         writer.writerow(row)
                         os.remove('./data/customers.csv')
                         os.rename('./data/temp.csv','./data/customers.csv')
                         
                     elif choice == '2':
-                        breyting = input("Enter a change of last name: ")
+                        breyting = input("Enter a change of last name: ").capitalize()
                         row['lastname'] = breyting
                         writer.writerow(row)
                         os.remove('./data/customers.csv')
@@ -80,20 +80,26 @@ class customerRepo:
                     
                     elif choice == '3':
                         breyting = input("Enter a change of passport ID: ")
+                        while len(breyting) != 8:
+                            print("Enter a change of passport ID: ")
+                            breyting = input("Enter a change of passport ID: ")
                         row['passportID'] = breyting
                         writer.writerow(row)
                         os.remove('./data/customers.csv')
                         os.rename('./data/temp.csv','./data/customers.csv')
 
                     elif choice == '4':
-                        breyting = input("Enter a change of country of origin: ")
+                        breyting = input("Enter a change of country of origin: ").capitalize()
                         row['country'] = breyting
                         writer.writerow(row)
                         os.remove('./data/customers.csv')
                         os.rename('./data/temp.csv','./data/customers.csv')
 
                     elif choice == '5':
-                        breyting = input("Enter a change of country of origin: ")
+                        breyting = input("Enter a change of social security number: ")
+                        while len(breyting) != 10:
+                            print("Try again!")
+                            breyting = input("Input new social security number: ")
                         row['SSN'] = breyting
                         writer.writerow(row)
                         os.remove('./data/customers.csv')

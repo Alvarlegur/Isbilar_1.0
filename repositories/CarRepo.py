@@ -46,8 +46,8 @@ class CarRepo():
         with open('./data/cars.csv','r') as laust:
             reader = csv.reader(laust)
             for row in reader:
-                if row[7] != "unavailable":
-                    availCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
+                if row['status'] != "unavailable":
+                    availCars = car(row['licensePlate'],row['manufacturer'],row['typeCar'],row['manOrAuto'],row['fuelType'],row['priceGroup'],row['manufYear'],row['status'])
                     self.__cars.append(availCars)
         return self.__cars                  
 
@@ -62,7 +62,7 @@ class CarRepo():
         return self.__cars                     
 
     def delete_car(self):
-        entername = str(input("Enter cars license plate: "))
+        entername = str(input("Enter cars license plate: ")).upper()
         with open("./data/cars.csv", "r+") as cars_file:
             temp = cars_file.readlines()
             cars_file.seek(0)
