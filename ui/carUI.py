@@ -82,7 +82,7 @@ class carUI():
                 cars = self.__car_service.delete_car()
             
             elif choice == "5":
-                print("Sedan:   10.000isk per day\nJeep:    15.000isk per day\nLuxury:  20.000isk per day")
+                print("\nSedan:   10.000isk per day\nJeep:    15.000isk per day\nLuxury:  20.000isk per day\n")
 
             
             elif choice != "q":
