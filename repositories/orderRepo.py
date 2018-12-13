@@ -28,7 +28,7 @@ class orderRepo():
             with open('./data/orders.csv', 'r') as orders_file:
                 reader = csv.DictReader(orders_file)
                 for row in reader:
-                    all_orders = order(row['orderID'],row['carID'],row['customerSSN'], row['priceGroup'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'],row['cardnum'], row['orderTotal'], row['paymentMethod'])
+                    all_orders = order(row['carID'],row['customerSSN'], row['priceGroup'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'],row['cardnum'], row['paymentMethod'])
                     self.__order.append(all_orders)
             return self.__order
             
