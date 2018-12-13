@@ -48,7 +48,7 @@ class orderRepo():
             order_reader = csv.DictReader(orderReader)
             today = datetime.today().strftime('%d/%m/%Y')
             for row in order_reader:
-                if row['dateOfHandover'] <= today and row['returnDate']:
+                if row['dateOfHandover'] <= today and row['returnDate']==0:
                     pass
     def changeOrder(self):
         orderID = str(input("Enter a order ID: "))
