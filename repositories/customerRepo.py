@@ -56,11 +56,11 @@ class customerRepo:
 
                 if row['SSN'] == target:
                     print("")
-                    print("First name: " + row['firstName'])
-                    print("Last name: "+ row['lastname'])
-                    print("PassportID: " + row['passportID'])
-                    print("Country: " + row['country'])
-                    print("SSN: "+ row['SSN'])
+                    print("\nFirst name:\t" + row['firstName'])
+                    print("Last name:\t"+ row['lastname'])
+                    print("PassportID:\t" + row['passportID'])
+                    print("Country:\t" + row['country'])
+                    print("SSN:\t\t"+ row['SSN'])
                     return True
         return False
 
