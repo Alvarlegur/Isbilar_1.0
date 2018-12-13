@@ -4,8 +4,9 @@ from datetime import datetime
 import csv
 
 class order:
-    def __init__(self, carID, priceGroup, customerSSN, dateOfHandover, returnDate, extraInsurance, cardnum, paymentMethod):
+    def __init__(self,orderIdent, carID, customerSSN ,priceGroup, dateOfHandover, returnDate, extraInsurance, cardnum,orderTotal, paymentMethod):
         self.__orderID = id(self)
+        self.__orderIdent = orderIdent
         self.__carID = carID
         self.__priceGroup = priceGroup
         self.__customerSSN = customerSSN
@@ -17,7 +18,10 @@ class order:
         self.__paymentMethod = paymentMethod
 
     def __str__(self):
-        return "\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5} \n".format(self.__orderID,self.__carID,self.__customerSSN, self.__dateOfHandover, self.__returnDate, self.__extraInsurance, self.__priceGroup, self.__cardnum, self.__paymentMethod)
+        return "\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>10}\t{:>5}\t{:>5} \n".format(self.__orderIdent,self.__carID,self.__priceGroup, self.__dateOfHandover, self.__returnDate, self.__extraInsurance, self.__orderTotal, self.__cardnum, self.__paymentMethod)
+
+    def get_orderIdent(self):
+        return self.__orderIdent
 
     def get_orderID(self):
         return self.__orderID
@@ -62,8 +66,6 @@ class order:
             pg = 20000
         return pg
             
-    def get_priceGroup(self):
-        return self.__priceGroup
 
     def totalPrice(self):
         date_format = "%d-%m-%Y"
