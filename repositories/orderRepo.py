@@ -8,7 +8,7 @@ import os
 class orderRepo():
     def __init__(self):
         self.__order = []
-        carRepo.check_status()
+        #carRepo.check_status()
 
     def add_order(self,order):
         with open ("./data/orders.csv", "a+") as orders_file:
