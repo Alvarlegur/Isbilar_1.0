@@ -44,7 +44,10 @@ class orderRepo():
         with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+') as carWriter:
             car_reader = csv.DictReader(carsReader)
             car_writer = csv.DictWriter(carWriter)
-            
+            order_reader = csv.DictReader(orderReader)
+            today = datetime.today().strftime('%d/%m/%Y')
+            for row in order_reader:
+                if row['dateOfHandover'] <= today and row['returnDate']
     def changeOrder(self):
         orderID = str(input("Enter a order ID: "))
         with open("./data/orders.csv",'r+') as orders_file_r, open("./data/temp.csv","w+") as orders_file_w:
