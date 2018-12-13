@@ -18,3 +18,6 @@ class customerService():
     
     def changeCustomer(self):
         return self.__customer_repo.changeCustomer()
+
+    def searchCustomer(self):
+        return self.__customer_repo.searchCustomer()

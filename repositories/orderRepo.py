@@ -18,14 +18,15 @@ class orderRepo():
             extraInsurance = order.get_extraInsurance()
             orderTotal = order.get_orderTotal()
             cardnum = order.get_cardnum()
-            orders_file.write("{},{},{},{},{},{},{},{}\n".format(orderID,carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum))
+            paymentMethod = order.get_paymentMethod()
+            orders_file.write("{},{},{},{},{},{},{},{}\n".format(orderID,carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum, paymentMethod))
 
     def get_order(self):
         if self.__order == []:
             with open ("./data/orders.csv", "r") as orders_file:
                 for line in orders_file.readlines():
-                    orderID, carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum = line.split(",")
-                    all_orders = order(carID,customerSSN,orderTotal,dateOfHandover,returnDate,extraInsurance,cardnum)
+                    orderID, carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum, paymentMethod = line.split(",")
+                    all_orders = order(carID,customerSSN,orderTotal,dateOfHandover,returnDate,extraInsurance,cardnum, paymentMethod)
                     self.__order.append(all_orders)
                     
         return self.__order
@@ -44,7 +45,7 @@ class orderRepo():
         orderID = str(input("Enter a order ID: "))
         with open("./data/orders.csv",'r+') as orders_file_r, open("./data/temp.csv","w+") as orders_file_w:
             reader = csv.DictReader(orders_file_r)
-            writer = csv.DictWriter(orders_file_w,fieldnames= ['orderID','carID','customerSSN','dateOfHandover','returnDate','extraInsurance','orderTotal'])
+            writer = csv.DictWriter(orders_file_w,fieldnames= ['orderID','carID','customerSSN','dateOfHandover','returnDate','extraInsurance','orderTotal','cardnum', 'paymentMethod'])
             writer.writeheader()
             for row in reader:
 
@@ -58,6 +59,9 @@ class orderRepo():
                     print('4 to change return date: ')
                     print('5 to change extra insurance: ')
                     print('6 to change order total: ')
+                    print('7 to change cardnum')
+                    print('8 to change payment method')
+
                     
                     choice = input("What would you like to change? ")
                     if choice == '1':
@@ -98,6 +102,20 @@ class orderRepo():
                     elif choice == '6':
                         change = input("Enter a change of order total: ")
                         row['orderTotal'] = change
+                        writer.writerow(row)
+                        os.remove('./data/orders.csv')
+                        os.rename('./data/temp.csv','./data/orders.csv')
+                    
+                    elif choice == '7':
+                        change = input('Enter a change of card number: ')
+                        row['cardnum'] = change
+                        writer.writerow(row)
+                        os.remove('./data/orders.csv')
+                        os.rename('./data/temp.csv','./data/orders.csv')
+                    
+                    elif choice == '8':
+                        change = input('Enter a change of payment method: ')
+                        row['paymentMethod'] = change
                         writer.writerow(row)
                         os.remove('./data/orders.csv')
                         os.rename('./data/temp.csv','./data/orders.csv')
