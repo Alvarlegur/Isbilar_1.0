@@ -11,7 +11,7 @@ class orderRepo():
         #carRepo.check_status()
 
     def add_order(self,order):
-        with open ("./data/orders.csv", "a+") as orders_file:
+        with open ('./data/orders.csv', 'a+') as orders_file:
             orderID = order.get_orderID()
             carID = order.get_carID()
             priceGroup = order.get_priceGroup()
@@ -38,14 +38,16 @@ class orderRepo():
         return self.__order
             
     def delete_order(self):
-        entername = str(input("Enter orders ID: "))
-        with open("./data/orders.csv", "r+") as orders_file:
-            temp = orders_file.readlines()
-            orders_file.seek(0)
-            for line in temp:
-                if not entername in line:
-                    orders_file.write(line)
-            orders_file.truncate()
+        orderid = str(input("Enter orders ID: "))
+        with open("./data/orders.csv", "r+") as orders, open("./data/temp.csv", "w+") as updOrders:
+            reader = csv.DictReader(orders)
+            writer = csv.DictWriter(updOrders, fieldnames = ['orderID','carID','priceGroup','customerSSN','dateOfHandover','returnDate','extraInsurance','orderTotal','cardnum', 'paymentMethod'])
+            writer.writeheader()
+            for row in reader:
+                if row['orderID'] != orderid:
+                    writer.writerow(row)
+        os.remove('./data/orders.csv')
+        os.rename('./data/temp.csv','./data/orders.csv')
     
     def check_status(self):
         with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+') as carWriter:

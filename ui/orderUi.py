@@ -49,17 +49,17 @@ class orderUI():
                     customerSSN = input("Enter a registered SSN: ").upper()
                     if customerSSN == 'N':
                         self.__custUI.menu()
-                dateOfHandover = input("Pick-up date (dd/mm/yyyy): ")
+                dateOfHandover = input("Pick-up date (dd-mm-yyyy): ")
                 while len(dateOfHandover) != 10:
                     print("Please enter a valid date!")
-                    dateOfHandover = input("Pick-up date (dd/mm/yyyy): ")
-                returnDate = input("Return date (dd/mm/yyyy): ")
+                    dateOfHandover = input("Pick-up date (dd-mm-yyyy): ")
+                returnDate = input("Return date (dd-mm-yyyy): ")
                 while len(returnDate) !=10:
                     print("Please enter a valid date!")
-                    returnDate = input("Return date (dd/mm/yyyy): ")
+                    returnDate = input("Return date (dd-mm-yyyy): ")
                 while dateOfHandover >= returnDate: 
                     print("Invalid dates, please try again.")
-                    returnDate = input("Return date (dd/mm/yyyy): ")
+                    returnDate = input("Return date (dd-mm-yyyy): ")
                 extrainsurance = input("Extra insurance (Y = Yes, N = No): ").lower()
                 while extrainsurance != "y" and extrainsurance != "n":
                     print("Please enter Y or N!")
