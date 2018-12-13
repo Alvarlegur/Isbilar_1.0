@@ -8,6 +8,7 @@ class orderRepo():
     def __init__(self):
         self.__order = []
 
+
     def add_order(self,order):
         with open ("./data/orders.csv", "a+") as orders_file:
             orderID = order.get_orderID()
@@ -47,7 +48,8 @@ class orderRepo():
             order_reader = csv.DictReader(orderReader)
             today = datetime.today().strftime('%d/%m/%Y')
             for row in order_reader:
-                if row['dateOfHandover'] <= today and row['returnDate']
+                if row['dateOfHandover'] <= today and row['returnDate']:
+                    pass
     def changeOrder(self):
         orderID = str(input("Enter a order ID: "))
         with open("./data/orders.csv",'r+') as orders_file_r, open("./data/temp.csv","w+") as orders_file_w:

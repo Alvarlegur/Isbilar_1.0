@@ -33,7 +33,8 @@ class customerUI():
 
             elif choice == "2":
                 customers = self.__customerService.get_customer()
-                print(customers)
+                for allCustomers in customers:
+                    print(allCustomers)
             
             elif choice == "3":
                 customers = self.__customerService.delete_customer()
