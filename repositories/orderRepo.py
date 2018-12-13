@@ -19,7 +19,7 @@ class orderRepo():
             orderTotal = order.get_orderTotal()
             cardnum = order.get_cardnum()
             paymentMethod = order.get_paymentMethod()
-            orders_file.write("{},{},{},{},{},{},{},{}\n".format(orderID,carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum, paymentMethod))
+            orders_file.write("{},{},{},{},{},{},{},{},{}\n".format(orderID,carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum, paymentMethod))
 
     def get_order(self):
         if self.__order == []:
