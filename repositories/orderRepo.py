@@ -1,5 +1,6 @@
 from models.order import order
 from datetime import datetime
+from repositories.CarRepo import CarRepo
 import csv
 import os
 
@@ -7,7 +8,7 @@ import os
 class orderRepo():
     def __init__(self):
         self.__order = []
-
+        carRepo.check_status()
 
     def add_order(self,order):
         with open ("./data/orders.csv", "a+") as orders_file:
