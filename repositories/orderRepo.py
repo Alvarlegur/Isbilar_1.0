@@ -21,14 +21,14 @@ class orderRepo():
             orderTotal = order.get_orderTotal()
             cardnum = order.get_cardnum()
             paymentMethod = order.get_paymentMethod()
-            orders_file.write("{},{},{},{},{},{},{},{},{}\n".format(orderID,carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum, paymentMethod))
+            orders_file.write("{},{},{},{},{},{},{},{},{},{}\n".format(orderID,carID,priceGroup, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum, paymentMethod))
 
     def get_order(self):
         if self.__order == []:
             with open('./data/orders.csv', 'r') as orders_file:
                 reader = csv.DictReader(orders_file)
                 for row in reader:
-                    all_orders = order(row['carID'],row['priceGroup'], row['customerSSN'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'], row['cardnum'], row['paymentMethod'])
+                    all_orders = order(row['orderID'],row['carID'],row['customerSSN'], row['priceGroup'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'],row['cardnum'], row['orderTotal'], row['paymentMethod'])
                     self.__order.append(all_orders)
             return self.__order
             
