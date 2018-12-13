@@ -17,6 +17,7 @@ class carUI():
             print("Press 2 to print out available cars")
             print("Press 3 to print out unavailable cars")
             print("Press 4 to delete car")
+            print("Press 5 to print out pricelist")
             print("Press q to go back")
 
             choice = input("Choose a option: ").lower()
@@ -79,6 +80,10 @@ class carUI():
 
             elif choice == "4":
                 cars = self.__car_service.delete_car()
+            
+            elif choice == "5":
+                print("Sedan:   10.000isk per day\nJeep:    15.000isk per day\nLuxury:  20.000isk per day")
+
             
             elif choice != "q":
                 print("Please try again!")
