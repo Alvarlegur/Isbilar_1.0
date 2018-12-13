@@ -13,6 +13,7 @@ class customerUI():
             print("Press 2 to list all customers")
             print("Press 3 to delete a customer")
             print("Press 4 to change a customer")
+            print("Press 5 to search for a customer")
             print("Press q to go back")
             choice = input("choose an option: ").lower()
             if choice == "1":
@@ -39,3 +40,6 @@ class customerUI():
             
             elif choice == "4":
                 customers = self.__customerService.changeCustomer()
+
+            elif choice == "5":
+                customers = self.__customerService.searchCustomer()

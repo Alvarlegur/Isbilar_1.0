@@ -37,14 +37,28 @@ class customerRepo:
             customers_file.truncate()
 
     def customerIsRegistered(self,x):
-        with open('./data/customers.csv', 'r') as cust:
-            reader = csv.DictReader(cust)
+        with open('./data/customers.csv', 'r') as customers_file:
+            reader = csv.DictReader(customers_file)
             for row in reader:
                 if row['SSN'] == x:
                     print("Customer: " + row['firstName'])
                     return True
         return False
     
+    def searchCustomer(self):
+        target = input("Enter a customers SSN: ")
+        with open('./data/customers.csv','r') as customers_file:
+            reader = csv.DictReader(customers_file)
+            for row in reader:
+                if row['SSN'] == target:
+                    print("First name: " + row['firstName'])
+                    print("Last name: "+ row['lastname'])
+                    print("PassportID: " + row['passportID'])
+                    print("Country: " + row['country'])
+                    print("SSN: "+ row['SSN'])
+                    return True
+        return False
+
     def changeCustomer(self):
         kennitala = str(input("Enter a customer SSN: "))
         with open("./data/customers.csv",'r+') as customers_file_r, open("./data/temp.csv","w+") as customers_file_w:
