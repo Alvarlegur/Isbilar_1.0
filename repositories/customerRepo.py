@@ -61,6 +61,7 @@ class customerRepo:
                     print("PassportID:\t" + row['passportID'])
                     print("Country:\t" + row['country'])
                     print("SSN:\t\t"+ row['SSN'])
+                    print("")
                     return True
         return False
 
