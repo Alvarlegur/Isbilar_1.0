@@ -46,8 +46,8 @@ class CarRepo():
         with open('./data/cars.csv','r') as laust:
             reader = csv.reader(laust)
             for row in reader:
-                if row['status'] != "unavailable":
-                    availCars = car(row['licensePlate'],row['manufacturer'],row['typeCar'],row['manOrAuto'],row['fuelType'],row['priceGroup'],row['manufYear'],row['status'])
+                if row[7] != "unavailable":
+                    availCars = car(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
                     self.__cars.append(availCars)
         return self.__cars                  
 
