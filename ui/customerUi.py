@@ -43,3 +43,7 @@ class customerUI():
 
             elif choice == "5":
                 customers = self.__customerService.searchCustomer()
+                while customers != True:
+                    print("No customer found")
+                    customers = self.__customerService.searchCustomer()
+

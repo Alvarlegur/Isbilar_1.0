@@ -28,7 +28,6 @@ class orderRepo():
                     orderID, carID, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum, paymentMethod = line.split(",")
                     all_orders = order(carID,customerSSN,orderTotal,dateOfHandover,returnDate,extraInsurance,cardnum, paymentMethod)
                     self.__order.append(all_orders)
-                    
         return self.__order
             
     def delete_order(self):

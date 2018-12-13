@@ -50,10 +50,6 @@ class customerRepo:
         with open('./data/customers.csv','r') as customers_file:
             reader = csv.DictReader(customers_file)
             for row in reader:
-                while row['SSN'] != target:
-                    print("customer not found, try again!")
-                    target = input("Enter a customers SSN: ")
-
                 if row['SSN'] == target:
                     print("")
                     print("\nFirst name:\t" + row['firstName'])
