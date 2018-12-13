@@ -4,9 +4,8 @@ from datetime import datetime
 import csv
 
 class order:
-    def __init__(self,orderIdent, carID, customerSSN ,priceGroup, dateOfHandover, returnDate, extraInsurance, cardnum,orderTotal, paymentMethod):
+    def __init__(self, carID, customerSSN ,priceGroup, dateOfHandover, returnDate, extraInsurance, cardnum, paymentMethod):
         self.__orderID = id(self)
-        self.__orderIdent = orderIdent
         self.__carID = carID
         self.__priceGroup = priceGroup
         self.__customerSSN = customerSSN
@@ -18,10 +17,7 @@ class order:
         self.__paymentMethod = paymentMethod
 
     def __str__(self):
-        return "\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>10}\t{:>5}\t{:>5} \n".format(self.__orderIdent,self.__carID,self.__priceGroup, self.__dateOfHandover, self.__returnDate, self.__extraInsurance, self.__orderTotal, self.__cardnum, self.__paymentMethod)
-
-    def get_orderIdent(self):
-        return self.__orderIdent
+        return "\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>15}\t\t{:>10}\n".format(self.__carID,self.__customerSSN, self.__dateOfHandover, self.__returnDate, self.__extraInsurance, self.__cardnum, self.__paymentMethod)
 
     def get_orderID(self):
         return self.__orderID
