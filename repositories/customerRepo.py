@@ -17,12 +17,12 @@ class customerRepo:
 
 
     def get_customer(self):
-        if self.__customer == []:
-            with open("./data/customers.csv", "r") as customers_file:
-                for line in customers_file.readlines():
-                    firstName,lastName,passportID, country, SSN = line.split(",")
-                    all_customers = customer(firstName,lastName,passportID, country, SSN)
-                    self.__customer.append(all_customers)
+        self.__customer = []
+        with open("./data/customers.csv", "r") as customers_file:
+            for line in customers_file.readlines():
+                firstName,lastName,passportID, country, SSN = line.split(",")
+                all_customers = customer(firstName,lastName,passportID, country, SSN)
+                self.__customer.append(all_customers)
 
         return self.__customer
 
