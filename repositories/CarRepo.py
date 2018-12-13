@@ -24,7 +24,7 @@ class CarRepo():
 
     def return_randomCar(self, carType):
         carID = ""
-        with open('./data/cars.csv','r') as aCar, open('./data/temp.csv','w+') as updCar:
+        with open('./data/cars.csv','r') as aCar, open('./data/temp.csv','w+',newline="") as updCar:
             reader = csv.DictReader(aCar)
             writer = csv.DictWriter(updCar,fieldnames= ['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
             writer.writeheader()
@@ -39,9 +39,10 @@ class CarRepo():
             for row in reader:
                 if row not in updCar:
                     writer.writerow(row)
-            os.remove('./data/cars.csv')
-            os.rename('./data/temp.csv','./data/cars.csv')
-            return carID
+        os.remove('./data/cars.csv')
+        os.replace('./data/temp.csv','./data/cars.csv')
+        return carID
+            
 
     def get_AvailCars(self):
         self.__cars = []
@@ -64,7 +65,7 @@ class CarRepo():
         return self.__cars
 
     def check_status(self):
-        with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+') as carWriter:
+        with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+',newline="") as carWriter:
             car_reader = csv.DictReader(carsReader)
             car_writer = csv.DictWriter(carWriter, fieldnames=['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
             order_reader = csv.DictReader(orderReader)
@@ -78,19 +79,19 @@ class CarRepo():
                             car_writer.writerow(row2)
                 else:
                     car_writer.writerow(row)
-            os.remove('./data/cars.csv')
-            os.rename('./data/temp.csv','./data/cars.csv')
+        os.remove('./data/cars.csv')
+        os.replace('./data/temp.csv','./data/cars.csv')
 
     def delete_car(self):
         entername = str(input("Enter cars license plate: "))
-        with open("./data/cars.csv", "r+") as cars_file_r, open("./data/temp.csv", "w+") as cars_file_w:
+        with open("./data/cars.csv", "r+") as cars_file_r, open("./data/temp.csv", "w+",newline="") as cars_file_w:
             reader = csv.DictReader(cars_file_r)
             writer = csv.DictWriter(cars_file_w,fieldnames= ['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
             writer.writeheader()
             for row in reader:
                 if row['licensePlate'] != entername:
                     writer.writerow(row)
-            os.remove('./data/cars.csv')
-            os.rename('./data/temp.csv','./data/cars.csv')
+        os.remove('./data/cars.csv')
+        os.replace('./data/temp.csv','./data/cars.csv')
 
         
