@@ -45,16 +45,16 @@ class carUI():
                     fuelType = "Bensin"
                 elif fuelType == "d":
                     fuelType = "Disel"
-                priceGroup = input("input price group (F = Folksbill, J = Jeppi, L = Luxusbill): ").lower()
-                while priceGroup != "f" and priceGroup != "j" and priceGroup != "l":
+                priceGroup = input("input price group (S = Sedan, J = Jeep, L = Luxury): ").lower()
+                while priceGroup != "s" and priceGroup != "j" and priceGroup != "l":
                     print("Try again!")
-                    priceGroup = input("input price group (F = Folksbill, J = Jeppi, L = Luxusbill): ").lower()
-                if priceGroup == "f":
-                    priceGroup = "Folksbill"
+                    priceGroup = input("input price group (S = Sedan, J = Jeep, L = Luxury): ").lower()
+                if priceGroup == "s":
+                    priceGroup = "Sedan"
                 elif priceGroup == "j":
-                    priceGroup = "Jeppi"
+                    priceGroup = "Jeep"
                 elif priceGroup == "l":
-                    priceGroup = "Luxusbill"
+                    priceGroup = "Luxury"
                 manufYear = input("input manufacturer year: ")
                 while len(manufYear) != 4:
                     print("Try again!")

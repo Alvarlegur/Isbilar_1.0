@@ -63,25 +63,6 @@ class CarRepo():
                     self.__cars.append(unavailCars)
         return self.__cars
 
-<<<<<<< HEAD
-    # def check_status(self):
-    #     with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+') as carWriter:
-    #         car_reader = csv.DictReader(carsReader)
-    #         car_writer = csv.DictWriter(carWriter, fieldnames=['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
-    #         order_reader = csv.DictReader(orderReader)
-    #         today = datetime.today().strftime('%d/%m/%Y')
-    #         for row in order_reader:
-    #             if row['dateOfHandover'] <= today and row['returnDate'] >= today:
-    #                 carToChange = row['carID']
-    #                 for row2 in car_reader:
-    #                     if carToChange == row2['carID']:
-    #                         row2['status'] = 'unavailable'
-    #                         car_writer.writerow(row2)
-    #             else:
-    #                 car_writer.writerow(row)
-    #         os.remove('./data/cars.csv')
-    #         os.rename('./data/temp.csv','./data/cars.csv')
-=======
     def check_status(self):
         with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+') as carWriter:
             car_reader = csv.DictReader(carsReader)
@@ -99,7 +80,6 @@ class CarRepo():
                     car_writer.writerow(row)
             os.remove('./data/cars.csv')
             os.rename('./data/temp.csv','./data/cars.csv')
->>>>>>> f99d68ea573b5b8536b3a3771acfa1cfd6eb8636
 
     def delete_car(self):
         entername = str(input("Enter cars license plate: "))
