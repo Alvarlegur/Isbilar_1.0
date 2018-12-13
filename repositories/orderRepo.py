@@ -32,9 +32,9 @@ class orderRepo():
                     all_orders = order(row['carID'],row['customerSSN'], row['priceGroup'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'],row['cardnum'], row['paymentMethod'])
                     self.__order.append("{}{}".format("\nORDER ID: ",row['orderID']))
                     self.__order.append("{}{}{}".format("ORDER TOTAL: ",row['orderTotal']," ISK"))
-                    self.__order.append("\n\t{:>5s}\t{:>5s}\t\t{:>5s}\t{:>5s}\t{:>5s}\t{:>5s}\t\t{:>5s}\n".format("Car ID","SSN","handover date","return date","insurance?","credit card num","Credit,Debit or Cash?"))
+                    self.__order.append("\n\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>15}\t{:>10}".format("Car ID","SSN","Handover date","Return date","Insurance?","Credit card number","Credit,debit or cash?"))
                     self.__order.append(all_orders)
-                    self.__order.append("-----------------------------------------------------------------------------------------------------------------------------")
+                    self.__order.append("-"*135)
             return self.__order
             
     def delete_order(self):
