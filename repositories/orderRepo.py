@@ -1,5 +1,6 @@
 from models.order import order
 from datetime import datetime
+from repositories.CarRepo import CarRepo
 import csv
 import os
 
@@ -7,7 +8,7 @@ import os
 class orderRepo():
     def __init__(self):
         self.__order = []
-
+        carRepo.check_status()
 
     def add_order(self,order):
         with open ("./data/orders.csv", "a+") as orders_file:
@@ -49,7 +50,6 @@ class orderRepo():
             order_reader = csv.DictReader(orderReader)
             today = datetime.today().strftime('%d/%m/%Y')
             for row in order_reader:
-<<<<<<< HEAD
                 if row['dateOfHandover'] <= today and row['returnDate'] >= today:
                     carToChange = row['carID']
                     for row in car_reader:
@@ -61,10 +61,6 @@ class orderRepo():
             os.remove('./data/cars.csv')
             os.rename('./data/temp.csv','./data/cars.csv')
 
-=======
-                if row['dateOfHandover'] <= today and row['returnDate']==0:
-                    pass
->>>>>>> 99c51a8c3f318d6a6d1c38ffda2a43d090c3ea78
     def changeOrder(self):
         orderID = str(input("Enter a order ID: "))
         with open("./data/orders.csv",'r+') as orders_file_r, open("./data/temp.csv","w+") as orders_file_w:
