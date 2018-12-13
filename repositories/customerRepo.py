@@ -55,6 +55,7 @@ class customerRepo:
                     target = input("Enter a customers SSN: ")
 
                 if row['SSN'] == target:
+                    print("")
                     print("First name: " + row['firstName'])
                     print("Last name: "+ row['lastname'])
                     print("PassportID: " + row['passportID'])
