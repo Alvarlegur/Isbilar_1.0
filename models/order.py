@@ -4,7 +4,7 @@ from datetime import datetime
 import csv
 
 class order:
-    def __init__(self, carID, customerSSN ,priceGroup, dateOfHandover, returnDate, extraInsurance, cardnum):
+    def __init__(self, carID, customerSSN ,priceGroup, dateOfHandover, returnDate, extraInsurance, cardnum, paymentMethod):
         self.__orderID = id(self)
         self.__carID = carID
         self.__customerSSN = customerSSN
@@ -14,6 +14,7 @@ class order:
         self.__extraInsurance = extraInsurance
         self.__orderTotal = self.totalPrice()
         self.__cardnum = cardnum
+        self.__paymentMethod = paymentMethod
 
     def __str__(self):
         return "\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5}\t{:>5} \n".format(self.__orderID,self.__carID,self.__customerSSN, self.__dateOfHandover, self.__returnDate, self.__extraInsurance, self.__orderTotal, self.__cardnum)
@@ -38,6 +39,9 @@ class order:
     
     def get_cardnum(self):
         return self.__cardnum
+
+    def get_paymentMethod(self):
+        return self.__paymentMethod
 
     def get_orderTotal(self):
         return self.__orderTotal

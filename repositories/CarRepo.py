@@ -62,7 +62,7 @@ class CarRepo():
         return self.__cars                     
 
     def delete_car(self):
-        entername = str(input("Enter cars license plate: "))
+        entername = str(input("Enter cars license plate: ")).upper()
         with open("./data/cars.csv", "r+") as cars_file:
             temp = cars_file.readlines()
             cars_file.seek(0)
