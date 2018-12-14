@@ -63,6 +63,7 @@ class CarRepo():
                     self.__cars.append(unavailCars)
         return self.__cars
 
+<<<<<<< HEAD
 #Fall sem átti að checka á dagsetningu fyrir daginn í dag og skoða hvort 
 #að það séu einhverjar pantanir þar sem dagsetning dagsins í dag
 # er á bilinu á milli dateOfHandover og returnDate þá breytir fallið status
@@ -158,6 +159,29 @@ class CarRepo():
         entername = str(input("Enter cars license plate: ")).upper()
         #Check á constraints is_valid_licenseplate()
         with open("./data/cars.csv", "r+") as cars_file_r, open("./data/temp.csv", "w+") as cars_file_w:
+=======
+    #def check_status(self):
+    #    with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+',newline="") as carWriter:
+    #       car_reader = csv.DictReader(carsReader)
+    #        car_writer = csv.DictWriter(carWriter, fieldnames=['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
+    #        order_reader = csv.DictReader(orderReader)
+    #        today = datetime.today().strftime('%d-%m-%Y')
+    #        for row in order_reader:
+    #            if row['dateOfHandover'] <= today and row['returnDate'] >= today:
+    #                carToChange = row['carID']
+    #                for row2 in car_reader:
+    #                    if carToChange == row2['carID']:
+    #                        row2['status'] = 'unavailable'
+    #                        car_writer.writerow(row2)
+    #            else:
+    #                car_writer.writerow(row)
+    #    os.remove('./data/cars.csv')
+    #    os.replace('./data/temp.csv','./data/cars.csv')
+
+    def delete_car(self):
+        entername = str(input("Enter cars license plate: "))
+        with open("./data/cars.csv", "r+") as cars_file_r, open("./data/temp.csv", "w+",newline="") as cars_file_w:
+>>>>>>> e6a32647929b61017b5697eab4502c87a17b41b1
             reader = csv.DictReader(cars_file_r)
             writer = csv.DictWriter(cars_file_w,fieldnames= ['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
             writer.writeheader()

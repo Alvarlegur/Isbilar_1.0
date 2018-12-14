@@ -1,4 +1,5 @@
 from models.customer import customer
+from services.inputCheck import checkSSN, checkPassportID
 import csv
 import os
 
@@ -27,10 +28,7 @@ class customerRepo:
         return self.__customer
 
     def delete_customer(self):
-        entername = str(input("Enter customers SSN: "))
-        while entername.isalnum() != True and len(entername) != 10:
-            print("Social security number has to be all numbers and with length 10\nPlease try again.")
-            entername = str(input("Enter customers SSN: "))
+        entername = checkSSN()
         with open("./data/customers.csv", "r+") as customers_file_r, open("./data/temp.csv", "w+",newline="") as customers_file_w:
             reader = csv.DictReader(customers_file_r)
             writer = csv.DictWriter(customers_file_w,fieldnames= ['firstName','lastname','passportID','country','SSN'])
@@ -50,11 +48,8 @@ class customerRepo:
                     return True
         return False
     
-    def searchCustomer(self):
-        target = input("Enter a customers SSN: ")
-        while target.isalnum() != True and len(target) != 10:
-            print("Social security number has to be all numbers and with length 10\nPlease try again.")
-            target = input("Enter customers SSN: ")
+    def searchCustomer(self): 
+        target = checkSSN()
         with open('./data/customers.csv','r') as customers_file:
             reader = csv.DictReader(customers_file)
             for row in reader:
@@ -70,7 +65,7 @@ class customerRepo:
         return False
 
     def changeCustomer(self):
-        kennitala = str(input("Enter a customer SSN: "))
+        kennitala = checkSSN()
         with open("./data/customers.csv",'r+') as customers_file_r, open("./data/temp.csv","w+",newline="") as customers_file_w:
             reader = csv.DictReader(customers_file_r)
             writer = csv.DictWriter(customers_file_w,fieldnames= ['firstName','lastname','passportID','country','SSN'])
@@ -89,37 +84,34 @@ class customerRepo:
                     
                     choice = input("What would you like to change? ")
                     if choice == '1':
-                        breyting = input("Enter a change of first name: ").capitalize()
+                        print("Change of first name")
+                        breyting = input("Enter customers first name: ").capitalize()
                         row['firstName'] = breyting
                         writer.writerow(row)
                         
                     elif choice == '2':
-                        breyting = input("Enter a change of last name: ").capitalize()
+                        print("Change of last name")
+                        breyting = input("Enter customers last name: ").capitalize()
                         row['lastname'] = breyting
                         writer.writerow(row)
                     
                     elif choice == '3':
-                        breyting = input("Enter a change of passport ID: ")
-                        while len(breyting) != 8:
-                            print("Enter a change of passport ID: ")
-                            breyting = input("Enter a change of passport ID: ")
+                        print("Change of passport ID")
+                        breyting = checkPassportID()
                         row['passportID'] = breyting
                         writer.writerow(row)
 
                     elif choice == '4':
-                        breyting = input("Enter a change of country of origin: ").capitalize()
+                        print("Change of country of origin")
+                        breyting = input("Enter customers country of origin: ").capitalize()
                         row['country'] = breyting
                         writer.writerow(row)
 
                     elif choice == '5':
-                        breyting = input("Enter a change of social security number: ")
-                        while len(breyting) != 10:
-                            print("Try again!")
-                            breyting = input("Input new social security number: ")
+                        print("Enter a change of SSN")
+                        breyting = checkSSN()
                         row['SSN'] = breyting
                         writer.writerow(row)
 
-                    else:
-                        print("Incorrect SSN")
         os.remove('./data/customers.csv')
         os.replace('./data/temp.csv','./data/customers.csv')
