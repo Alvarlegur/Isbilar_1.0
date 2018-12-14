@@ -1,6 +1,6 @@
 licensePlate,manufacturer,typeCar,manOrAuto,fuelType,priceGroup,manufYear,status
-NUJ52,Toyota,Yaris,Manual,Bensin,Folksbill,2019,available
-NUJ52,Toyota,Yaris,Manual,Bensin,Folksbill,2019,available
-NUJ52,Toyota,Yaris,Manual,Bensin,Folksbill,2019,unavailable
-NUJ52,Toyota,Yaris,Manual,Bensin,Folksbill,2019,available
-NUJ52,Toyota,Yaris,Manual,Bensin,Folksbill,2019,available
+NUJ52,Toyota,Yaris,Manual,Bensin,Sedan,2019,unavailable
+NUJ52,Toyota,Yaris,Manual,Bensin,Sedan,2019,available
+NUJ52,Toyota,Yaris,Manual,Bensin,Jeep,2019,unavailable
+NUJ52,Toyota,Yaris,Manual,Bensin,Luxury,2019,available
+NUJ52,Toyota,Yaris,Manual,Bensin,Sedan,2019,available
