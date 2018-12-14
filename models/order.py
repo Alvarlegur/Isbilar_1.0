@@ -54,11 +54,11 @@ class order:
 
     def get_priceGroupCost(self, x):
         pg = 0
-        if x == "Folksbill":
+        if x == "Sedan":
             pg = 10000
-        elif x == "Jeppi":
+        elif x == "Jeep":
             pg = 15000
-        elif x == "Luxusbill":
+        elif x == "Luxury":
             pg = 20000
         return pg
             

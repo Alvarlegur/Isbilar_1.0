@@ -22,11 +22,8 @@ class orderRepo():
             orderTotal = order.get_orderTotal()
             cardnum = order.get_cardnum()
             paymentMethod = order.get_paymentMethod()
-<<<<<<< HEAD
             orders_file.write("{},{},{},{},{},{},{},{},{},{}\n".format(orderID,carID,priceGroup,customerSSN,dateOfHandover,returnDate,extraInsurance,orderTotal,cardnum,paymentMethod))
-=======
-            orders_file.write("{},{},{},{},{},{},{},{},{},{}\n".format(orderID,carID,priceGroup, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum, paymentMethod))
->>>>>>> 372a041db67e501c615cd02840d9fd5130c9ae77
+
 
     def get_order(self):
         self.__order = []
