@@ -45,26 +45,10 @@ class orderRepo():
             for row in reader:
                 if row['orderID'] != orderid:
                     writer.writerow(row)
+                else:
+                    print("Order found: " + row['orderID'])
         os.remove('./data/orders.csv')
         os.replace('./data/temp.csv','./data/orders.csv')
-    
-    def check_status(self):
-        with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+',newline="") as carWriter:
-            car_reader = csv.DictReader(carsReader)
-            car_writer = csv.DictWriter(carWriter)
-            order_reader = csv.DictReader(orderReader)
-            today = datetime.today().strftime('%d-%m-%Y')
-            for row in order_reader:
-                if row['dateOfHandover'] <= today and row['returnDate'] >= today:
-                    carToChange = row['carID']
-                    for row in car_reader:
-                        if carToChange == row['carID']:
-                            row['status'] = 'unavailable'
-                            car_writer.writerow(row)
-                else:
-                    car_writer.writerow(row)
-        os.remove('./data/cars.csv')
-        os.replace('./data/temp.csv','./data/cars.csv')
 
     def changeOrder(self):
         orderID = str(input("Enter a order ID: "))
