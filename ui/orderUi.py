@@ -33,6 +33,7 @@ class orderUI():
                     carID = self.__order_service.get_RandomAvailCar(priceGroup)
                     if carID == "":
                         print("There are no cars available in this price group.")
+                        priceGroup = checkPriceGroup()
                     else:
                         print("CarID: " + carID)
                 customerSSN = checkSSN()
@@ -41,41 +42,19 @@ class orderUI():
                     customerSSN = input("Enter a registered SSN: ").upper()
                     if customerSSN == 'N':
                         self.__custUI.menu()
+                print("Pick-up date (dd-mm-yyyy)")
                 dateOfHandover = checkDate()
-                # while len(dateOfHandover) != 10:
-                #     print("Please enter a valid date!")
-                #     dateOfHandover = input("Pick-up date (dd-mm-yyyy): ")
+                print("Return date (dd-mm-yyyy)")
                 returnDate = checkDate()
-                # while len(returnDate) !=10:
-                #     print("Please enter a valid date!")
-                #     returnDate = input("Return date (dd-mm-yyyy): ")
-                while dateOfHandover >= returnDate: 
+                while checkDatetime(dateOfHandover, returnDate): 
                     print("Invalid dates, please try again.")
+                    print("Pick-up date (dd-mm-yyyy)")
+                    dateOfHandover = checkDate()
+                    print("Return date (dd-mm-yyyy)")
                     returnDate = checkDate()
-                extrainsurance = input("Extra insurance 2.000isk per day (Y = Yes, N = No): ").lower()
-                while extrainsurance != "y" and extrainsurance != "n":
-                    print("Please enter Y or N!")
-                    extrainsurance = input("Extra insurance (Y = Yes, N = No): ").lower()
-                if extrainsurance == "y":
-                    extrainsurance = "Yes"
-                elif extrainsurance == "n":
-                    extrainsurance = "No"
-                cardnum = input("Enter a creditcard number: ")
-                while len(cardnum) !=16:
-                    print("Please enter a valid creditcard number!")
-                    cardnum = input("Enter a creditcard number: ")
-                print("Credit card (C), Debit card (D), Money (M)")
-                paymentMethod = input("Payment method: ").lower()
-                while paymentMethod != "c" and paymentMethod != "d" and paymentMethod != "m":
-                    print("Try again")
-                    print("Please input (c) for Credit card,(d) for Debit card and (m) for Money")
-                    paymentMethod = input("Payment method: ").lower()
-                if paymentMethod == "c":
-                    paymentMethod = "Credit"
-                elif paymentMethod == "d":
-                    paymentMethod = "Debit"
-                elif paymentMethod == "m":
-                    paymentMethod = "Money"
+                extrainsurance = checkInsurance()
+                cardnum = checkCardnum()
+                paymentMethod = checkPaymentMethod()
                 new_order = order(carID, customerSSN, priceGroup, dateOfHandover, returnDate, extrainsurance, cardnum, paymentMethod)
                 self.__order_service.add_order(new_order)
 
