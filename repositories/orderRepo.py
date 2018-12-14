@@ -57,16 +57,16 @@ class orderRepo():
             for row in reader:
                 if row['orderID'] == target:
                     print("")
-                    print("\nOrder ID:\t" + row['orderID'])
-                    print("Car ID:\t"+ row['carID'])
-                    print("Price group:\t" + row['priceGroup'])
-                    print("Customer SSN:\t" + row['customerSSN'])
-                    print("Date of handover:\t" + row['dateOfHandover'])
-                    print("Return date:\t"+ row['returnDate'])
-                    print("Extra insurance:\t" + row['extraInsurance'])
-                    print("Order total:\t" + row['orderTotal'])
-                    print("Card number:\t" + row['cardnum'])
-                    print("Payment method:\t" + row['paymentMethod'])
+                    print("\nOrder ID:\t\t"+       row['orderID'])
+                    print("Car ID:\t\t\t"+         row['carID'])
+                    print("Price group:\t\t"+      row['priceGroup'])
+                    print("Customer SSN:\t\t"+     row['customerSSN'])
+                    print("Date of handover:\t"+ row['dateOfHandover'])
+                    print("Return date:\t\t"+      row['returnDate'])
+                    print("Extra insurance:\t"+  row['extraInsurance'])
+                    print("Order total:\t\t"+      row['orderTotal'])
+                    print("Card number:\t\t"+      row['cardnum'])
+                    print("Payment method:\t\t"+   row['paymentMethod'])
                     print("")
                     return True
         return False
