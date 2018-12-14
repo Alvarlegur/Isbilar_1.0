@@ -1,4 +1,5 @@
 from models.customer import customer
+from services.inputCheck import checkSSN
 import csv
 import os
 
@@ -27,10 +28,11 @@ class customerRepo:
         return self.__customer
 
     def delete_customer(self):
-        entername = str(input("Enter customers SSN: "))
-        while entername.isalnum() != True and len(entername) != 10:
-            print("Social security number has to be all numbers and with length 10\nPlease try again.")
-            entername = str(input("Enter customers SSN: "))
+        # entername = str(input("Enter customers SSN: "))
+        # while entername.isalnum() != True and len(entername) != 10:
+        #     print("Social security number has to be all numbers and with length 10\nPlease try again.")
+        #     entername = str(input("Enter customers SSN: "))
+        entername = checkSSN()
         with open("./data/customers.csv", "r+") as customers_file_r, open("./data/temp.csv", "w+",newline="") as customers_file_w:
             reader = csv.DictReader(customers_file_r)
             writer = csv.DictWriter(customers_file_w,fieldnames= ['firstName','lastname','passportID','country','SSN'])
