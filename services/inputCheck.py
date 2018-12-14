@@ -14,6 +14,31 @@ def checkPassportID():
         passport = str(input("Enter a change of passport ID: "))
     return passport
 
-        
+def checkPriceGroup():
+    priceGroup = input("Input car type: ").lower()
+    if priceGroup == "s":
+        priceGroup = "Sedan"
+        print(priceGroup)
+    elif priceGroup == "j":
+        priceGroup = "Jeep"
+        print(priceGroup)
+    elif priceGroup == "l":
+        priceGroup = "Luxury"
+        print(priceGroup)
+    while priceGroup != "Sedan" and priceGroup != "Jeep" and priceGroup != "Luxury":
+        print("Try again")
+        priceGroup = input("Please choose S, J or L for car type: ").lower()
+        if priceGroup == "s":
+            priceGroup = "Sedan"
+        elif priceGroup == "j":
+             priceGroup = "Jeep"
+        elif priceGroup == "l":
+            priceGroup = "Luxury"
+    return priceGroup
 
-    
+def checkDate():
+    date = input("Pick-up date (dd-mm-yyyy): ")
+    while len(date) != 10 and date[2] != "-" and date[5] != "-":
+        print("Please enter a valid date: ")
+        date = input("Pick-up date (dd-mm-yyyy): ")
+    return date
