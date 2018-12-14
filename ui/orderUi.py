@@ -46,12 +46,12 @@ class orderUI():
                 dateOfHandover = checkDate()
                 print("Return date (dd-mm-yyyy)")
                 returnDate = checkDate()
-                while checkDatetime(dateOfHandover, returnDate): 
-                    print("Invalid dates, please try again.")
-                    print("Pick-up date (dd-mm-yyyy)")
-                    dateOfHandover = checkDate()
-                    print("Return date (dd-mm-yyyy)")
-                    returnDate = checkDate()
+                # while checkDatetime(dateOfHandover, returnDate): 
+                #     print("Invalid dates, please try again.")
+                #     print("Pick-up date (dd-mm-yyyy)")
+                #     dateOfHandover = checkDate()
+                #     print("Return date (dd-mm-yyyy)")
+                #     returnDate = checkDate()
                 extrainsurance = checkInsurance()
                 cardnum = checkCardnum()
                 paymentMethod = checkPaymentMethod()

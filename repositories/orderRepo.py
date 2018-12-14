@@ -73,6 +73,9 @@ class orderRepo():
 
                     
                     choice = input("What would you like to change? ")
+                    while choice != '1' and choice != '2' and choice != '3' and choice != '4' and choice != '5' and choice != '6' and choice != '7' and choice != '8':
+                        print("Please input number from 1 to 8")
+                        choice = input("What would you like to change? ")
                     if choice == '1':
                         change = input("Enter a change of car ID: ")
                         row['carID'] = change
