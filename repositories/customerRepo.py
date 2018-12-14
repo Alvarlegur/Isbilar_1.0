@@ -17,12 +17,12 @@ class customerRepo:
 
 
     def get_customer(self):
-        if self.__customer == []:
-            with open("./data/customers.csv", "r") as customers_file:
-                for line in customers_file.readlines():
-                    firstName,lastName,passportID, country, SSN = line.split(",")
-                    all_customers = customer(firstName,lastName,passportID, country, SSN)
-                    self.__customer.append(all_customers)
+        self.__customer = []
+        with open("./data/customers.csv", "r") as customers_file:
+            for line in customers_file.readlines():
+                firstName,lastName,passportID, country, SSN = line.split(",")
+                all_customers = customer(firstName,lastName,passportID, country, SSN)
+                self.__customer.append(all_customers)
 
         return self.__customer
 
@@ -31,7 +31,7 @@ class customerRepo:
         while entername.isalnum() != True and len(entername) != 10:
             print("Social security number has to be all numbers and with length 10\nPlease try again.")
             entername = str(input("Enter customers SSN: "))
-        with open("./data/customers.csv", "r+") as customers_file_r, open("./data/temp.csv", "w+") as customers_file_w:
+        with open("./data/customers.csv", "r+") as customers_file_r, open("./data/temp.csv", "w+",newline="") as customers_file_w:
             reader = csv.DictReader(customers_file_r)
             writer = csv.DictWriter(customers_file_w,fieldnames= ['firstName','lastname','passportID','country','SSN'])
             writer.writeheader()
@@ -39,7 +39,7 @@ class customerRepo:
                 if row['SSN'] != entername:
                     writer.writerow(row)
         os.remove('./data/customers.csv')
-        os.rename('./data/temp.csv','./data/customers.csv')
+        os.replace('./data/temp.csv','./data/customers.csv')
 
     def customerIsRegistered(self,x):
         with open('./data/customers.csv', 'r') as customers_file:
@@ -71,7 +71,7 @@ class customerRepo:
 
     def changeCustomer(self):
         kennitala = str(input("Enter a customer SSN: "))
-        with open("./data/customers.csv",'r+') as customers_file_r, open("./data/temp.csv","w+") as customers_file_w:
+        with open("./data/customers.csv",'r+') as customers_file_r, open("./data/temp.csv","w+",newline="") as customers_file_w:
             reader = csv.DictReader(customers_file_r)
             writer = csv.DictWriter(customers_file_w,fieldnames= ['firstName','lastname','passportID','country','SSN'])
             writer.writeheader()
@@ -92,15 +92,11 @@ class customerRepo:
                         breyting = input("Enter a change of first name: ").capitalize()
                         row['firstName'] = breyting
                         writer.writerow(row)
-                        os.remove('./data/customers.csv')
-                        os.rename('./data/temp.csv','./data/customers.csv')
                         
                     elif choice == '2':
                         breyting = input("Enter a change of last name: ").capitalize()
                         row['lastname'] = breyting
                         writer.writerow(row)
-                        os.remove('./data/customers.csv')
-                        os.rename('./data/temp.csv','./data/customers.csv')
                     
                     elif choice == '3':
                         breyting = input("Enter a change of passport ID: ")
@@ -109,15 +105,11 @@ class customerRepo:
                             breyting = input("Enter a change of passport ID: ")
                         row['passportID'] = breyting
                         writer.writerow(row)
-                        os.remove('./data/customers.csv')
-                        os.rename('./data/temp.csv','./data/customers.csv')
 
                     elif choice == '4':
                         breyting = input("Enter a change of country of origin: ").capitalize()
                         row['country'] = breyting
                         writer.writerow(row)
-                        os.remove('./data/customers.csv')
-                        os.rename('./data/temp.csv','./data/customers.csv')
 
                     elif choice == '5':
                         breyting = input("Enter a change of social security number: ")
@@ -126,8 +118,8 @@ class customerRepo:
                             breyting = input("Input new social security number: ")
                         row['SSN'] = breyting
                         writer.writerow(row)
-                        os.remove('./data/customers.csv')
-                        os.rename('./data/temp.csv','./data/customers.csv')
 
                     else:
                         print("Incorrect SSN")
+        os.remove('./data/customers.csv')
+        os.replace('./data/temp.csv','./data/customers.csv')

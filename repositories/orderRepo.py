@@ -11,7 +11,7 @@ class orderRepo():
         #carRepo.check_status()
 
     def add_order(self,order):
-        with open ("./data/orders.csv", "a+") as orders_file:
+        with open ('./data/orders.csv', 'a+') as orders_file:
             orderID = order.get_orderID()
             carID = order.get_carID()
             priceGroup = order.get_priceGroup()
@@ -22,33 +22,39 @@ class orderRepo():
             orderTotal = order.get_orderTotal()
             cardnum = order.get_cardnum()
             paymentMethod = order.get_paymentMethod()
+<<<<<<< HEAD
             orders_file.write("{},{},{},{},{},{},{},{},{},{}\n".format(orderID,carID,priceGroup,customerSSN,dateOfHandover,returnDate,extraInsurance,orderTotal,cardnum,paymentMethod))
+=======
+            orders_file.write("{},{},{},{},{},{},{},{},{},{}\n".format(orderID,carID,priceGroup, customerSSN, dateOfHandover, returnDate, extraInsurance, orderTotal, cardnum, paymentMethod))
+>>>>>>> 372a041db67e501c615cd02840d9fd5130c9ae77
 
     def get_order(self):
-        if self.__order == []:
-            with open('./data/orders.csv', 'r') as orders_file:
-                reader = csv.DictReader(orders_file)
-                for row in reader:
-                    all_orders = order(row['carID'],row['customerSSN'], row['priceGroup'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'],row['cardnum'], row['paymentMethod'])
-                    self.__order.append("{}{}".format("\nORDER ID: ",row['orderID']))
-                    self.__order.append("{}{}{}".format("ORDER TOTAL: ",row['orderTotal']," ISK"))
-                    self.__order.append("\n\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>15}\t{:>10}".format("Car ID","SSN","Handover date","Return date","Insurance?","Credit card number","Credit,debit or cash?"))
-                    self.__order.append(all_orders)
-                    self.__order.append("-"*135)
-            return self.__order
+        self.__order = []
+        with open('./data/orders.csv', 'r') as orders_file:
+            reader = csv.DictReader(orders_file)
+            for row in reader:
+                all_orders = order(row['carID'],row['customerSSN'], row['priceGroup'], row['dateOfHandover'], row['returnDate'], row['extraInsurance'],row['cardnum'], row['paymentMethod'])
+                self.__order.append("{}{}".format("\nORDER ID: ",row['orderID']))
+                self.__order.append("{}{}{}".format("ORDER TOTAL: ",row['orderTotal']," ISK"))
+                self.__order.append("\n\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>10}\t{:>15}\t{:>10}".format("Car ID","SSN","Handover date","Return date","Insurance?","Credit card number","Credit,debit or money?"))
+                self.__order.append(all_orders)
+                self.__order.append("-"*135)
+        return self.__order
             
     def delete_order(self):
-        entername = str(input("Enter orders ID: "))
-        with open("./data/orders.csv", "r+") as orders_file:
-            temp = orders_file.readlines()
-            orders_file.seek(0)
-            for line in temp:
-                if not entername in line:
-                    orders_file.write(line)
-            orders_file.truncate()
+        orderid = str(input("Enter orders ID: "))
+        with open("./data/orders.csv", "r+") as orders, open("./data/temp.csv", "w+",newline="") as updOrders:
+            reader = csv.DictReader(orders)
+            writer = csv.DictWriter(updOrders, fieldnames = ['orderID','carID','priceGroup','customerSSN','dateOfHandover','returnDate','extraInsurance','orderTotal','cardnum', 'paymentMethod'])
+            writer.writeheader()
+            for row in reader:
+                if row['orderID'] != orderid:
+                    writer.writerow(row)
+        os.remove('./data/orders.csv')
+        os.replace('./data/temp.csv','./data/orders.csv')
     
     def check_status(self):
-        with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+') as carWriter:
+        with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+',newline="") as carWriter:
             car_reader = csv.DictReader(carsReader)
             car_writer = csv.DictWriter(carWriter)
             order_reader = csv.DictReader(orderReader)
@@ -62,12 +68,12 @@ class orderRepo():
                             car_writer.writerow(row)
                 else:
                     car_writer.writerow(row)
-            os.remove('./data/cars.csv')
-            os.rename('./data/temp.csv','./data/cars.csv')
+        os.remove('./data/cars.csv')
+        os.replace('./data/temp.csv','./data/cars.csv')
 
     def changeOrder(self):
         orderID = str(input("Enter a order ID: "))
-        with open("./data/orders.csv",'r+') as orders_file_r, open("./data/temp.csv","w+") as orders_file_w:
+        with open("./data/orders.csv",'r+') as orders_file_r, open("./data/temp.csv","w+",newline="") as orders_file_w:
             reader = csv.DictReader(orders_file_r)
             writer = csv.DictWriter(orders_file_w,fieldnames= ['orderID','carID','priceGroup','customerSSN','dateOfHandover','returnDate','extraInsurance','orderTotal','cardnum', 'paymentMethod'])
             writer.writeheader()
@@ -92,57 +98,43 @@ class orderRepo():
                         change = input("Enter a change of car ID: ")
                         row['carID'] = change
                         writer.writerow(row)
-                        os.remove('./data/orders.csv')
-                        os.rename('./data/temp.csv','./data/orders.csv')
                         
                     elif choice == '2':
                         change = input("Enter a change of customer SSN: ")
                         row['customerSSN'] = change
                         writer.writerow(row)
-                        os.remove('./data/orders.csv')
-                        os.rename('./data/temp.csv','./data/orders.csv')
                     
                     elif choice == '3':
                         change = input("Enter a change of date of handover: ")
                         row['dateOfHandover'] = change
                         writer.writerow(row)
-                        os.remove('./data/orders.csv')
-                        os.rename('./data/temp.csv','./data/orders.csv')
 
                     elif choice == '4':
                         change = input("Enter a change of return date: ")
                         row['returnDate'] = change
                         writer.writerow(row)
-                        os.remove('./data/orders.csv')
-                        os.rename('./data/temp.csv','./data/orders.csv')
 
                     elif choice == '5':
                         change = input("Enter a change of extra insurance: ")
                         row['extraInsurance'] = change
                         writer.writerow(row)
-                        os.remove('./data/orders.csv')
-                        os.rename('./data/temp.csv','./data/orders.csv')
 
                     elif choice == '6':
                         change = input("Enter a change of order total: ")
                         row['orderTotal'] = change
                         writer.writerow(row)
-                        os.remove('./data/orders.csv')
-                        os.rename('./data/temp.csv','./data/orders.csv')
                     
                     elif choice == '7':
                         change = input('Enter a change of card number: ')
                         row['cardnum'] = change
                         writer.writerow(row)
-                        os.remove('./data/orders.csv')
-                        os.rename('./data/temp.csv','./data/orders.csv')
                     
                     elif choice == '8':
                         change = input('Enter a change of payment method: ')
                         row['paymentMethod'] = change
                         writer.writerow(row)
-                        os.remove('./data/orders.csv')
-                        os.rename('./data/temp.csv','./data/orders.csv')
 
                     else:
                         print("Incorrect car ID")
+        os.remove('./data/orders.csv')
+        os.replace('./data/temp.csv','./data/orders.csv')
