@@ -115,7 +115,7 @@ def checkInsurance():
 
 def checkCardnum():
     cardnum = input("Enter a creditcard number: ")
-    while len(cardnum) !=16:
+    while cardnum.isnumeric() != True or len(cardnum) != 10:
         print("Please enter a valid creditcard number!")
         cardnum = input("Enter a creditcard number: ")
     return cardnum
