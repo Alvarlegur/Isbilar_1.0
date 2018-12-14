@@ -24,6 +24,7 @@ class orderRepo():
             paymentMethod = order.get_paymentMethod()
             orders_file.write("{},{},{},{},{},{},{},{},{},{}\n".format(orderID,carID,priceGroup,customerSSN,dateOfHandover,returnDate,extraInsurance,orderTotal,cardnum,paymentMethod))
 
+
     def get_order(self):
         self.__order = []
         with open('./data/orders.csv', 'r') as orders_file:
