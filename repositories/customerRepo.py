@@ -87,6 +87,9 @@ class customerRepo:
                     print('5 to change SSN')
                     
                     choice = input("What would you like to change? ")
+                    while choice != '1' and choice != '2' and choice != '3' and choice != '4' and choice != '5':
+                        print("Please input number from 1 to 5")
+                        choice = input("What would you like to change? ")
                     if choice == '1':
                         print("Change of first name")
                         breyting = input("Enter customers first name: ").capitalize()
