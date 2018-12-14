@@ -66,92 +66,6 @@ class CarRepo():
                     self.__cars.append(unavailCars)
         return self.__cars
 
-<<<<<<< HEAD
-    def check_status(self):
-        with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+',newline="") as carWriter:
-            car_reader = csv.DictReader(carsReader)
-            car_writer = csv.DictWriter(carWriter, fieldnames=['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
-            order_reader = csv.DictReader(orderReader)
-            today = datetime.today().strftime('%d-%m-%Y')
-            car_writer.writeheader()
-            carsList = ()
-            for row in car_reader:
-                carsList.append(row['licensePlate' + ","])
-            # for row in car_reader:
-            #     for row2 in order_reader:
-            #         if row2['carID'] == row['licensePlate']:
-            #             if row2['dateOfHandover'] <= today and row2['returnDate'] >= today:
-            #                 row['status'] = 'unavailable'
-            #                 car_writer.writerow(row)
-            #         else:
-            #             row['status'] = 'available'
-            #             car_writer.writerow(row)
-        #     for row in car_reader:
-        #         for row2 in order_reader:
-        #             if row['licensePlate'] == row2['carID']:
-        #                 if row2['dateOfHandover'] <= today and row2['returnDate'] >= today:
-        #                     row['status'] = 'unavailable'
-        #                     car_writer.writerow(row)
-     
-            # for row in car_reader:
-            #     for row2 in order_reader:
-            #         if row['licensePlate'] == row2['carID']:
-            #             if row2['dateOfHandover'] <= today and row2['returnDate'] >= today:
-            #                 row['status'] = 'unavailable'
-            #                 car_writer.writerow(row)
-            #         else:
-            #             row['status'] = 'available'
-            #             car_writer.writerow(row)
-                        
-            # for row in car_reader:
-            #     if row['status'] != 'unavailable':
-            #         for row2 in order_reader:
-            #             if row2['carID'] == row['licensePlate']:
-            #                 if row2['dateOfHandover'] <= today and row2['returnDate'] >= today:
-            #                     row['status'] = 'unavailable'
-            #                     car_writer.writerow(row)
-            #                     break
-            #                 else:
-            #                     row['status'] = 'available'
-            #                     car_writer.writerow(row)
-            #     else:
-            #         row['status'] = 'available'
-            #         car_writer.writerow(row)
-            # for row in car_reader:
-            #     for row2 in order_reader:
-            #         if row['licensePlate'] == row2['carID']:
-            #             if row2['dateOfHandover'] <= today and today <= row2['returnDate']:
-            #                 row['status'] = 'unavailable'
-            #                 car_writer.writerow(row)
-            #                 break
-            #             else:
-            #                 row['status'] = 'available'
-            #                 car_writer.writerow(row)
-            #         else:
-            #             car_writer.writerow(row)
-            # for row in order_reader:
-            #     if row['dateOfHandover'] <= today and today <= row['returnDate']:
-            #         for row2 in car_reader:
-            #             if row['carID'] == row2['licensePlate']:
-            #                 row2['status'] = 'unavailable'
-            #                 car_writer.writerow(row2)
-            #                 print("skrifa unavailable" + row2['licensePlate'])
-            #                 break
-            #     else:
-            #         for row2 in car_reader:
-            #             if row['carID'] == row2['licensePlate']:
-            #                 row2['status'] = 'available'
-            #                 car_writer.writerow(row2)
-            #                 print("skrifa available" + row2['licensePlate'])
-
-            os.remove('./data/cars.csv')
-            os.rename('./data/temp.csv','./data/cars.csv')
-
-    def delete_car(self):
-        entername = str(input("Enter cars license plate: ")).upper()
-        #Check á constraints is_valid_licenseplate()
-        with open("./data/cars.csv", "r+") as cars_file_r, open("./data/temp.csv", "w+") as cars_file_w:
-=======
     #def check_status(self):
     #    with open ('./data/cars.csv','r') as carsReader, open('./data/orders.csv','r') as orderReader, open('./data/temp.csv', 'w+',newline="") as carWriter:
     #       car_reader = csv.DictReader(carsReader)
@@ -173,7 +87,6 @@ class CarRepo():
     def delete_car(self):
         entername = str(input("Enter cars license plate: "))
         with open("./data/cars.csv", "r+") as cars_file_r, open("./data/temp.csv", "w+",newline="") as cars_file_w:
->>>>>>> c0e5efcc85f6bedc6234d74b89d43eb3eedc2c8d
             reader = csv.DictReader(cars_file_r)
             writer = csv.DictWriter(cars_file_w,fieldnames= ['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
             writer.writeheader()
