@@ -21,6 +21,7 @@ class orderUI():
             print("Press 2 to print out all orders")
             print("Press 3 to delete order")
             print("Press 4 to change a order")
+            print("Press 5 to search for an order")
             print("Press q to go back")
 
             choice = input("Choose an option: ").lower()
@@ -68,3 +69,6 @@ class orderUI():
             
             elif choice == "4":
                 orders = self.__order_service.changeOrder()
+            
+            elif choice == "5":
+                orders = self.__order_service.searchOrder()

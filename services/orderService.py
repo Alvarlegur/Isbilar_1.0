@@ -20,3 +20,6 @@ class orderService():
 
     def changeOrder(self):
         return self.__order_repo.changeOrder()
+
+    def searchOrder(self):
+        return self.__order_repo.searchOrder()

@@ -50,6 +50,27 @@ class orderRepo():
         os.remove('./data/orders.csv')
         os.replace('./data/temp.csv','./data/orders.csv')
 
+    def searchOrder(self): 
+        target = str(input("Enter order ID: "))
+        with open('./data/orders.csv','r') as orders_file:
+            reader = csv.DictReader(orders_file)
+            for row in reader:
+                if row['orderID'] == target:
+                    print("")
+                    print("\nOrder ID:\t" + row['orderID'])
+                    print("Car ID:\t"+ row['carID'])
+                    print("Price group:\t" + row['priceGroup'])
+                    print("Customer SSN:\t" + row['customerSSN'])
+                    print("Date of handover:\t" + row['dateOfHandover'])
+                    print("Return date:\t"+ row['returnDate'])
+                    print("Extra insurance:\t" + row['extraInsurance'])
+                    print("Order total:\t" + row['orderTotal'])
+                    print("Card number:\t" + row['cardnum'])
+                    print("Payment method:\t" + row['paymentMethod'])
+                    print("")
+                    return True
+        return False
+
     def changeOrder(self):
         orderID = str(input("Enter a order ID: "))
         with open("./data/orders.csv",'r+') as orders_file_r, open("./data/temp.csv","w+",newline="") as orders_file_w:
