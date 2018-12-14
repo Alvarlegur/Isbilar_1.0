@@ -72,17 +72,19 @@ class CarRepo():
             car_writer = csv.DictWriter(carWriter, fieldnames=['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
             order_reader = csv.DictReader(orderReader)
             today = datetime.today().strftime('%d-%m-%Y')
-<<<<<<< HEAD
             car_writer.writeheader()
+            carsList = ()
             for row in car_reader:
-                for row2 in order_reader:
-                    if row2['carID'] == row['licensePlate']:
-                        if row2['dateOfHandover'] <= today and row2['returnDate'] >= today:
-                            row['status'] = 'unavailable'
-                            car_writer.writerow(row)
-                    else:
-                        row['status'] = 'available'
-                        car_writer.writerow(row)
+                carsList.append(row['licensePlate' + ","])
+            # for row in car_reader:
+            #     for row2 in order_reader:
+            #         if row2['carID'] == row['licensePlate']:
+            #             if row2['dateOfHandover'] <= today and row2['returnDate'] >= today:
+            #                 row['status'] = 'unavailable'
+            #                 car_writer.writerow(row)
+            #         else:
+            #             row['status'] = 'available'
+            #             car_writer.writerow(row)
         #     for row in car_reader:
         #         for row2 in order_reader:
         #             if row['licensePlate'] == row2['carID']:
@@ -148,23 +150,6 @@ class CarRepo():
         entername = str(input("Enter cars license plate: ")).upper()
         #Check á constraints is_valid_licenseplate()
         with open("./data/cars.csv", "r+") as cars_file_r, open("./data/temp.csv", "w+") as cars_file_w:
-=======
-            for row in order_reader:
-                if row['dateOfHandover'] <= today and row['returnDate'] >= today:
-                    carToChange = row['carID']
-                    for row2 in car_reader:
-                        if carToChange == row2['carID']:
-                            row2['status'] = 'unavailable'
-                            car_writer.writerow(row2)
-                else:
-                    car_writer.writerow(row)
-        os.remove('./data/cars.csv')
-        os.replace('./data/temp.csv','./data/cars.csv')
-
-    def delete_car(self):
-        entername = str(input("Enter cars license plate: "))
-        with open("./data/cars.csv", "r+") as cars_file_r, open("./data/temp.csv", "w+",newline="") as cars_file_w:
->>>>>>> 372a041db67e501c615cd02840d9fd5130c9ae77
             reader = csv.DictReader(cars_file_r)
             writer = csv.DictWriter(cars_file_w,fieldnames= ['licensePlate','manufacturer','typeCar','manOrAuto','fuelType','priceGroup','manufYear','status'])
             writer.writeheader()
@@ -173,5 +158,3 @@ class CarRepo():
                     writer.writerow(row)
         os.remove('./data/cars.csv')
         os.replace('./data/temp.csv','./data/cars.csv')
-
-        
