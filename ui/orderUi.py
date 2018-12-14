@@ -25,7 +25,7 @@ class orderUI():
             choice = input("Choose an option: ").lower()
             
             if choice == '1':
-                print("S for Sedan 10.000kr \nJ for Jeep 15.000kr \nL for Luxury 20.000kr")
+                print("\nS for Sedan 10.000kr \nJ for Jeep 15.000kr \nL for Luxury 20.000kr")
                 priceGroup = input("What type of car?: ").lower()
                 carID = ""
                 while carID == "":
@@ -60,7 +60,7 @@ class orderUI():
                 while dateOfHandover >= returnDate: 
                     print("Invalid dates, please try again.")
                     returnDate = input("Return date (dd-mm-yyyy): ")
-                extrainsurance = input("Extra insurance (Y = Yes, N = No): ").lower()
+                extrainsurance = input("Extra insurance 2.000isk per day (Y = Yes, N = No): ").lower()
                 while extrainsurance != "y" and extrainsurance != "n":
                     print("Please enter Y or N!")
                     extrainsurance = input("Extra insurance (Y = Yes, N = No): ").lower()
