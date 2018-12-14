@@ -1,5 +1,6 @@
 from services.carService import carService
 from models.car import car
+from services.inputCheck import *
 
 
 
@@ -23,50 +24,15 @@ class carUI():
             choice = input("Choose a option: ").lower()
 
             if choice == "1":
-                licensePlate = input("input license Plate (5 letters): ").upper()
-                while len(licensePlate) != 5:
-                    print("Try again!")
-                    licensePlate = input("input license Plate: ")
+                licensePlate = checkLicensePlate()
                 manufacturer = input("input manufacturer: ").capitalize()
                 carType = input("input Car Type: ").capitalize()
-                manOrAuto = input("input manual or auto (M = Manual, A = Auto): ").lower()
-                while manOrAuto != "m" and manOrAuto != "a":
-                    print("Try again!")
-                    manOrAuto = input("input manual or auto (M = Manual, A = Auto): ").lower()
-                if manOrAuto == "m":
-                        manOrAuto = "Manual"
-                elif manOrAuto == "a":
-                        manOrAuto = "Auto"
-                fuelType = input("input fuel type (B = Bensin, D = Disel): ").lower()
-                while fuelType != "b" and fuelType != "d":
-                    print("Try again!")
-                    fuelType = input("input fuel type (B = Bensin, D = Disel): ").lower()
-                if fuelType == "b":
-                    fuelType = "Bensin"
-                elif fuelType == "d":
-                    fuelType = "Disel"
-                priceGroup = input("input price group (S = Sedan, J = Jeep, L = Luxury): ").lower()
-                while priceGroup != "s" and priceGroup != "j" and priceGroup != "l":
-                    print("Try again!")
-                    priceGroup = input("input price group (S = Sedan, J = Jeep, L = Luxury): ").lower()
-                if priceGroup == "s":
-                    priceGroup = "Sedan"
-                elif priceGroup == "j":
-                    priceGroup = "Jeep"
-                elif priceGroup == "l":
-                    priceGroup = "Luxury"
-                manufYear = input("input manufacturer year: ")
-                while len(manufYear) != 4:
-                    print("Try again!")
-                    manufYear = input("input manufacturer year: ")
-                availability = input("available? (Y = Yes, N = No): ").lower()
-                while availability != "y" and availability != "n":
-                    print("Try again!")
-                    availability = input("available? (Y = Yes, N = No").lower()
-                if availability == "y":
-                    availability = "available"
-                elif availability == "n":
-                    availability = "unavailable"
+                manOrAuto = checkManorAuto()
+                fuelType = checkFuelType()
+                print("(S)edan - (J)eep - (L)uxury")
+                priceGroup = checkPriceGroup()
+                manufYear = checkManuYear()
+                availability = checkAvail()
                 new_car = car(licensePlate,manufacturer,carType,manOrAuto,fuelType,priceGroup,manufYear,availability)
                 self.__car_service.add_car(new_car)
 

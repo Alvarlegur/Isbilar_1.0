@@ -1,5 +1,6 @@
 from services.customerService import customerService
 from models.customer import customer
+from services.inputCheck import *
 
 class customerUI():
     def __init__(self):
@@ -19,15 +20,9 @@ class customerUI():
             if choice == "1":
                 firstName = input("input first name: ").capitalize()
                 lastName = input("input last name: ").capitalize()
-                passportID = input("input passport ID: ")
-                while len(passportID) != 8:
-                    print("Try again, length has to be 8 characters")
-                    passportID = input("input passport ID: ")
+                passportID = checkPassportID()
                 country = input("input country: ").capitalize()
-                SSN = input("input SSN: ")
-                while len(SSN) != 10 and SSN.isalnum():
-                    print("Try again, length has to be 10 characters")
-                    SSN = input("input SSN: ")
+                SSN = checkSSN()
                 new_customer = customer(firstName, lastName, passportID, country, SSN)
                 self.__customerService.add_customer(new_customer)
 
