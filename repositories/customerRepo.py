@@ -34,7 +34,11 @@ class customerRepo:
             writer = csv.DictWriter(customers_file_w,fieldnames= ['firstName','lastname','passportID','country','SSN'])
             writer.writeheader()
             for row in reader:
-                if row['SSN'] != entername:
+                if entername in row['SSN']:
+                    if row['SSN'] != entername:
+                        writer.writerow(row)
+                    print("customer has been deleted!")
+                else:
                     writer.writerow(row)
         os.remove('./data/customers.csv')
         os.replace('./data/temp.csv','./data/customers.csv')

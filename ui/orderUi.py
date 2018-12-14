@@ -3,6 +3,7 @@ from models.order import order
 from services import carService
 from services.customerService import customerService
 from ui.customerUi import customerUI
+from services.inputCheck import *
 
 class orderUI():
 
@@ -26,40 +27,31 @@ class orderUI():
             
             if choice == '1':
                 print("\nS for Sedan 10.000kr \nJ for Jeep 15.000kr \nL for Luxury 20.000kr")
-                priceGroup = input("What type of car?: ").lower()
+                priceGroup = checkPriceGroup()
                 carID = ""
                 while carID == "":
-                    while priceGroup != "s" and priceGroup != "j" and priceGroup != "l":
-                        print("Try again")
-                        priceGroup = input("Please choose S, J or L for car type: ").lower()
-                    if priceGroup == "s":
-                        priceGroup = "Sedan"
-                    elif priceGroup == "j":
-                        priceGroup = "Jeep"
-                    elif priceGroup == "l":
-                        priceGroup = "Luxury"
                     carID = self.__order_service.get_RandomAvailCar(priceGroup)
                     if carID == "":
                         print("There are no cars available in this price group.")
                     else:
                         print("CarID: " + carID)
-                customerSSN = input("Customer social security number: ").upper()
+                customerSSN = checkSSN()
                 while self.__customer_service.customerExists(customerSSN) != True:
                     print("Please try again \nYou can also press N to register new customer")
                     customerSSN = input("Enter a registered SSN: ").upper()
                     if customerSSN == 'N':
                         self.__custUI.menu()
-                dateOfHandover = input("Pick-up date (dd-mm-yyyy): ")
-                while len(dateOfHandover) != 10:
-                    print("Please enter a valid date!")
-                    dateOfHandover = input("Pick-up date (dd-mm-yyyy): ")
-                returnDate = input("Return date (dd-mm-yyyy): ")
-                while len(returnDate) !=10:
-                    print("Please enter a valid date!")
-                    returnDate = input("Return date (dd-mm-yyyy): ")
+                dateOfHandover = checkDate()
+                # while len(dateOfHandover) != 10:
+                #     print("Please enter a valid date!")
+                #     dateOfHandover = input("Pick-up date (dd-mm-yyyy): ")
+                returnDate = checkDate()
+                # while len(returnDate) !=10:
+                #     print("Please enter a valid date!")
+                #     returnDate = input("Return date (dd-mm-yyyy): ")
                 while dateOfHandover >= returnDate: 
                     print("Invalid dates, please try again.")
-                    returnDate = input("Return date (dd-mm-yyyy): ")
+                    returnDate = checkDate()
                 extrainsurance = input("Extra insurance 2.000isk per day (Y = Yes, N = No): ").lower()
                 while extrainsurance != "y" and extrainsurance != "n":
                     print("Please enter Y or N!")
