@@ -1,8 +1,7 @@
 
 def checkSSN():
-    print("If the message 'customer has been deleted' comes up your have deleted customer otherwise try again!")
     entername = str(input("Enter customers SSN: "))
-    while entername.isdigit() != True and len(entername) != 10:
+    while entername.isnumeric() != True or len(entername) != 10:
         print("Social security number has to be all numbers and with length 10\nPlease try again.")
         entername = str(input("Enter customers SSN: "))
     return entername
@@ -14,6 +13,53 @@ def checkPassportID():
         print("Passport ID must contain 8 letters.")
         passport = str(input("Enter a change of passport ID: "))
     return passport
+
+def checkLicensePlate():
+    licenseplate = str(input("Input license plate (5 letters): ")).upper()
+    while len(licenseplate) != 5:
+        print("Invalid license plate! Try again.")
+        licenseplate = str(input("Input license plate (5 letters): ")).upper()
+    return licenseplate
+
+def checkManorAuto():
+    manOrAuto = input("input manual or auto (M = Manual, A = Auto): ").lower()
+    while manOrAuto != "m" and manOrAuto != "a":
+        print("Try again!")
+        manOrAuto = input("input manual or auto (M = Manual, A = Auto): ").lower()
+    if manOrAuto == "m":
+            manOrAuto = "Manual"
+    elif manOrAuto == "a":
+            manOrAuto = "Auto"
+    return manOrAuto
+
+def checkFuelType():
+    fuelType = input("input fuel type (B = Bensin, D = Disel): ").lower()
+    while fuelType != "b" and fuelType != "d":
+        print("Try again!")
+        fuelType = input("input fuel type (B = Bensin, D = Disel): ").lower()
+    if fuelType == "b":
+            fuelType = "Bensin"
+    elif fuelType == "d":
+            fuelType = "Disel"
+    return fuelType
+
+def checkManuYear():
+    manufYear = str(input("Input manufacturer year: "))
+    while manufYear.isnumeric() != True or len(manufYear) != 4:
+        print("Try again!")
+        manufYear = str(input("Input manufacturer year: "))
+    return manufYear
+
+def checkAvail():
+    availability = input("available? (Y = Yes, N = No): ").lower()
+    while availability != "y" and availability != "n":
+        print("Try again!")
+        availability = input("available? (Y = Yes, N = No): ").lower()
+    if availability == "y":
+            availability = "available"
+    elif availability == "n":
+            availability = "unavailable"
+    return availability
 
 def checkPriceGroup():
     priceGroup = input("Input car type: ").lower()
@@ -36,10 +82,3 @@ def checkPriceGroup():
         elif priceGroup == "l":
             priceGroup = "Luxury"
     return priceGroup
-
-def checkDate():
-    date = input("Pick-up date (dd-mm-yyyy): ")
-    while len(date) != 10 and date[2] != "-" and date[5] != "-":
-        print("Please enter a valid date: ")
-        date = input("Pick-up date (dd-mm-yyyy): ")
-    return date
