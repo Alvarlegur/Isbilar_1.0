@@ -1,6 +1,7 @@
 from datetime import datetime
 
 def checkSSN():
+    print("If the message 'customer has been deleted' comes up your have deleted customer otherwise try again!")
     entername = str(input("Enter customers SSN: "))
     while entername.isdigit() != True and len(entername) != 10:
         print("Social security number has to be all numbers and with length 10\nPlease try again.")
